@@ -3,10 +3,10 @@ package com.oc.master;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.oc.master.model.Model;
 import com.oc.master.model.observer.Observee;
 import com.oc.master.utils.Keyboard;
 import com.oc.master.view.SwingWindow;
-import com.oc.model.Model;
 
 
 /**

@@ -16,9 +16,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 
+import com.oc.master.model.Model;
 import com.oc.master.model.observer.Observee;
 import com.oc.master.model.observer.Observer;
-import com.oc.model.Model;
 
 
 /**

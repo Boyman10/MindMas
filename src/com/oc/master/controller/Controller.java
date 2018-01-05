@@ -1,7 +1,7 @@
 package com.oc.master.controller;
 
+import com.oc.master.model.Model;
 import com.oc.master.model.observer.Observee;
-import com.oc.model.Model;
 
 /**
  * Controller class for routing purposes
