@@ -11,6 +11,10 @@ public interface Observable {
 	public void homeObserver();
 	public void gameObserver();
 	public void modeObserver();
+	
+	public void actionSearchObserver();
+	public void actionMasterObserver();
+	
 	public void reset();
 
 }

@@ -8,6 +8,9 @@ import javax.swing.JOptionPane;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.oc.master.model.GameMode;
+import com.oc.master.model.GameType;
+import com.oc.master.model.Model;
 import com.oc.master.model.observer.Observable;
 
 /**
@@ -20,11 +23,11 @@ public class SwingController implements ActionListener {
 
 	static final Logger logger = LogManager.getLogger();
 
-	private Observable model;
+	private Model model;
 
 	public SwingController ( Observable model) {
 
-		this.model = model;
+		this.model = (Model)model;
 	}
 
 	@Override
@@ -50,10 +53,39 @@ public class SwingController implements ActionListener {
 
 			model.homeObserver();
 						
-		}		// NEW Game Menu action : 
+		} // NEW Game Menu action : 
 		else if (e.getActionCommand().equals("search") || e.getActionCommand().equals("master") ) {
 
-			model.modeObserver();
+			if (e.getActionCommand().equals("search")) {
+				
+				model.setGameType(GameType.SEARCH);
+			}
+			else {
+				model.setGameType(GameType.MASTER);
+							
+			}
+			
+			model.modeObserver();	
+			
+		} else if (e.getActionCommand().equals("attack")) {
+			
+			logger.error("Starting the game now...");
+			
+			model.setGameMode(GameMode.ATTACK);
+			
+			switch (model.getGameType()) {
+			
+				case SEARCH : 
+					model.actionSearchObserver();
+					break;
+				case MASTER :
+					model.actionMasterObserver();
+					
+				default :
+					logger.error("Starting game mode error !");
+			}
+			
+			
 		}
 	}
 

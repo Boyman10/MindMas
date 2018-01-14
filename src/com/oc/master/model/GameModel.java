@@ -2,14 +2,21 @@ package com.oc.master.model;
 
 import java.util.ArrayList;
 
-import com.oc.master.model.observer.Observable;
-import com.oc.master.model.observer.Observer;
+import com.oc.master.model.observer.GameObservable;
+import com.oc.master.model.observer.GameObserver;
 
-public class GameModel implements Observable {
+/**
+ * Model for the Games - Handling Data here
+ * @author boy
+ * @version 1.0.1
+ */
+public class GameModel implements GameObservable {
 
-	private ArrayList<Observer> listObserver = new ArrayList<Observer>();
+	private ArrayList<GameObserver> listObserver = new ArrayList<GameObserver>();
 	
-	private String intro;
+	// Attacker , Defense, Challenger
+	private GameMode modeGame;
+	
 	/**
 	 * Method to assign proper layout to panel
 	 * @param command
@@ -17,32 +24,19 @@ public class GameModel implements Observable {
 	public void assign(String command) {
 		
 		
-		if(command.equals("search")) {
-			
-			this.intro = "<html><h1>Research +/- Game</h1><p>Please select the mode for the game now:</p></html>";
-			
-		} else if(command.equals("master")) {
-			
-			this.intro = "<html><h1>Master Game</h1><p>Please select the mode for the game now:</p></html>";
-			
-		}
-			
-		
-		this.notifyObserver();
-	}
-	
-	@Override
-	public void addObserver(Observer obs) {
-		
-		this.listObserver.add(obs);
 		this.notifyObserver();
 	}
 
 	@Override
-	public void notifyObserver() {
+	public void addObserver(GameObserver obs) {
+		// TODO Auto-generated method stub
 		
-		for(Observer obs : this.listObserver)
-			obs.update(intro);		
+	}
+
+	@Override
+	public void notifyObserver() {
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
@@ -56,18 +50,7 @@ public class GameModel implements Observable {
 		// TODO Auto-generated method stub
 		
 	}
-
-	@Override
-	public void homeObserver() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void reset() {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 	
 }

@@ -15,33 +15,32 @@ public class Model implements Observable {
 	private ArrayList<Observer> listObserver = new ArrayList<Observer>();
 	
 	// Search +/- or Master
-	private short typeGame;
-	// Attacker , Defenser, Challenger
-	private short modeGame;
+	private GameType typeGame;
+	// Attacker , Defense, Challenger
+	private GameMode modeGame;
 	
 	public Model() {
 		
-		typeGame = 0;
-		modeGame = 0;
+
 	}
 	
-	public void setGameMode(short gm) {
+	public void setGameMode(GameMode gm) {
 		
 		modeGame = gm;
 	}
 	
-	public void setGameType(short gt) {
+	public void setGameType(GameType gt) {
 		
 		typeGame = gt;
 	}	
 	
-	public short getGameType() {
+	public GameType getGameType() {
 		
 		return typeGame;
 	}
 	
 	
-	public short getGameMode() {
+	public GameMode getGameMode() {
 		
 		return modeGame;
 	}
@@ -80,22 +79,45 @@ public class Model implements Observable {
 			obs.home();		
 	}
 	
-	/**
-	 * Method intend to call the mode panel from every Observer :
-	 */
-	@Override
-	public void modeObserver() {
-		
-		for(Observer obs : this.listObserver)
-			obs.mode();
-	}
+
+
 	
+	@Override
+	public void gameObserver() {
+		for(Observer obs : this.listObserver)
+			obs.game();		
+	}
 	
 	@Override
 	public void reset() {
 		// TODO Auto-generated method stub
 		
 	}
+
+	/**
+	 * Method intend to call the mode panel from every Observer :
+	 */
+	@Override
+	public void modeObserver() {
+				
+		for(Observer obs : this.listObserver)
+			obs.mode();		
+	}
+
+	@Override
+	public void actionSearchObserver() {
+		
+		for(Observer obs : this.listObserver)
+			obs.actionSearch();		
+	}
+
+	@Override
+	public void actionMasterObserver() {
+		
+		for(Observer obs : this.listObserver)
+			obs.actionMaster();		
+	}
+
 
 	
 }

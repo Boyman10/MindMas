@@ -52,21 +52,21 @@ public class ModePanel extends MainContainer {
 		buttonsPanel.setLayout(new GridLayout(1,3));
 
 		// Default buttons :
-		JButton search = new JButton("Attack");
-		JButton master = new JButton("Defense");
+		JButton attack = new JButton("Attack");
+		JButton defense = new JButton("Defense");
 		JButton challenge = new JButton("Challenger");
 
-		search.setActionCommand("search");
-		master.setActionCommand("master");
+		attack.setActionCommand("attack");
+		defense.setActionCommand("defense");
 		challenge.setActionCommand("challenge");
 		
 		
-		search.addActionListener(this.controller);
-		master.addActionListener(this.controller);
+		attack.addActionListener(this.controller);
+		defense.addActionListener(this.controller);
 		challenge.addActionListener(this.controller);
 		
-		buttonsPanel.add(search);
-		buttonsPanel.add(master);
+		buttonsPanel.add(attack);
+		buttonsPanel.add(defense);
 		buttonsPanel.add(challenge);
 
 		this.panel.setLayout(new BorderLayout());

@@ -15,8 +15,12 @@ import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 
 import com.oc.master.controller.SwingController;
+import com.oc.master.model.GameMode;
+import com.oc.master.model.GameModel;
+import com.oc.master.model.GameType;
 import com.oc.master.model.observer.Observable;
 import com.oc.master.model.observer.Observer;
+import com.oc.master.view.game.SearchPanel;
 
 
 /**
@@ -124,7 +128,7 @@ public class SwingWindow extends JFrame implements Observer {
 
 
 	@Override
-	public void update(short type, short mode) {
+	public void update(GameType type, GameMode mode) {
 
 		// We have the Game Mode and Game Type
 		// We can keep track of the type of Panel we need in case of....
@@ -164,4 +168,23 @@ public class SwingWindow extends JFrame implements Observer {
 		containerPanel.add(gp.getPanel(), BorderLayout.CENTER);
 		containerPanel.revalidate();
 	}
+
+	/**
+	 * Methods calling the proper Game Panel depending on mode and type :
+	 */
+	@Override
+	public void actionSearch() {
+		
+		containerPanel.removeAll();
+		SearchPanel sp = new SearchPanel(size,new GameModel());
+		containerPanel.add(sp.getPanel(), BorderLayout.CENTER);
+		containerPanel.revalidate();
+		
+	}
+	
+	@Override
+	public void actionMaster() {
+
+		
+	}	
 }

@@ -7,7 +7,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.oc.master.model.GameModel;
-import com.oc.master.model.observer.Observable;
+import com.oc.master.model.observer.GameObservable;
 
 /**
  * Class handling events and updates on the current Game Panel
@@ -20,7 +20,7 @@ public class GameController implements ActionListener {
 
 	private GameModel model;
 
-	public GameController (Observable model) {
+	public GameController (GameObservable model) {
 
 		this.model = (GameModel)model;
 	}
