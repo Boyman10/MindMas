@@ -48,11 +48,11 @@ public class GamePanel extends MainContainer {
 		introPanel = new JPanel();
 		layout = new BoxLayout(introPanel, BoxLayout.Y_AXIS);
 		introPanel.setLayout(layout);	
-
+		introPanel.setBackground(Color.white);
+		
 		introTxt = new JLabel();
 
 		introTxt.setFont(arial);
-		introTxt.setBackground(Color.white);
 		introTxt.setAlignmentX(Component.CENTER_ALIGNMENT);
 		introTxt.setText("<html><center><h1>Welcome here man !</h1>" +
 				"<p>Please pick the game you wish to play !</p></center></html>");
@@ -62,7 +62,8 @@ public class GamePanel extends MainContainer {
 
 		buttonsPanel = new JPanel();
 		buttonsPanel.setLayout(new GridLayout(1,2));
-
+		buttonsPanel.setBackground(Color.white);
+		
 		// Default buttons :
 		JButton search = new JButton("Search +/-");
 		JButton master = new JButton("Master Me");

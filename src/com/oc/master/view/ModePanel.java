@@ -37,11 +37,12 @@ public class ModePanel extends MainContainer {
 		introPanel = new JPanel();
 		layout = new BoxLayout(introPanel, BoxLayout.Y_AXIS);
 		introPanel.setLayout(layout);	
-
+		introPanel.setBackground(Color.white);
+		
 		introTxt = new JLabel();
 
 		introTxt.setFont(arial);
-		introTxt.setBackground(Color.white);
+		
 		introTxt.setAlignmentX(Component.CENTER_ALIGNMENT);
 		introTxt.setText("<html><center><h1>Please Pick up the Game mode</h1>");
 
@@ -50,7 +51,8 @@ public class ModePanel extends MainContainer {
 
 		buttonsPanel = new JPanel();
 		buttonsPanel.setLayout(new GridLayout(1,3));
-
+		buttonsPanel.setBackground(Color.white);
+		
 		// Default buttons :
 		JButton attack = new JButton("Attack");
 		JButton defense = new JButton("Defense");
