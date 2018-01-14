@@ -22,7 +22,7 @@ public abstract class MainContainer {
 		
 	}
 	
-	protected JPanel getPanel(){
+	public JPanel getPanel(){
 		return this.panel;
 	}
 	

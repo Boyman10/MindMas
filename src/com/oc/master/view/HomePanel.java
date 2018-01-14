@@ -2,11 +2,16 @@ package com.oc.master.view;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
+import java.awt.ComponentOrientation;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.LayoutManager;
 
+import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JTextArea;
 
 /**
  * Home panel where sit different details and the choice of game mode
@@ -25,23 +30,38 @@ public class HomePanel extends MainContainer {
 	}
 
 	/**
-	 * Initialisation of the panel
+	 * Initialization of the panel
 	 */
 	public void initPanel(){
-		
-		JLabel title = new JLabel("Welcome here\n");
+				
+	    LayoutManager layout = new BoxLayout(this.panel, BoxLayout.Y_AXIS);
+	    this.panel.setLayout(layout);
+	    
+		JLabel title = new JLabel("Welcome here");
 		title.setHorizontalAlignment(JLabel.CENTER);
 		title.setFont(comics30);
-		this.panel.add(title, BorderLayout.NORTH);
-		
-		this.panel.add(new JLabel(new ImageIcon("images/accueil.jpg")), BorderLayout.CENTER);
-		
-		JTextArea txt = new JTextArea(	"Welcome here man !\n" +
-											"Please pick the game you wish to play !\n");
+
+		ImageIcon imgIcon = new ImageIcon("res/images/mastermind.jpg");
+		JLabel lblIcon = new JLabel(imgIcon);
+
+		JLabel txt = new JLabel(	"<html><center><p>Welcome here man !</p>" +
+											"<p>Please pick the game you wish to play !</p></center></html>");
 		txt.setFont(arial);
-		txt.setEditable(false);
 		txt.setBackground(Color.white);
 		
-		this.panel.add(txt, BorderLayout.SOUTH);
+		JButton gameButton = new JButton("New Game");
+		gameButton.setActionCommand("game");
+		gameButton.setBackground(new Color(0x2dce98));
+		gameButton.setForeground(Color.white);
+		
+	    title.setAlignmentX(Component.CENTER_ALIGNMENT);
+	    lblIcon.setAlignmentX(Component.CENTER_ALIGNMENT);
+	    txt.setAlignmentX(Component.CENTER_ALIGNMENT);
+	    gameButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+	    
+		this.panel.add(title);
+		this.panel.add(lblIcon);		
+		this.panel.add(txt);
+		this.panel.add(gameButton);
 	}
 }

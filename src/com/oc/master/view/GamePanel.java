@@ -2,13 +2,17 @@ package com.oc.master.view;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.GridLayout;
+import java.awt.LayoutManager;
 
-import javax.swing.ImageIcon;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JTextArea;
+import javax.swing.JPanel;
 
-import com.oc.master.controller.Controller;
+import com.oc.master.controller.GameController;
 import com.oc.master.model.observer.Observee;
 import com.oc.master.model.observer.Observer;
 
@@ -16,11 +20,11 @@ import com.oc.master.model.observer.Observer;
  * Game panel where we actually play with the computer 
  * Any type of game involved !!
  * @author bob
- *
+ * @version 1.0.1
  */
 public class GamePanel extends MainContainer implements Observer {
 	
-	private Controller controller;
+	private GameController controller;
 	
 	/**
 	 * Constructor for the HomePanel class
@@ -28,29 +32,46 @@ public class GamePanel extends MainContainer implements Observer {
 	 */
 	public GamePanel(Dimension dim, Observee mod){
 		super(dim);
-		this.controller = new Controller(mod);
+		// Instead of coupling containerPanel here - we revamp the code and use the notify of model
+		//this.controller = new GameController(containerPanel,mod,dim,this);
+		
+		this.controller = new GameController(mod);
 		initPanel();
 	}
 
 	/**
-	 * Initialisation of the panel
+	 * Initialization of the panel
 	 */
 	public void initPanel(){
+				
+		JPanel introPanel = new JPanel();
+	    LayoutManager layout = new BoxLayout(introPanel, BoxLayout.Y_AXIS);
+	    introPanel.setLayout(layout);	
 		
-		JLabel title = new JLabel("Welcome here\n");
-		title.setHorizontalAlignment(JLabel.CENTER);
-		title.setFont(comics30);
-		this.panel.add(title, BorderLayout.NORTH);
-		
-		this.panel.add(new JLabel(new ImageIcon("images/accueil.jpg")), BorderLayout.CENTER);
-		
-		JTextArea txt = new JTextArea(	"Welcome here man !\n" +
-											"Please pick the game you wish to play !\n");
+		JLabel txt = new JLabel(	"<html><center><h1>Welcome here man !</h1>" +
+				"<p>Please pick the game you wish to play !</p></center></html>");
+
 		txt.setFont(arial);
-		txt.setEditable(false);
 		txt.setBackground(Color.white);
+		txt.setAlignmentX(Component.CENTER_ALIGNMENT);
 		
-		this.panel.add(txt, BorderLayout.SOUTH);
+		introPanel.add(txt);
+		
+		JPanel buttonsPanel = new JPanel();
+		buttonsPanel.setLayout(new GridLayout(1,2));
+		
+		JButton search = new JButton("Search +/-");
+		JButton master = new JButton("Master Me");
+		
+		search.setActionCommand("search");
+		master.setActionCommand("master");
+		
+		buttonsPanel.add(search);
+		buttonsPanel.add(master);
+		
+		this.panel.setLayout(new BorderLayout());
+		this.panel.add(introPanel, BorderLayout.NORTH);
+		this.panel.add(buttonsPanel, BorderLayout.CENTER);
 	}
 
 	@Override

@@ -8,7 +8,6 @@ import com.oc.master.model.observer.Observee;
 import com.oc.master.utils.Keyboard;
 import com.oc.master.view.SwingWindow;
 
-
 /**
  * Main class to launch program via console or Swing or FX
  * @author bob
