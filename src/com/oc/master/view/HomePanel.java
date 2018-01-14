@@ -1,11 +1,8 @@
 package com.oc.master.view;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
-import java.awt.ComponentOrientation;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.LayoutManager;
 
 import javax.swing.BoxLayout;

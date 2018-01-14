@@ -1,9 +1,9 @@
 package com.oc.master.view;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 
@@ -11,12 +11,11 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 
 import com.oc.master.controller.SwingController;
-import com.oc.master.model.observer.Observee;
+import com.oc.master.model.observer.Observable;
 import com.oc.master.model.observer.Observer;
 
 
@@ -40,7 +39,7 @@ public class SwingWindow extends JFrame implements Observer {
 	private JPanel containerPanel = new JPanel();
 	private Dimension size;
 	
-	private Observee model;
+	private Observable model;
 
 	private SwingController swingController;
 
@@ -48,7 +47,7 @@ public class SwingWindow extends JFrame implements Observer {
 	 * Class Constructor
 	 * @param obs
 	 */
-	public SwingWindow(Observee obs) {
+	public SwingWindow(Observable obs) {
 
 	    this.model = obs;
 	    initWindow();
@@ -72,7 +71,7 @@ public class SwingWindow extends JFrame implements Observer {
 	    // set default dimension for proper cleaning of panel :
 	    this.size = new Dimension(this.getWidth(), this.getHeight());
 	    
-	    this.swingController = new SwingController(containerPanel,model,size,this);
+	    this.swingController = new SwingController(model);
 	    
 	    menu = new JMenuBar();
 
@@ -125,9 +124,10 @@ public class SwingWindow extends JFrame implements Observer {
 
 
 	@Override
-	public void update() {
-		// TODO Auto-generated method stub
+	public void update(short type, short mode) {
 
+		// We have the Game Mode and Game Type
+		// We can keep track of the type of Panel we need in case of....
 	}
 
 	@Override
@@ -138,10 +138,30 @@ public class SwingWindow extends JFrame implements Observer {
 
 	@Override
 	public void home() {
-		// TODO Auto-generated method stub
 
+		containerPanel.removeAll();
+		containerPanel.add(new HomePanel(size).getPanel(),BorderLayout.CENTER);
+		containerPanel.revalidate();
 	}
 
+	/**
+	 * Calling the Mode Panel
+	 */
+	@Override 
+	public void mode() {
+		
+		containerPanel.removeAll();
+		ModePanel mp = new ModePanel(size,swingController);
+		containerPanel.add(mp.getPanel(), BorderLayout.CENTER);
+		containerPanel.revalidate();
+	}
 
-
+	@Override
+	public void game() {
+		
+		containerPanel.removeAll();
+		GamePanel gp = new GamePanel(size,swingController);
+		containerPanel.add(gp.getPanel(), BorderLayout.CENTER);
+		containerPanel.revalidate();
+	}
 }

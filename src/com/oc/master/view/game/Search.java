@@ -1,4 +1,4 @@
-package com.oc.master.view;
+package com.oc.master.view.game;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -12,17 +12,19 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import com.oc.master.controller.SwingController;
+import com.oc.master.controller.GameController;
+import com.oc.master.model.observer.Observable;
+import com.oc.master.model.observer.Observer;
+import com.oc.master.view.MainContainer;
 
 /**
- * Game panel where we actually play with the computer 
- * Any type of game involved !!
- * @author bob
- * @version 1.0.1
+ * Class aimed to display the Search +/- Game mode
+ * @author boy
+ * @version 1.0.0
  */
-public class GamePanel extends MainContainer {
+public class Search extends MainContainer implements Observer {
 
-	private SwingController controller;
+	private GameController controller;
 
 	private JPanel introPanel;
 	private JLabel introTxt;
@@ -30,13 +32,15 @@ public class GamePanel extends MainContainer {
 	private JPanel buttonsPanel;
 	
 	/**
-	 * Constructor for the GamePanel class
+	 * Constructor for the HomePanel class
 	 * @param dim
 	 */
-	public GamePanel(Dimension dim, SwingController sw){
+	public Search(Dimension dim, Observable mod){
 		super(dim);
+		// Instead of coupling containerPanel here - we revamp the code and use the notify of model
+		//this.controller = new GameController(containerPanel,mod,dim,this);
 
-		this.controller = sw;
+		this.controller = new GameController(mod);
 		initPanel();
 	}
 
@@ -81,5 +85,21 @@ public class GamePanel extends MainContainer {
 		this.panel.add(buttonsPanel, BorderLayout.CENTER);
 	}
 
+	@Override
+	public void update(String intro) {
 
+		introTxt.setText(intro);
+	}
+
+	@Override
+	public void restart() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void home() {
+		// TODO Auto-generated method stub
+
+	}
 }

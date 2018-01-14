@@ -6,17 +6,23 @@ import java.awt.event.ActionListener;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.oc.master.model.observer.Observee;
+import com.oc.master.model.GameModel;
+import com.oc.master.model.observer.Observable;
 
+/**
+ * Class handling events and updates on the current Game Panel
+ * @author boy
+ * @version 1.0.0
+ */
 public class GameController implements ActionListener {
 
 	static final Logger logger = LogManager.getLogger();
 
-	private Observee model;
+	private GameModel model;
 
-	public GameController (Observee model) {
+	public GameController (Observable model) {
 
-		this.model = model;
+		this.model = (GameModel)model;
 	}
 
 	@Override
@@ -24,11 +30,6 @@ public class GameController implements ActionListener {
 
 			logger.trace("Action Performed : " + e.getActionCommand());
 			
-			// case Search type of Game, we update the Panel :
-			if (e.getActionCommand().equals("search")) {
-				
-				
-			
-			}
+		
 	}
 }
