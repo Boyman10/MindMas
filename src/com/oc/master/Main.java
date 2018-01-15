@@ -30,7 +30,7 @@ public class Main {
 			
 			gameInterface = (short)Keyboard.readInt();
 			
-			if (gameInterface < 1 || gameInterface > 2)
+			if (gameInterface != 1 && gameInterface != 2)
 				gameInterface = 0;
 		
 		} while (gameInterface == 0);
