@@ -4,10 +4,9 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.oc.master.model.Model;
-import com.oc.master.model.observer.Observee;
+import com.oc.master.model.observer.Observable;
 import com.oc.master.utils.Keyboard;
 import com.oc.master.view.SwingWindow;
-
 
 /**
  * Main class to launch program via console or Swing or FX
@@ -51,7 +50,7 @@ public class Main {
 			case 2 :
 				// case Swing
 				logger.trace("Launching Swing mode");
-				Observee model = new Model();
+				Observable model = new Model();
 				SwingWindow wind = new SwingWindow(model);
 				wind.setVisible(true);
 				break;

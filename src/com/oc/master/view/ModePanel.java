@@ -14,37 +14,26 @@ import javax.swing.JPanel;
 
 import com.oc.master.controller.SwingController;
 
-/**
- * Game panel where we actually play with the computer 
- * Any type of game involved !!
- * @author bob
- * @version 1.0.1
- */
-public class GamePanel extends MainContainer {
+public class ModePanel extends MainContainer {
 
 	private SwingController controller;
-
+	
 	private JPanel introPanel;
 	private JLabel introTxt;
 	private LayoutManager layout;
 	private JPanel buttonsPanel;
 	
-	/**
-	 * Constructor for the GamePanel class
-	 * @param dim
-	 */
-	public GamePanel(Dimension dim, SwingController sw){
+	
+	public ModePanel(Dimension dim, SwingController sw) {
 		super(dim);
 
 		this.controller = sw;
 		initPanel();
 	}
 
-	/**
-	 * Initialization of the panel
-	 */
-	public void initPanel(){
-
+	@Override
+	protected void initPanel() {
+		
 		introPanel = new JPanel();
 		layout = new BoxLayout(introPanel, BoxLayout.Y_AXIS);
 		introPanel.setLayout(layout);	
@@ -53,34 +42,39 @@ public class GamePanel extends MainContainer {
 		introTxt = new JLabel();
 
 		introTxt.setFont(arial);
+		
 		introTxt.setAlignmentX(Component.CENTER_ALIGNMENT);
-		introTxt.setText("<html><center><h1>Welcome here man !</h1>" +
-				"<p>Please pick the game you wish to play !</p></center></html>");
+		introTxt.setText("<html><center><h1>Please Pick up the Game mode</h1>");
 
 
 		introPanel.add(introTxt);
 
 		buttonsPanel = new JPanel();
-		buttonsPanel.setLayout(new GridLayout(1,2));
+		buttonsPanel.setLayout(new GridLayout(1,3));
 		buttonsPanel.setBackground(Color.white);
 		
 		// Default buttons :
-		JButton search = new JButton("Search +/-");
-		JButton master = new JButton("Master Me");
+		JButton attack = new JButton("Attack");
+		JButton defense = new JButton("Defense");
+		JButton challenge = new JButton("Challenger");
 
-		search.setActionCommand("search");
-		master.setActionCommand("master");
-
-		search.addActionListener(this.controller);
-		master.addActionListener(this.controller);
-
-		buttonsPanel.add(search);
-		buttonsPanel.add(master);
+		attack.setActionCommand("attack");
+		defense.setActionCommand("defense");
+		challenge.setActionCommand("challenge");
+		
+		
+		attack.addActionListener(this.controller);
+		defense.addActionListener(this.controller);
+		challenge.addActionListener(this.controller);
+		
+		buttonsPanel.add(attack);
+		buttonsPanel.add(defense);
+		buttonsPanel.add(challenge);
 
 		this.panel.setLayout(new BorderLayout());
 		this.panel.add(introPanel, BorderLayout.NORTH);
 		this.panel.add(buttonsPanel, BorderLayout.CENTER);
+		
 	}
-
 
 }

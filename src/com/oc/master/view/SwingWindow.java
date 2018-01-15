@@ -3,8 +3,7 @@ package com.oc.master.view;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 
@@ -12,13 +11,16 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 
-import com.oc.master.model.Model;
-import com.oc.master.model.observer.Observee;
+import com.oc.master.controller.SwingController;
+import com.oc.master.model.GameMode;
+import com.oc.master.model.GameModel;
+import com.oc.master.model.GameType;
+import com.oc.master.model.observer.Observable;
 import com.oc.master.model.observer.Observer;
+import com.oc.master.view.game.SearchPanel;
 
 
 /**
@@ -41,18 +43,19 @@ public class SwingWindow extends JFrame implements Observer {
 	private JPanel containerPanel = new JPanel();
 	private Dimension size;
 	
-	private Observee model;
+	private Observable model;
 
+	private SwingController swingController;
 
 	/**
 	 * Class Constructor
 	 * @param obs
 	 */
-	public SwingWindow(Observee obs) {
+	public SwingWindow(Observable obs) {
 
 	    this.model = obs;
 	    initWindow();
-
+	   
 	}
 	
 	/**
@@ -68,7 +71,11 @@ public class SwingWindow extends JFrame implements Observer {
 	    this.setResizable(false);
 	    
 	    this.model.addObserver(this);
+	    	    
+	    // set default dimension for proper cleaning of panel :
 	    this.size = new Dimension(this.getWidth(), this.getHeight());
+	    
+	    this.swingController = new SwingController(model);
 	    
 	    menu = new JMenuBar();
 
@@ -78,27 +85,18 @@ public class SwingWindow extends JFrame implements Observer {
 	    newGameMenuItem = new JMenuItem("New Game");
 	    newGameMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N,
 	                                                  InputEvent.CTRL_MASK));
+	    newGameMenuItem.setActionCommand("game");
 	    
-	    newGameMenuItem.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent arg0){
-				containerPanel.removeAll();
-				GamePanel gp = new GamePanel(size, model);
-				model.addObserver(gp);
-				containerPanel.add(gp.getPanel(), BorderLayout.CENTER);
-				containerPanel.revalidate();
-				initModel();
-			}	    	
-	    });
+	    newGameMenuItem.addActionListener(swingController);
 
 
 	    quitMenuItem = new JMenuItem("Exit");
+	    quitMenuItem.setActionCommand("quit");
+	    
 	    quitMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_W,
 	                                                  KeyEvent.CTRL_MASK));
-	    quitMenuItem.addActionListener(new ActionListener(){
-	    	public void actionPerformed(ActionEvent e){
-	    		System.exit(0);
-	    	}
-	    });
+	    quitMenuItem.addActionListener(swingController);
+
 
 	    menuFile.add(newGameMenuItem);
 	    menuFile.addSeparator();
@@ -109,17 +107,8 @@ public class SwingWindow extends JFrame implements Observer {
 
 
 	    aboutMenuItem = new JMenuItem("   ?   ");
-	    aboutMenuItem.addActionListener(new ActionListener(){
-	    	public void actionPerformed(ActionEvent e){
-	    		JOptionPane.showMessageDialog(null,
-							    		          "Author : Boy\nLicence : Freeware\nCopyright : whatever link",
-							    		          "Informations", JOptionPane.NO_OPTION);
-	    		containerPanel.removeAll();
-	    		containerPanel.add(new HomePanel(size).getPanel());
-	    		containerPanel.revalidate();
-	    		model.reset();
-	    	}
-	    });
+	    aboutMenuItem.setActionCommand("about");
+	    aboutMenuItem.addActionListener(swingController);
 
 	    aboutMenu.add(aboutMenuItem);
 
@@ -129,21 +118,20 @@ public class SwingWindow extends JFrame implements Observer {
 	    this.containerPanel.setPreferredSize(this.size);
 	    this.containerPanel.setBackground(Color.white);
 	    this.containerPanel.add(new HomePanel(this.size).getPanel());
+	    
 	    this.setContentPane(this.containerPanel);
 	    
 	    this.setJMenuBar(menu);
 		
 	}
 	
-	private void initModel(){
-		this.model = new Model();
-		this.model.addObserver(this);
-	}
+
 
 	@Override
-	public void update() {
-		// TODO Auto-generated method stub
+	public void update(GameType type, GameMode mode) {
 
+		// We have the Game Mode and Game Type
+		// We can keep track of the type of Panel we need in case of....
 	}
 
 	@Override
@@ -154,10 +142,49 @@ public class SwingWindow extends JFrame implements Observer {
 
 	@Override
 	public void home() {
-		// TODO Auto-generated method stub
 
+		containerPanel.removeAll();
+		containerPanel.add(new HomePanel(size).getPanel(),BorderLayout.CENTER);
+		containerPanel.revalidate();
 	}
 
+	/**
+	 * Calling the Mode Panel
+	 */
+	@Override 
+	public void mode() {
+		
+		containerPanel.removeAll();
+		ModePanel mp = new ModePanel(size,swingController);
+		containerPanel.add(mp.getPanel(), BorderLayout.CENTER);
+		containerPanel.revalidate();
+	}
 
+	@Override
+	public void game() {
+		
+		containerPanel.removeAll();
+		GamePanel gp = new GamePanel(size,swingController);
+		containerPanel.add(gp.getPanel(), BorderLayout.CENTER);
+		containerPanel.revalidate();
+	}
 
+	/**
+	 * Methods calling the proper Game Panel depending on mode and type :
+	 */
+	@Override
+	public void actionSearch() {
+		
+		containerPanel.removeAll();
+		SearchPanel sp = new SearchPanel(size,new GameModel());
+		containerPanel.add(sp.getPanel(), BorderLayout.CENTER);
+		containerPanel.revalidate();
+		
+	}
+	
+	@Override
+	public void actionMaster() {
+
+		
+	}	
 }
