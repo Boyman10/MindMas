@@ -21,6 +21,7 @@ import com.oc.master.controller.GameController;
 
 import com.oc.master.model.observer.GameObservable;
 import com.oc.master.model.observer.GameObserver;
+import com.oc.master.model.observer.Observable;
 import com.oc.master.utils.KeyboardAction;
 import com.oc.master.view.MainContainer;
 
@@ -38,15 +39,21 @@ public class SearchPanel extends MainContainer implements GameObserver {
 	private JPanel introPanel, gamePanel, cluePanel, historicPanel;
 	private JLabel introTxt;
 	private LayoutManager layout;
-	
+	private JButton validateBtn;
 
+	private JFormattedTextField[] jtf;
+	
+	private GameObservable model;
+	
 	/**
 	 * Constructor for the HomePanel class
 	 * @param dim
 	 */
 	public SearchPanel(Dimension dim, GameObservable mod){
 		super(dim);
-
+		
+		this.model = mod;
+		
 		this.controller = new GameController(mod);
 		initPanel();
 	}
@@ -60,6 +67,8 @@ public class SearchPanel extends MainContainer implements GameObserver {
 	 */
 	public void initPanel(){
 
+		this.model.addObserver(this);
+		
 		introPanel = new JPanel();
 		layout = new BoxLayout(introPanel, BoxLayout.Y_AXIS);
 		introPanel.setLayout(layout);	
@@ -78,7 +87,7 @@ public class SearchPanel extends MainContainer implements GameObserver {
 		Font police = new Font("Arial", Font.BOLD, 14);
 		gamePanel.setBackground(Color.white);
 		
-		JFormattedTextField[] jtf = new JFormattedTextField[MAX_DIGITS];
+		jtf = new JFormattedTextField[MAX_DIGITS];
 		
 		try{
 			MaskFormatter nb = new MaskFormatter("#");
@@ -97,7 +106,13 @@ public class SearchPanel extends MainContainer implements GameObserver {
 			}
 		} catch(ParseException e){e.printStackTrace();}
 		
-		gamePanel.add(new JButton("Validate"));
+		/**
+		 * Adding Validate button and onClickListener using Controller
+		 */
+		validateBtn = new JButton("Validate");
+		validateBtn.setActionCommand("validate");
+		validateBtn.addActionListener(this.controller);
+		gamePanel.add(validateBtn);
 
 		gamePanel.add(new JSeparator(JSeparator.VERTICAL),
 		          BorderLayout.LINE_START);
@@ -122,6 +137,21 @@ public class SearchPanel extends MainContainer implements GameObserver {
 
 	}
 
+	/**
+	 * Method returning the content of the fields containing the proposition :
+	 * @return fields
+	 */
+	public int[] getFields() {
+		
+		int[] fields = new int[MAX_DIGITS];
+		
+		for(short i = 0;i < MAX_DIGITS;i++) {
+			fields[i] = Integer.parseInt(this.jtf[i].getText());
+		}
+					
+		return fields;
+	}
+	
 	@Override
 	public void update() {
 		// TODO Auto-generated method stub

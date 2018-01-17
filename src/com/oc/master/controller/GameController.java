@@ -7,6 +7,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.oc.master.model.GameModel;
+import com.oc.master.model.GameType;
 import com.oc.master.model.observer.GameObservable;
 
 /**
@@ -16,7 +17,7 @@ import com.oc.master.model.observer.GameObservable;
  */
 public class GameController implements ActionListener {
 
-	static final Logger logger = LogManager.getLogger();
+	static final Logger logger = LogManager.getLogger("GameController");
 
 	private GameModel model;
 
@@ -30,6 +31,16 @@ public class GameController implements ActionListener {
 
 			logger.trace("Action Performed : " + e.getActionCommand());
 			
+			/**
+			 * Case we click on the Validate Button from the Search game panel 
+			 */
+			if (e.getActionCommand().equals("validate")) {
+				
+				//TODO -- We do have the model in references but in case, we should make sure it ain't empty !
+				//We use the source as the observable to call our model and update the Observer accordingly :
+				
+				
+			}
 		
 	}
 }
