@@ -10,6 +10,8 @@ import com.oc.master.model.GameModel;
 import com.oc.master.model.GameType;
 import com.oc.master.model.observer.GameObservable;
 
+import com.oc.master.view.game.SearchPanel;
+
 /**
  * Class handling events and updates on the current Game Panel
  * @author boy
@@ -38,7 +40,9 @@ public class GameController implements ActionListener {
 				
 				//TODO -- We do have the model in references but in case, we should make sure it ain't empty !
 				//We use the source as the observable to call our model and update the Observer accordingly :
-				
+				// TODO verify if it is SearchPanel calling :
+				int[] vars = ((SearchPanel)e.getSource()).getFields();
+				model.assign(vars);
 				
 			}
 		

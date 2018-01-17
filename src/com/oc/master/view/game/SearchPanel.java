@@ -42,18 +42,14 @@ public class SearchPanel extends MainContainer implements GameObserver {
 	private JButton validateBtn;
 
 	private JFormattedTextField[] jtf;
-	
-	private GameObservable model;
-	
+		
 	/**
 	 * Constructor for the HomePanel class
 	 * @param dim
 	 */
 	public SearchPanel(Dimension dim, GameObservable mod){
 		super(dim);
-		
-		this.model = mod;
-		
+				
 		this.controller = new GameController(mod);
 		initPanel();
 	}
@@ -66,8 +62,6 @@ public class SearchPanel extends MainContainer implements GameObserver {
 	 * In South : clue from the computer
 	 */
 	public void initPanel(){
-
-		this.model.addObserver(this);
 		
 		introPanel = new JPanel();
 		layout = new BoxLayout(introPanel, BoxLayout.Y_AXIS);
