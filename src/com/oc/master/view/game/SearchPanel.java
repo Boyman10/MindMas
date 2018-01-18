@@ -5,7 +5,6 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.LayoutManager;
-import java.awt.event.ActionListener;
 import java.text.ParseException;
 
 import javax.swing.BoxLayout;
@@ -21,7 +20,6 @@ import com.oc.master.controller.GameController;
 
 import com.oc.master.model.observer.GameObservable;
 import com.oc.master.model.observer.GameObserver;
-import com.oc.master.model.observer.Observable;
 import com.oc.master.utils.KeyboardAction;
 import com.oc.master.view.MainContainer;
 
@@ -50,7 +48,7 @@ public class SearchPanel extends MainContainer implements GameObserver {
 	public SearchPanel(Dimension dim, GameObservable mod){
 		super(dim);
 				
-		this.controller = new GameController(mod);
+		this.controller = new GameController(mod, this) ;
 		initPanel();
 	}
 

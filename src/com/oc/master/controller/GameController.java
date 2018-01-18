@@ -7,9 +7,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.oc.master.model.GameModel;
-import com.oc.master.model.GameType;
 import com.oc.master.model.observer.GameObservable;
-
+import com.oc.master.view.MainContainer;
 import com.oc.master.view.game.SearchPanel;
 
 /**
@@ -22,10 +21,12 @@ public class GameController implements ActionListener {
 	static final Logger logger = LogManager.getLogger("GameController");
 
 	private GameModel model;
+	private MainContainer container;
 
-	public GameController (GameObservable model) {
+	public GameController (GameObservable model, MainContainer container) {
 
 		this.model = (GameModel)model;
+		this.container = container;
 	}
 
 	@Override
@@ -39,10 +40,10 @@ public class GameController implements ActionListener {
 			if (e.getActionCommand().equals("validate")) {
 				
 				//TODO -- We do have the model in references but in case, we should make sure it ain't empty !
-				//We use the source as the observable to call our model and update the Observer accordingly :
-				// TODO verify if it is SearchPanel calling :
-				int[] vars = ((SearchPanel)e.getSource()).getFields();
-				model.assign(vars);
+				
+				// Verify if it is SearchPanel calling :
+				if (container instanceof SearchPanel)
+					model.assign(((SearchPanel)container).getFields());
 				
 			}
 		
