@@ -62,6 +62,12 @@ public class GameModel implements GameObservable {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public void actionObserver(String method) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 
 	

@@ -86,6 +86,25 @@ public class SwingController implements ActionListener {
 			}
 			
 			
+		} else if (e.getActionCommand().equals("defense")) {
+			
+			logger.error("Starting the game now - Master defense");
+			
+			model.setGameMode(GameMode.DEFENSE);
+			
+			switch (model.getGameType()) {
+			
+				case SEARCH : 
+					model.actionSearchObserver();
+					break;
+				case MASTER :
+					model.actionObserver("actionColorSelector");
+					
+				default :
+					logger.error("Starting game mode error !");
+			}
+			
+			
 		}
 	}
 

@@ -14,4 +14,6 @@ public interface Observer {
 
 		public void actionSearch();
 		public void actionMaster();
+		
+		public void action(String method);
 }

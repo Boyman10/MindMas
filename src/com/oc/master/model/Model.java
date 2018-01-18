@@ -117,7 +117,11 @@ public class Model implements Observable {
 		for(Observer obs : this.listObserver)
 			obs.actionMaster();		
 	}
-
-
+	
+	public void actionObserver(String method) {
+		
+		for(Observer obs : this.listObserver)
+			obs.action(method);		
+	}
 	
 }

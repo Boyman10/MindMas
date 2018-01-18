@@ -7,4 +7,6 @@ public interface GameObservable {
 	public void restartObserver();
 
 	public void deleteObserver();
+	
+	public void actionObserver(String method);
 }

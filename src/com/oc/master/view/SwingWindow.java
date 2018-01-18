@@ -14,12 +14,16 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.oc.master.controller.SwingController;
 import com.oc.master.model.GameMode;
 import com.oc.master.model.GameModel;
 import com.oc.master.model.GameType;
 import com.oc.master.model.observer.Observable;
 import com.oc.master.model.observer.Observer;
+import com.oc.master.view.game.ColorSelectorPanel;
 import com.oc.master.view.game.SearchPanel;
 
 
@@ -31,7 +35,9 @@ import com.oc.master.view.game.SearchPanel;
 public class SwingWindow extends JFrame implements Observer {
 
 	private static final long serialVersionUID = 2121616383041870269L;
-
+	
+	static final Logger logger = LogManager.getLogger("View");
+	
 	private JMenuBar menu = null;
 
 	private JMenu menuFile = null;
@@ -42,7 +48,7 @@ public class SwingWindow extends JFrame implements Observer {
 
 	private JPanel containerPanel = new JPanel();
 	private Dimension size;
-	
+
 	private Observable model;
 
 	private SwingController swingController;
@@ -53,78 +59,78 @@ public class SwingWindow extends JFrame implements Observer {
 	 */
 	public SwingWindow(Observable obs) {
 
-	    this.model = obs;
-	    initWindow();
-	   
+		this.model = obs;
+		initWindow();
+
 	}
-	
+
 	/**
 	 * Method to generate the window with its menu and
 	 * default panel
 	 */
 	private void initWindow() {
-		
+
 		this.setTitle("Welcome to a killer M Game !");
-	    this.setSize(900, 600);
-	    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	    this.setLocationRelativeTo(null);
-	    this.setResizable(false);
-	    
-	    this.model.addObserver(this);
-	    	    
-	    // set default dimension for proper cleaning of panel :
-	    this.size = new Dimension(this.getWidth(), this.getHeight());
-	    
-	    this.swingController = new SwingController(model);
-	    
-	    menu = new JMenuBar();
+		this.setSize(900, 600);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setLocationRelativeTo(null);
+		this.setResizable(false);
 
-	    menuFile = new JMenu("File");
-	    menuFile.setMnemonic('f');
+		this.model.addObserver(this);
 
-	    newGameMenuItem = new JMenuItem("New Game");
-	    newGameMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N,
-	                                                  InputEvent.CTRL_MASK));
-	    newGameMenuItem.setActionCommand("game");
-	    
-	    newGameMenuItem.addActionListener(swingController);
+		// set default dimension for proper cleaning of panel :
+		this.size = new Dimension(this.getWidth(), this.getHeight());
 
+		this.swingController = new SwingController(model);
 
-	    quitMenuItem = new JMenuItem("Exit");
-	    quitMenuItem.setActionCommand("quit");
-	    
-	    quitMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_W,
-	                                                  KeyEvent.CTRL_MASK));
-	    quitMenuItem.addActionListener(swingController);
+		menu = new JMenuBar();
+
+		menuFile = new JMenu("File");
+		menuFile.setMnemonic('f');
+
+		newGameMenuItem = new JMenuItem("New Game");
+		newGameMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N,
+				InputEvent.CTRL_MASK));
+		newGameMenuItem.setActionCommand("game");
+
+		newGameMenuItem.addActionListener(swingController);
 
 
-	    menuFile.add(newGameMenuItem);
-	    menuFile.addSeparator();
-	    menuFile.add(quitMenuItem);
+		quitMenuItem = new JMenuItem("Exit");
+		quitMenuItem.setActionCommand("quit");
 
-	    aboutMenu = new JMenu("About");
-	    aboutMenu.setMnemonic('a');
+		quitMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_W,
+				KeyEvent.CTRL_MASK));
+		quitMenuItem.addActionListener(swingController);
 
 
-	    aboutMenuItem = new JMenuItem("   ?   ");
-	    aboutMenuItem.setActionCommand("about");
-	    aboutMenuItem.addActionListener(swingController);
+		menuFile.add(newGameMenuItem);
+		menuFile.addSeparator();
+		menuFile.add(quitMenuItem);
 
-	    aboutMenu.add(aboutMenuItem);
+		aboutMenu = new JMenu("About");
+		aboutMenu.setMnemonic('a');
 
-	    menu.add(menuFile);
-	    menu.add(aboutMenu);
-	    
-	    this.containerPanel.setPreferredSize(this.size);
-	    this.containerPanel.setBackground(Color.white);
-	    this.containerPanel.add(new HomePanel(this.size).getPanel());
-	    
-	    this.setContentPane(this.containerPanel);
-	    
-	    this.setJMenuBar(menu);
-		
+
+		aboutMenuItem = new JMenuItem("   ?   ");
+		aboutMenuItem.setActionCommand("about");
+		aboutMenuItem.addActionListener(swingController);
+
+		aboutMenu.add(aboutMenuItem);
+
+		menu.add(menuFile);
+		menu.add(aboutMenu);
+
+		this.containerPanel.setPreferredSize(this.size);
+		this.containerPanel.setBackground(Color.white);
+		this.containerPanel.add(new HomePanel(this.size).getPanel());
+
+		this.setContentPane(this.containerPanel);
+
+		this.setJMenuBar(menu);
+
 	}
-	
+
 
 
 	@Override
@@ -153,7 +159,7 @@ public class SwingWindow extends JFrame implements Observer {
 	 */
 	@Override 
 	public void mode() {
-		
+
 		containerPanel.removeAll();
 		ModePanel mp = new ModePanel(size,swingController);
 		containerPanel.add(mp.getPanel(), BorderLayout.CENTER);
@@ -162,7 +168,7 @@ public class SwingWindow extends JFrame implements Observer {
 
 	@Override
 	public void game() {
-		
+
 		containerPanel.removeAll();
 		GamePanel gp = new GamePanel(size,swingController);
 		containerPanel.add(gp.getPanel(), BorderLayout.CENTER);
@@ -174,17 +180,47 @@ public class SwingWindow extends JFrame implements Observer {
 	 */
 	@Override
 	public void actionSearch() {
-		
+
 		containerPanel.removeAll();
 		SearchPanel sp = new SearchPanel(size,new GameModel());
 		containerPanel.add(sp.getPanel(), BorderLayout.CENTER);
 		containerPanel.revalidate();
-		
+
 	}
-	
+
 	@Override
 	public void actionMaster() {
 
-		
+
 	}	
+
+
+
+
+	@Override
+	public void action(String method) {
+
+		logger.trace("Calling action " + method);
+		
+		switch(method) {
+		case "actionColorSelector":
+			actionColorSelector();
+			break;
+
+		}
+	}
+
+
+
+	/**
+	 * Methods calling the proper Panel to let the user choose its colors combo:
+	 */
+	public void actionColorSelector() {
+
+		containerPanel.removeAll();
+		ColorSelectorPanel sp = new ColorSelectorPanel(size,new GameModel());
+		containerPanel.add(sp.getPanel(), BorderLayout.CENTER);
+		containerPanel.revalidate();
+
+	}
 }
