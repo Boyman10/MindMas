@@ -13,5 +13,9 @@
 <AppenderRef ref="Console" />
 <AppenderRef ref="MyFile"/>
 </Root>
+<logger name="GameController" level="trace">
+<AppenderRef ref="Console" />
+<AppenderRef ref="MyFile"/>
+</logger>
 </Loggers>
 </Configuration>

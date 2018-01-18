@@ -18,11 +18,23 @@ public class GameModel implements GameObservable {
 	private GameMode modeGame;
 	
 	/**
-	 * Method to assign proper layout to panel
+	 * Method to assign proper data to deal with
 	 * @param command
 	 */
-	public void assign(String command) {
+	public void assign(int[] vars) {
 		
+		// Here we will launch the calculation from the computer depending on the Game mode :
+		
+		/**
+		 * Case Attacker - The computer will compare its combo with the user try
+		 */
+		
+		/**
+		 * Case Defender (user) - the user/automatic part will compare its combo with computer try
+		 */
+		
+		
+		// notify short historic panel with clues and main panel
 		
 		this.notifyObserver();
 	}
