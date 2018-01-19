@@ -7,9 +7,11 @@ import java.awt.Font;
 import java.awt.LayoutManager;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JEditorPane;
@@ -33,6 +35,10 @@ public class ColorSelectorPanel  extends MainContainer implements GameObserver {
 	private LayoutManager layout;
 	private JButton validateBtn;
 
+	
+	private ImageIcon[] icon;
+	private final static String[] iconString = {"blue.png","gray.png","black.png","red.png","yellow.png","pink.png"}; 
+	
 	private JLabel[] colorCombo;
 	private JEditorPane[] secretCombo;
 		
@@ -70,7 +76,10 @@ public class ColorSelectorPanel  extends MainContainer implements GameObserver {
 		introTxt.setText("<html><center><h1>Master Game</h1>" +
 				"<p>Pick up your colors by draging them to the fields !</p></center></html>");
 
-
+		MouseListener listener = new DragMouseAdapter();
+	    
+	    
+	    
 		introPanel.add(introTxt);
 		
 		introPanel.setBorder(BorderFactory.createLineBorder(Color.black));
@@ -110,30 +119,20 @@ public class ColorSelectorPanel  extends MainContainer implements GameObserver {
 		
 		for(short i = 0;i < MAX_DIGITS;i++) {
 			
-			colorCombo[i] = new JLabel("B");	
-			colorCombo[i].setSize(new Dimension(30, 30));
-			colorCombo[i].setBackground(Color.WHITE);
-			colorCombo[i].setBorder(BorderFactory.createLineBorder(Color.white));
+			icon[i] = new ImageIcon("res/images/" + iconString[i]);
+			colorCombo[i] = new JLabel(icon[i], JLabel.CENTER);	
+			colorCombo[i].setSize(new Dimension(32, 32));
+			
+			
+			//colorCombo[i].setBorder(BorderFactory.createLineBorder(Color.white));
 			/**
 			 * Implementing Drag N Drop for our JLabel
 			 */
 		    // create the new Object to handle the Drag N Drop for our JLabel
 			//https://openclassrooms.com/courses/apprenez-a-programmer-en-java/le-drag-n-drop
-			colorCombo[i].setTransferHandler(new TransferHandler("text"));
+			colorCombo[i].setTransferHandler(new TransferHandler("icon"));
 		      
-		    // We specify the component to send data toward TransferHandler
-			colorCombo[i].addMouseListener(new MouseAdapter(){
-		     
-		      public void mousePressed(MouseEvent e){
-		        // get the JComponent            
-		        JComponent lab = (JComponent)e.getSource();
-		        // from component, get our object
-		        TransferHandler handle = lab.getTransferHandler();
-		        // do it now
-		        handle.exportAsDrag(lab, e, TransferHandler.COPY_OR_MOVE);
-		      }
-		    });
-			// ---------------------
+			colorCombo[i].addMouseListener(listener);
 			
 			colorPanel.add(colorCombo[i]);			
 		}
@@ -176,4 +175,12 @@ public class ColorSelectorPanel  extends MainContainer implements GameObserver {
 	}
 
 
+	class DragMouseAdapter extends MouseAdapter {
+		  public void mousePressed(MouseEvent e) {
+		    JComponent c = (JComponent) e.getSource();
+		    TransferHandler handler = c.getTransferHandler();
+		    handler.exportAsDrag(c, e, TransferHandler.COPY);
+		  }
+		}
+	
 }

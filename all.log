@@ -1,0 +1,7 @@
+2018-01-19 09:27:19.449 [main] TRACE com.oc.master.Main - Game Interface chose 2
+2018-01-19 09:27:19.451 [main] TRACE com.oc.master.Main - Launching Swing mode
+2018-01-19 09:27:22.686 [AWT-EventQueue-0] TRACE com.oc.master.controller.SwingController - Action performed game
+2018-01-19 09:27:23.768 [AWT-EventQueue-0] TRACE com.oc.master.controller.SwingController - Action performed master
+2018-01-19 09:27:24.231 [AWT-EventQueue-0] TRACE com.oc.master.controller.SwingController - Action performed defense
+2018-01-19 09:27:24.232 [AWT-EventQueue-0] ERROR com.oc.master.controller.SwingController - Starting the game now - Master defense
+2018-01-19 09:27:24.232 [AWT-EventQueue-0] TRACE View - Calling action actionColorSelector
