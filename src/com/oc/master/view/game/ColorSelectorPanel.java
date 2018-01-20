@@ -190,7 +190,7 @@ public class ColorSelectorPanel  extends MainContainer implements GameObserver {
 	}
 
 
-
+	@Deprecated
     private ImageIcon createImageIcon(String path) {
 
     	// Beware the bin folder it should contains the resource files !
