@@ -23,6 +23,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.oc.master.controller.GameController;
+import com.oc.master.model.mind.User;
 import com.oc.master.model.observer.GameObservable;
 import com.oc.master.model.observer.GameObserver;
 import com.oc.master.view.MainContainer;
@@ -37,8 +38,9 @@ public class ColorSelectorPanel  extends MainContainer implements GameObserver {
 	// TODO - Change name of Class to MasterGamePanel ------------ SAME LAYOUT FOR THE WHOLE GAME
 	
 	private GameController controller;
-
-	private static final short MAX_DIGITS = 4;
+	private GameObservable model;
+	
+	
 	static final Logger logger = LogManager.getLogger();
 	
 	
@@ -61,7 +63,7 @@ public class ColorSelectorPanel  extends MainContainer implements GameObserver {
 	public ColorSelectorPanel(Dimension dim, GameObservable mod){
 		super(dim);
 				
-		this.controller = new GameController(mod, this) ;
+		this.model = mod;
 		initPanel();
 	}
 
@@ -72,6 +74,9 @@ public class ColorSelectorPanel  extends MainContainer implements GameObserver {
 	 * At the top : introduction
 	 */
 	public void initPanel(){
+		
+		this.controller = new GameController(model, this) ;
+		this.model.addObserver(this);
 		
 		introPanel = new JPanel();
 		layout = new BoxLayout(introPanel, BoxLayout.Y_AXIS);
@@ -101,9 +106,9 @@ public class ColorSelectorPanel  extends MainContainer implements GameObserver {
 		choicePanel.setBackground(Color.yellow);
 		
 		
-		colorSecret = new JLabel[MAX_DIGITS];
+		colorSecret = new JLabel[GameObservable.MAX_DIGITS];
 		
-		for(short i = 0;i < MAX_DIGITS;i++) {
+		for(short i = 0;i < GameObservable.MAX_DIGITS;i++) {
 			
 			colorSecret[i] = new JLabel(new ImageIcon("res/images/" + emptyIcon), JLabel.CENTER);	
 
@@ -130,9 +135,9 @@ public class ColorSelectorPanel  extends MainContainer implements GameObserver {
 		colorPanel = new JPanel();
 		colorPanel.setBackground(Color.black);
 		
-		colorCombo = new JLabel[MAX_DIGITS];
+		colorCombo = new JLabel[GameObservable.MAX_DIGITS];
 		
-		for(short i = 0;i < MAX_DIGITS;i++) {
+		for(short i = 0;i < GameObservable.MAX_DIGITS;i++) {
 			
 			//icon[i] = createImageIcon("/res/images/" + iconString[i]);
 
@@ -174,9 +179,9 @@ public class ColorSelectorPanel  extends MainContainer implements GameObserver {
 	 */
 	public int[] getFields() {
 		
-		int[] fields = new int[MAX_DIGITS];
+		int[] fields = new int[GameObservable.MAX_DIGITS];
 		
-		for(short i = 0;i < MAX_DIGITS;i++) {
+		for(short i = 0;i < GameObservable.MAX_DIGITS;i++) {
 			
 			fields[i] = Integer.parseInt(this.colorSecret[i].getName());
 		}
@@ -185,9 +190,20 @@ public class ColorSelectorPanel  extends MainContainer implements GameObserver {
 	}
 	
 	@Override
-	public void update() {
-		// TODO Auto-generated method stub
+	public void update(Object obj) {
 
+		// If we have players submitted then update the panels accordingly
+		if (obj instanceof User[]) {
+			
+			introTxt.setText("<html><center><h1>Master Game</h1>" +
+					"<p>Now it's time to play, have fun !</p></center></html>");
+			
+			// Do the rest here ...
+			
+			
+		}
+
+		
 	}
 
 	@Override

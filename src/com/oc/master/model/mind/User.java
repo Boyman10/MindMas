@@ -9,7 +9,7 @@ import com.oc.master.model.mind.exception.ComboException;
  * @author boy
  * @version 1.0.0
  */
-public abstract class User {
+public class User {
 
 	// Chosen combo (case defense & challenger as defender)
 	private int[] secretCombo;
@@ -46,6 +46,18 @@ public abstract class User {
 			throw new ComboException("Problem with lenght of submitted clue");
 		else
 			this.clues.add(clue);
+	}
+
+	public int[] getSecretCombo() {
+		return secretCombo;
+	}
+
+	public ArrayList<int[]> getTries() {
+		return tries;
+	}
+
+	public ArrayList<char[]> getClues() {
+		return clues;
 	}
 	
 	

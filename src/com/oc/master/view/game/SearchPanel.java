@@ -17,7 +17,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.text.MaskFormatter;
 
 import com.oc.master.controller.GameController;
-
+import com.oc.master.model.mind.User;
 import com.oc.master.model.observer.GameObservable;
 import com.oc.master.model.observer.GameObserver;
 import com.oc.master.utils.KeyboardAction;
@@ -31,8 +31,6 @@ import com.oc.master.view.MainContainer;
 public class SearchPanel extends MainContainer implements GameObserver {
 
 	private GameController controller;
-
-	private static final short MAX_DIGITS = 4;
 
 	private JPanel introPanel, gamePanel, cluePanel, historicPanel;
 	private JLabel introTxt;
@@ -79,12 +77,12 @@ public class SearchPanel extends MainContainer implements GameObserver {
 		Font police = new Font("Arial", Font.BOLD, 14);
 		gamePanel.setBackground(Color.white);
 		
-		jtf = new JFormattedTextField[MAX_DIGITS];
+		jtf = new JFormattedTextField[GameObservable.MAX_DIGITS];
 		
 		try{
 			MaskFormatter nb = new MaskFormatter("#");
 		
-			for(short i = 0;i < MAX_DIGITS;i++) {
+			for(short i = 0;i < GameObservable.MAX_DIGITS;i++) {
 	
 				jtf[i] = new JFormattedTextField(nb);	
 	
@@ -135,9 +133,9 @@ public class SearchPanel extends MainContainer implements GameObserver {
 	 */
 	public int[] getFields() {
 		
-		int[] fields = new int[MAX_DIGITS];
+		int[] fields = new int[GameObservable.MAX_DIGITS];
 		
-		for(short i = 0;i < MAX_DIGITS;i++) {
+		for(short i = 0;i < GameObservable.MAX_DIGITS;i++) {
 			fields[i] = Integer.parseInt(this.jtf[i].getText());
 		}
 					
@@ -145,9 +143,17 @@ public class SearchPanel extends MainContainer implements GameObserver {
 	}
 	
 	@Override
-	public void update() {
-		// TODO Auto-generated method stub
+	public void update(Object obj) {
 
+
+		if (obj instanceof User[]) {
+			
+			introTxt.setText("<html><center><h1>Search +/- Game</h1>" +
+					"<p>Now time to play ...</p></center></html>");
+		}
+		
+		
+		
 	}
 
 	@Override
