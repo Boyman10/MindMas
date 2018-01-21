@@ -23,6 +23,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.oc.master.controller.GameController;
+import com.oc.master.model.GameMode;
 import com.oc.master.model.mind.User;
 import com.oc.master.model.observer.GameObservable;
 import com.oc.master.model.observer.GameObserver;
@@ -33,7 +34,7 @@ import com.oc.master.view.MainContainer;
  * @author boy
  * @version 1.0.0
  */
-public class ColorSelectorPanel  extends MainContainer implements GameObserver {
+public class MasterGamePanel  extends MainContainer implements GameObserver {
 
 	// TODO - Change name of Class to MasterGamePanel ------------ SAME LAYOUT FOR THE WHOLE GAME
 	
@@ -60,10 +61,12 @@ public class ColorSelectorPanel  extends MainContainer implements GameObserver {
 	 * Constructor for the ColorSelectorPanel class
 	 * @param dim
 	 */
-	public ColorSelectorPanel(Dimension dim, GameObservable mod){
+	public MasterGamePanel(Dimension dim, GameObservable mod){
 		super(dim);
 				
 		this.model = mod;
+		this.controller = new GameController(model, this) ;
+		this.model.addObserver(this);
 		initPanel();
 	}
 
@@ -74,10 +77,7 @@ public class ColorSelectorPanel  extends MainContainer implements GameObserver {
 	 * At the top : introduction
 	 */
 	public void initPanel(){
-		
-		this.controller = new GameController(model, this) ;
-		this.model.addObserver(this);
-		
+				
 		introPanel = new JPanel();
 		layout = new BoxLayout(introPanel, BoxLayout.Y_AXIS);
 		
@@ -190,7 +190,7 @@ public class ColorSelectorPanel  extends MainContainer implements GameObserver {
 	}
 	
 	@Override
-	public void update(Object obj) {
+	public void update(Object obj, GameMode gm) {
 
 		// If we have players submitted then update the panels accordingly
 		if (obj != null && obj instanceof User[]) {

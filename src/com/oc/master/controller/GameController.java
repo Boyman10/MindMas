@@ -9,7 +9,7 @@ import org.apache.logging.log4j.Logger;
 import com.oc.master.model.GameModel;
 import com.oc.master.model.observer.GameObservable;
 import com.oc.master.view.MainContainer;
-import com.oc.master.view.game.ColorSelectorPanel;
+import com.oc.master.view.game.MasterGamePanel;
 import com.oc.master.view.game.SearchPanel;
 
 /**
@@ -45,8 +45,8 @@ public class GameController implements ActionListener {
 				// Verify if it is SearchPanel calling :
 				if (container instanceof SearchPanel)
 					model.assign(((SearchPanel)container).getFields());
-				else if (container instanceof ColorSelectorPanel)
-					model.assign(((ColorSelectorPanel)container).getFields());
+				else if (container instanceof MasterGamePanel)
+					model.assign(((MasterGamePanel)container).getFields());
 			}
 		
 	}

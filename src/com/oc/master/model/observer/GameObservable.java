@@ -2,6 +2,7 @@ package com.oc.master.model.observer;
 
 public interface GameObservable {
 	
+	
 	// Max Size of Array - difficulty :
 	public static final short MAX_DIGITS = 4;
 	

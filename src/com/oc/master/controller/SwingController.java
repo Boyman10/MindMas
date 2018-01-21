@@ -69,7 +69,7 @@ public class SwingController implements ActionListener {
 			
 		} else if (e.getActionCommand().equals("attack")) {
 			
-			logger.error("Starting the game now...");
+			logger.trace("Starting the game now...");
 			
 			model.setGameMode(GameMode.ATTACK);
 			

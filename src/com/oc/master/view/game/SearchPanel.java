@@ -6,6 +6,7 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.LayoutManager;
 import java.text.ParseException;
+import java.util.Arrays;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -17,6 +18,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.text.MaskFormatter;
 
 import com.oc.master.controller.GameController;
+import com.oc.master.model.GameMode;
 import com.oc.master.model.mind.User;
 import com.oc.master.model.observer.GameObservable;
 import com.oc.master.model.observer.GameObserver;
@@ -31,22 +33,27 @@ import com.oc.master.view.MainContainer;
 public class SearchPanel extends MainContainer implements GameObserver {
 
 	private GameController controller;
-
+	private GameObservable model;
+	
+	
 	private JPanel introPanel, gamePanel, cluePanel, historicPanel;
-	private JLabel introTxt;
+	private JLabel introTxt, secretCombo;
 	private LayoutManager layout;
 	private JButton validateBtn;
 
 	private JFormattedTextField[] jtf;
 		
 	/**
-	 * Constructor for the HomePanel class
+	 * Constructor for the SearchPanel class
 	 * @param dim
 	 */
 	public SearchPanel(Dimension dim, GameObservable mod){
 		super(dim);
-				
+		
+		this.model = mod;		
 		this.controller = new GameController(mod, this) ;
+		this.model.addObserver(this);
+		
 		initPanel();
 	}
 
@@ -70,42 +77,25 @@ public class SearchPanel extends MainContainer implements GameObserver {
 		introTxt.setText("<html><center><h1>Search +/- Game</h1>" +
 				"<p>Enjoy !</p></center></html>");
 
-
+		char[] secret = new char[GameObservable.MAX_DIGITS];
+		for (int i = 0; i < GameObservable.MAX_DIGITS; i++)
+			secret[i] = '#';
+		
+		secretCombo = new JLabel();
+		
+		secretCombo.setText(String.valueOf(secret));
+		
 		introPanel.add(introTxt);
+		introPanel.add(secretCombo);
 
 		gamePanel = new JPanel();
-		Font police = new Font("Arial", Font.BOLD, 14);
-		gamePanel.setBackground(Color.white);
-		
+
 		jtf = new JFormattedTextField[GameObservable.MAX_DIGITS];
-		
-		try{
-			MaskFormatter nb = new MaskFormatter("#");
-		
-			for(short i = 0;i < GameObservable.MAX_DIGITS;i++) {
-	
-				jtf[i] = new JFormattedTextField(nb);	
-	
-				jtf[i].setFont(police);
-				jtf[i].setPreferredSize(new Dimension(50, 30));
-				jtf[i].setForeground(Color.BLUE);
-				
-				jtf[i].addKeyListener(new KeyboardAction());
-				
-				gamePanel.add(jtf[i]);
-			}
-		} catch(ParseException e){e.printStackTrace();}
-		
-		/**
-		 * Adding Validate button and onClickListener using Controller
-		 */
 		validateBtn = new JButton("Validate");
 		validateBtn.setActionCommand("validate");
 		validateBtn.addActionListener(this.controller);
-		gamePanel.add(validateBtn);
-
-		gamePanel.add(new JSeparator(JSeparator.VERTICAL),
-		          BorderLayout.LINE_START);
+		
+		refreshGamePanel();
 		
 		historicPanel = new JPanel();
 		JLabel history = new JLabel("Check what you've done so far :");
@@ -143,15 +133,83 @@ public class SearchPanel extends MainContainer implements GameObserver {
 	}
 	
 	@Override
-	public void update(Object obj) {
+	public void update(Object obj, GameMode gm) {
 
 
 		if (obj instanceof User[]) {
+						
+			// obj[0] is the user
+			// obj[1] is the computer
+
+			User[] players = (User[])obj;
 			
-			introTxt.setText("<html><center><h1>Search +/- Game</h1>" +
-					"<p>Now time to play ...</p></center></html>");
+			if (gm == GameMode.ATTACK) {
+				
+				introTxt.setText("<html><center><h1>Search +/- Game</h1>" +
+						"<p>Now time to play - You are trying to guess !</p></center></html>");
+				
+				String myCombo = Arrays.toString(players[1].getSecretCombo());
+				secretCombo.setText(myCombo);
+				refreshGamePanel();
+				
+				// Now historic panel part :
+				
+				for (int i=0;i<players[0].getTries().size();i++) {
+					String myTry = Arrays.toString((players[0].getTries()).get(i));
+					historicPanel.add(new JLabel(myTry));
+				}	
+				
+				// The clue part :
+				for (int i=0;i<players[0].getClues().size();i++) {
+					String myClue = Arrays.toString((players[0].getClues()).get(i));
+					cluePanel.add(new JLabel(myClue));
+				}	
+			}
+			
 		}
 		
+		
+		
+	}
+
+	/**
+	 * Method which refresh game panel with empty data
+	 */
+	private void refreshGamePanel() {
+
+		gamePanel.removeAll();
+		
+		Font police = new Font("Arial", Font.BOLD, 14);
+		gamePanel.setBackground(Color.white);
+		
+		
+		try{
+			MaskFormatter nb = new MaskFormatter("#");
+		
+			for(short i = 0;i < GameObservable.MAX_DIGITS;i++) {
+	
+				jtf[i] = new JFormattedTextField(nb);	
+	
+				jtf[i].setFont(police);
+				jtf[i].setPreferredSize(new Dimension(50, 30));
+				jtf[i].setForeground(Color.BLUE);
+				
+				jtf[i].addKeyListener(new KeyboardAction());
+				
+				gamePanel.add(jtf[i]);
+			}
+		} catch(ParseException e){e.printStackTrace();}
+		
+		/**
+		 * Adding Validate button and onClickListener using Controller
+		 */
+
+		gamePanel.add(validateBtn);
+
+		gamePanel.add(new JSeparator(JSeparator.VERTICAL),
+		          BorderLayout.LINE_START);
+		
+	
 		
 		
 	}

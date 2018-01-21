@@ -23,7 +23,7 @@ import com.oc.master.model.GameModel;
 import com.oc.master.model.GameType;
 import com.oc.master.model.observer.Observable;
 import com.oc.master.model.observer.Observer;
-import com.oc.master.view.game.ColorSelectorPanel;
+import com.oc.master.view.game.MasterGamePanel;
 import com.oc.master.view.game.SearchPanel;
 
 
@@ -223,7 +223,7 @@ public class SwingWindow extends JFrame implements Observer {
 	public void actionColorSelector() {
 
 		containerPanel.removeAll();
-		ColorSelectorPanel sp = new ColorSelectorPanel(size,new GameModel(this.model.getGameType(),this.model.getGameMode()));
+		MasterGamePanel sp = new MasterGamePanel(size,new GameModel(this.model.getGameType(),this.model.getGameMode()));
 		containerPanel.add(sp.getPanel(), BorderLayout.CENTER);
 		containerPanel.revalidate();
 
