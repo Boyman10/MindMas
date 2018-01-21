@@ -13,7 +13,6 @@ import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JSeparator;
 import javax.swing.border.EmptyBorder;
 import javax.swing.text.MaskFormatter;
 
@@ -100,7 +99,7 @@ public class SearchPanel extends MainContainer implements GameObserver {
 		validateBtn.setActionCommand("validate");
 		validateBtn.addActionListener(this.controller);
 		
-		refreshGamePanel();
+		//refreshGamePanel();
 		
 		historicPanel = new JPanel();
 		JLabel history = new JLabel("Check what you've done so far :");
@@ -181,21 +180,21 @@ public class SearchPanel extends MainContainer implements GameObserver {
 		}
 		
 		
-		
+		logger.trace("End of update");
 	}
 
 	/**
 	 * Method which refresh game panel with empty data
 	 */
 	private void refreshGamePanel() {
+		
 
+		logger.trace("Refreshing Game Panel - Start");
+		
 		gamePanel.removeAll();
 		
 		Font police = new Font("Arial", Font.BOLD, 14);
 		gamePanel.setBackground(Color.white);
-		
-		// Nullify object :
-		//jtf = new JFormattedTextField[GameObservable.MAX_DIGITS];
 		
 		try{
 			MaskFormatter nb = new MaskFormatter("#");
@@ -213,8 +212,9 @@ public class SearchPanel extends MainContainer implements GameObserver {
 				gamePanel.add(jtf[i]);
 			}
 		} catch(ParseException e){
-			e.printStackTrace();
 			logger.error("Error Refreshing game panel - double...");
+			e.printStackTrace();
+			
 		}
 		
 		/**
@@ -222,13 +222,10 @@ public class SearchPanel extends MainContainer implements GameObserver {
 		 */
 
 		gamePanel.add(validateBtn);
-
-		gamePanel.add(new JSeparator(JSeparator.VERTICAL),
-		          BorderLayout.LINE_START);
 		
 	
 		logger.trace("Refreshing Game Panel");
-		
+				
 	}
 
 	@Override

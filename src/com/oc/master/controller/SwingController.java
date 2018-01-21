@@ -12,7 +12,6 @@ import com.oc.master.model.GameMode;
 import com.oc.master.model.GameModel;
 import com.oc.master.model.GameType;
 import com.oc.master.model.observer.GameObservable;
-import com.oc.master.view.game.SearchPanel;
 
 /**
  * Controller Class handling main Menu click events
@@ -88,6 +87,7 @@ public class SwingController implements ActionListener {
 					logger.error("Starting game Type error !");
 			}
 			
+			logger.trace("panel opened successfully !");
 			
 		} else if (e.getActionCommand().equals("defense")) {
 			
