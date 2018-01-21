@@ -9,9 +9,10 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.oc.master.model.GameMode;
+import com.oc.master.model.GameModel;
 import com.oc.master.model.GameType;
-import com.oc.master.model.Model;
-import com.oc.master.model.observer.Observable;
+import com.oc.master.model.observer.GameObservable;
+import com.oc.master.view.game.SearchPanel;
 
 /**
  * Controller Class handling main Menu click events
@@ -23,11 +24,11 @@ public class SwingController implements ActionListener {
 
 	static final Logger logger = LogManager.getLogger();
 
-	private Model model;
+	private GameModel model;
 
-	public SwingController ( Observable model) {
+	public SwingController ( GameObservable model) {
 
-		this.model = (Model)model;
+		this.model = (GameModel)model;
 	}
 
 	@Override
@@ -38,7 +39,7 @@ public class SwingController implements ActionListener {
 		// NEW Game Menu action : 
 		if (e.getActionCommand().equals("game")) {
 
-			model.gameObserver();
+			model.actionObserver("game");
 
 		} else if(e.getActionCommand().equals("quit")) {
 
@@ -51,7 +52,7 @@ public class SwingController implements ActionListener {
 					"Author : Boy\nLicence : Freeware\nCopyright : whatever link",
 					"Informations", JOptionPane.NO_OPTION);
 
-			model.homeObserver();
+			model.actionObserver("home");
 						
 		} // NEW Game Menu action : 
 		else if (e.getActionCommand().equals("search") || e.getActionCommand().equals("master") ) {
@@ -65,21 +66,23 @@ public class SwingController implements ActionListener {
 							
 			}
 			
-			model.modeObserver();	
+			model.actionObserver("mode");
 			
 		} else if (e.getActionCommand().equals("attack")) {
 			
-			logger.trace("Starting the game now...");
+			logger.trace("Starting the game now - Attack - calling model");
 			
 			model.setGameMode(GameMode.ATTACK);
 			
 			switch (model.getGameType()) {
 			
 				case SEARCH : 
-					model.actionSearchObserver();
+					model.init();
+					model.actionObserver("search");
 					break;
 				case MASTER :
-					model.actionMasterObserver();
+					model.init();
+					model.actionObserver("master");
 					break;
 				default :
 					logger.error("Starting game Type error !");
@@ -95,10 +98,12 @@ public class SwingController implements ActionListener {
 			switch (model.getGameType()) {
 			
 				case SEARCH : 
-					model.actionSearchObserver();
+					model.init();
+					model.actionObserver("search");
 					break;
 				case MASTER :
-					model.actionObserver("actionColorSelector");
+					model.init();
+					model.actionObserver("master");
 					break;
 				default :
 					logger.error("Starting game type error !");

@@ -1,6 +1,7 @@
 package com.oc.master.model;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -31,61 +32,86 @@ public class GameModel implements GameObservable {
 	private User[] players;
 	
 	/**
-	 * Class constructor initializing GameMode and GameType
-	 * @param typeGame, modeGame
+	 * Empty constructor
 	 */
-	public GameModel(GameType type, GameMode mode) {
-		
-		this.typeGame = type;
-		this.modeGame = mode;
-		
+	public GameModel() {
 		// Define number of players : User & Computer
 		players = new User[2];
-		
 	}
+	
+	public void setGameMode(GameMode gm) {
+		
+		modeGame = gm;
+	}
+	
+	public void setGameType(GameType gt) {
+		
+		typeGame = gt;
+	}	
+	
+	public GameType getGameType() {
+		
+		return typeGame;
+	}
+	
+	
+	public GameMode getGameMode() {
+		
+		return modeGame;
+	}
+	
+
+	/**
+	 * Method to initialize data
+	 */
+	public void init() {		
+		
+		Random nb = new Random(GameModel.MAX_DIGITS);
+		switch(this.modeGame) {
+		
+		/**
+		 * Case Attacker - The computer will compare its combo with the user try
+		 */		
+		case ATTACK :
+			
+			players[0] = new User(null); // The user is Attacking - no secret combo for him
+			players[1] = new User(nb.getNumbers()); // Computer here
+			
+			break;
+			
+		/**
+		 * Case Defender (user) - the user/automatic part will compare its combo with computer try
+		 */		
+		case DEFENSE:
+			
+			players[0] = new User(null); // The user is defending - secret combo here
+			players[1] = new User(null); // Computer here
+			
+			break;
+			
+		case CHALLENGE:
+			players[0] = new User(null); // The user is defending - secret combo here
+			players[1] = new User(nb.getNumbers()); // Computer here	
+			
+			break;
+		default:
+			
+			logger.debug("Wrong mode for the game or empty mode !");
+			break;
+		
+		}
+	}
+	
+	
 	
 	/**
 	 * Method to assign proper data to deal with
 	 * @param vars
 	 */
 	public void assign(int[] vars) {
-		
-		// Check whether players 1 and 2 are empty or not
-		
-		if (players.length == 2 && (players[0] == null || players[1] == null)) {
-			/** 
-			* Here we will launch the calculation from the computer depending on the Game mode :
-			* Players instantiation
-			*/
 			
-			switch(this.modeGame) {
-			/**
-			 * Case Attacker - The computer will compare its combo with the user try
-			 */		
-			case ATTACK :
-				players[0] = new User(null); // The user is Attacking - no secret combo for him
-				players[1] = new User(Random.getNumbers(GameModel.MAX_DIGITS)); // Computer here
-				break;
-				
-			/**
-			 * Case Defender (user) - the user/automatic part will compare its combo with computer try
-			 */		
-			case DEFENSE:
-				players[0] = new User(vars); // The user is defending - secret combo here
-				players[1] = new User(null); // Computer here
-				break;
-			case CHALLENGE:
-				players[0] = new User(vars); // The user is defending - secret combo here
-				players[1] = new User(Random.getNumbers(GameModel.MAX_DIGITS)); // Computer here	
-				
-				break;
-			default:
-				logger.debug("Wrong mode for the game or empty mode !");
-				break;
-			
-			}
-			
-		} else if (players.length == 2 && (players[0] != null || players[1] != null)) {
+		// some type of control :
+		if (players.length == 2 && (players[0] != null || players[1] != null)) {
 			
 			int counter = 0;
 			
@@ -110,6 +136,8 @@ public class GameModel implements GameObservable {
 			 */		
 			case ATTACK :
 				
+				logger.trace("Vars submitted : " + Arrays.toString(vars));
+				
 				try {
 					// Add the try first to the list
 					players[0].addTry(vars);
@@ -133,12 +161,9 @@ public class GameModel implements GameObservable {
 			 * Case Defender (user) - the user/automatic part will compare its combo with computer try
 			 */		
 			case DEFENSE:
-				players[0] = new User(vars); // The user is defending - secret combo here
-				players[1] = new User(null); // Computer here
+				
 				break;
 			case CHALLENGE:
-				players[0] = new User(vars); // The user is defending - secret combo here
-				players[1] = new User(Random.getNumbers(GameModel.MAX_DIGITS)); // Computer here	
 				
 				break;
 			default:
@@ -156,7 +181,6 @@ public class GameModel implements GameObservable {
 		
 		
 		// notify short historic panel with clues and main panel
-		
 		this.notifyObserver();
 	}
 
@@ -164,7 +188,7 @@ public class GameModel implements GameObservable {
 	public void addObserver(GameObserver obs) {
 		// TODO Auto-generated method stub
 		this.listObserver.add(obs);
-		//this.notifyObserver();
+		this.notifyObserver();
 	}
 
 	@Override
@@ -189,8 +213,9 @@ public class GameModel implements GameObservable {
 
 	@Override
 	public void actionObserver(String method) {
-		// TODO Auto-generated method stub
 		
+		for(GameObserver obs : this.listObserver)
+			obs.action(method);				
 	}
 	
 

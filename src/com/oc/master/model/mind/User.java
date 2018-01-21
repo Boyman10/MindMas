@@ -48,7 +48,7 @@ public class User implements Combo {
 	 */
 	public void addClue(char[] clue)  throws ComboException {
 		
-		if (clue.length != secretCombo.length)
+		if (clue.length <= 0)
 			throw new ComboException("Problem with lenght of submitted clue");
 		else
 			this.clues.add(clue);
@@ -61,7 +61,7 @@ public class User implements Combo {
 	 */
 	public void addTry(int[] myTry)  throws ComboException {
 		
-		if (tries.size() != secretCombo.length)
+		if (myTry.length  <= 0)
 			throw new ComboException("Problem with lenght of submitted try");
 		else
 			this.tries.add(myTry);

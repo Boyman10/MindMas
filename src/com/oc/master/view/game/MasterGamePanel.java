@@ -212,6 +212,14 @@ public class MasterGamePanel  extends MainContainer implements GameObserver {
 
 	}
 	
+	
+	@Override
+	public void action(String method) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
 	class DragMouseAdapter extends MouseAdapter {
 		  public void mousePressed(MouseEvent e) {
 		    JComponent c = (JComponent) e.getSource();
@@ -219,5 +227,7 @@ public class MasterGamePanel  extends MainContainer implements GameObserver {
 		    handler.exportAsDrag(c, e, TransferHandler.COPY);
 		  }
 		}
+
+
 	
 }

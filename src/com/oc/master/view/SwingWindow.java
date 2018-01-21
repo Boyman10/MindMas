@@ -19,10 +19,9 @@ import org.apache.logging.log4j.Logger;
 
 import com.oc.master.controller.SwingController;
 import com.oc.master.model.GameMode;
-import com.oc.master.model.GameModel;
-import com.oc.master.model.GameType;
-import com.oc.master.model.observer.Observable;
-import com.oc.master.model.observer.Observer;
+
+import com.oc.master.model.observer.GameObservable;
+import com.oc.master.model.observer.GameObserver;
 import com.oc.master.view.game.MasterGamePanel;
 import com.oc.master.view.game.SearchPanel;
 
@@ -32,7 +31,7 @@ import com.oc.master.view.game.SearchPanel;
  * @author bob
  * @version 1.0.1
  */
-public class SwingWindow extends JFrame implements Observer {
+public class SwingWindow extends JFrame implements GameObserver {
 
 	private static final long serialVersionUID = 2121616383041870269L;
 	
@@ -49,7 +48,7 @@ public class SwingWindow extends JFrame implements Observer {
 	private JPanel containerPanel = new JPanel();
 	private Dimension size;
 
-	private Observable model;
+	private GameObservable model;
 
 	private SwingController swingController;
 
@@ -57,7 +56,7 @@ public class SwingWindow extends JFrame implements Observer {
 	 * Class Constructor
 	 * @param obs
 	 */
-	public SwingWindow(Observable obs) {
+	public SwingWindow(GameObservable obs) {
 
 		this.model = obs;
 		initWindow();
@@ -134,7 +133,7 @@ public class SwingWindow extends JFrame implements Observer {
 
 
 	@Override
-	public void update(GameType type, GameMode mode) {
+	public void update(Object obj, GameMode mode) {
 
 		// We have the Game Mode and Game Type
 		// We can keep track of the type of Panel we need in case of....
@@ -145,56 +144,6 @@ public class SwingWindow extends JFrame implements Observer {
 		// TODO Auto-generated method stub
 
 	}
-
-	@Override
-	public void home() {
-
-		containerPanel.removeAll();
-		containerPanel.add(new HomePanel(size).getPanel(),BorderLayout.CENTER);
-		containerPanel.revalidate();
-	}
-
-	/**
-	 * Calling the Mode Panel
-	 */
-	@Override 
-	public void mode() {
-
-		containerPanel.removeAll();
-		ModePanel mp = new ModePanel(size,swingController);
-		containerPanel.add(mp.getPanel(), BorderLayout.CENTER);
-		containerPanel.revalidate();
-	}
-
-	@Override
-	public void game() {
-
-		containerPanel.removeAll();
-		GamePanel gp = new GamePanel(size,swingController);
-		containerPanel.add(gp.getPanel(), BorderLayout.CENTER);
-		containerPanel.revalidate();
-	}
-
-	/**
-	 * Methods calling the proper Game Panel depending on mode and type :
-	 */
-	@Override
-	public void actionSearch() {
-
-		containerPanel.removeAll();
-		SearchPanel sp = new SearchPanel(size,new GameModel(this.model.getGameType(),this.model.getGameMode()));
-		containerPanel.add(sp.getPanel(), BorderLayout.CENTER);
-		containerPanel.revalidate();
-
-	}
-
-	@Override
-	public void actionMaster() {
-
-
-	}	
-
-
 
 
 	/**
@@ -208,24 +157,77 @@ public class SwingWindow extends JFrame implements Observer {
 		logger.trace("Calling action " + method);
 		
 		switch(method) {
-		case "actionColorSelector":
-			actionColorSelector();
+		case "home":
+			actionHome();
 			break;
+		case "master":
+			actionMaster();
+			break;
+		case "mode":
+			actionMode();
+			break;
+		case "game":
+			actionGame();
+			break;
+		case "search" :
+			actionSearch();
+			break;
+			default :
+				logger.error("Wrong action taken... please check : " + method);
 
 		}
 	}
 
+	public void actionHome() {
+
+		containerPanel.removeAll();
+		containerPanel.add(new HomePanel(size).getPanel(),BorderLayout.CENTER);
+		containerPanel.revalidate();
+	}
 
 
 	/**
 	 * Methods calling the proper Panel to let the user choose its colors combo:
 	 */
-	public void actionColorSelector() {
+	public void actionMaster() {
 
 		containerPanel.removeAll();
-		MasterGamePanel sp = new MasterGamePanel(size,new GameModel(this.model.getGameType(),this.model.getGameMode()));
+		MasterGamePanel sp = new MasterGamePanel(size,model);
 		containerPanel.add(sp.getPanel(), BorderLayout.CENTER);
 		containerPanel.revalidate();
 
 	}
+	
+	/**
+	 * Calling the Mode Panel
+	 */
+	public void actionMode() {
+
+		containerPanel.removeAll();
+		ModePanel mp = new ModePanel(size,swingController);
+		containerPanel.add(mp.getPanel(), BorderLayout.CENTER);
+		containerPanel.revalidate();
+	}
+
+	public void actionGame() {
+
+		containerPanel.removeAll();
+		GamePanel gp = new GamePanel(size,swingController);
+		containerPanel.add(gp.getPanel(), BorderLayout.CENTER);
+		containerPanel.revalidate();
+	}
+
+	/**
+	 * Methods calling the proper Game Panel depending on mode and type :
+	 */
+	public void actionSearch() {
+
+		logger.trace("Action Search called");
+		
+		containerPanel.removeAll();
+		SearchPanel sp = new SearchPanel(size,model);
+		containerPanel.add(sp.getPanel(), BorderLayout.CENTER);
+		containerPanel.revalidate();
+
+	}	
 }

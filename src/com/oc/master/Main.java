@@ -3,8 +3,8 @@ package com.oc.master;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.oc.master.model.Model;
-import com.oc.master.model.observer.Observable;
+import com.oc.master.model.GameModel;
+import com.oc.master.model.observer.GameObservable;
 import com.oc.master.utils.Keyboard;
 import com.oc.master.view.SwingWindow;
 
@@ -50,7 +50,7 @@ public class Main {
 			case 2 :
 				// case Swing
 				logger.trace("Launching Swing mode");
-				Observable model = new Model();
+				GameObservable model = new GameModel();
 				SwingWindow wind = new SwingWindow(model);
 				wind.setVisible(true);
 				break;

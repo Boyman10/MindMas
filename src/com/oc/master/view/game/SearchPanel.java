@@ -17,6 +17,9 @@ import javax.swing.JSeparator;
 import javax.swing.border.EmptyBorder;
 import javax.swing.text.MaskFormatter;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.oc.master.controller.GameController;
 import com.oc.master.model.GameMode;
 import com.oc.master.model.mind.User;
@@ -32,6 +35,9 @@ import com.oc.master.view.MainContainer;
  */
 public class SearchPanel extends MainContainer implements GameObserver {
 
+	static final Logger logger = LogManager.getLogger();
+
+	
 	private GameController controller;
 	private GameObservable model;
 	
@@ -52,7 +58,6 @@ public class SearchPanel extends MainContainer implements GameObserver {
 		
 		this.model = mod;		
 		this.controller = new GameController(mod, this) ;
-		this.model.addObserver(this);
 		
 		initPanel();
 	}
@@ -115,6 +120,7 @@ public class SearchPanel extends MainContainer implements GameObserver {
 		
 		this.panel.setBorder(new EmptyBorder(10, 10, 10, 10));
 
+		this.model.addObserver(this);
 	}
 
 	/**
@@ -135,7 +141,8 @@ public class SearchPanel extends MainContainer implements GameObserver {
 	@Override
 	public void update(Object obj, GameMode gm) {
 
-
+		logger.trace("Updating search Panel");
+		
 		if (obj instanceof User[]) {
 						
 			// obj[0] is the user
@@ -148,9 +155,10 @@ public class SearchPanel extends MainContainer implements GameObserver {
 				introTxt.setText("<html><center><h1>Search +/- Game</h1>" +
 						"<p>Now time to play - You are trying to guess !</p></center></html>");
 				
+				logger.trace("Writing secret combo from computer " + Arrays.toString(players[1].getSecretCombo()) );
 				String myCombo = Arrays.toString(players[1].getSecretCombo());
 				secretCombo.setText(myCombo);
-				refreshGamePanel();
+
 				
 				// Now historic panel part :
 				
@@ -164,6 +172,10 @@ public class SearchPanel extends MainContainer implements GameObserver {
 					String myClue = Arrays.toString((players[0].getClues()).get(i));
 					cluePanel.add(new JLabel(myClue));
 				}	
+				
+				
+				refreshGamePanel();
+				
 			}
 			
 		}
@@ -182,6 +194,8 @@ public class SearchPanel extends MainContainer implements GameObserver {
 		Font police = new Font("Arial", Font.BOLD, 14);
 		gamePanel.setBackground(Color.white);
 		
+		// Nullify object :
+		//jtf = new JFormattedTextField[GameObservable.MAX_DIGITS];
 		
 		try{
 			MaskFormatter nb = new MaskFormatter("#");
@@ -198,7 +212,10 @@ public class SearchPanel extends MainContainer implements GameObserver {
 				
 				gamePanel.add(jtf[i]);
 			}
-		} catch(ParseException e){e.printStackTrace();}
+		} catch(ParseException e){
+			e.printStackTrace();
+			logger.error("Error Refreshing game panel - double...");
+		}
 		
 		/**
 		 * Adding Validate button and onClickListener using Controller
@@ -210,7 +227,7 @@ public class SearchPanel extends MainContainer implements GameObserver {
 		          BorderLayout.LINE_START);
 		
 	
-		
+		logger.trace("Refreshing Game Panel");
 		
 	}
 
@@ -218,6 +235,12 @@ public class SearchPanel extends MainContainer implements GameObserver {
 	public void restart() {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public void action(String method) {
+		// TODO Auto-generated method stub
+		
 	}
 
 

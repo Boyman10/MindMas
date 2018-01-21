@@ -25,7 +25,9 @@ public class GameController implements ActionListener {
 	private MainContainer container;
 
 	public GameController (GameObservable model, MainContainer container) {
-
+		
+		logger.trace("Switching Controller");
+		
 		this.model = (GameModel)model;
 		this.container = container;
 	}
