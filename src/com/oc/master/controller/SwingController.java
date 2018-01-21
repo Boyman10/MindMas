@@ -80,7 +80,7 @@ public class SwingController implements ActionListener {
 					break;
 				case MASTER :
 					model.actionMasterObserver();
-					
+					break;
 				default :
 					logger.error("Starting game Type error !");
 			}
@@ -99,7 +99,7 @@ public class SwingController implements ActionListener {
 					break;
 				case MASTER :
 					model.actionObserver("actionColorSelector");
-					
+					break;
 				default :
 					logger.error("Starting game type error !");
 			}

@@ -69,12 +69,12 @@ public class GameModel implements GameObservable {
 		case DEFENSE:
 			players[0] = new User(vars); // The user is defending - secret combo here
 			players[1] = new User(null); // Computer here
-			
+			break;
 		case CHALLENGE:
 			players[0] = new User(vars); // The user is defending - secret combo here
 			players[1] = new User(Random.getNumbers(GameModel.MAX_DIGITS)); // Computer here	
 			
-			
+			break;
 		default:
 			logger.debug("Wrong mode for the game or empty mode !");
 			break;
