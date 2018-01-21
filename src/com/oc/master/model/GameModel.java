@@ -93,7 +93,7 @@ public class GameModel implements GameObservable {
 	public void addObserver(GameObserver obs) {
 		// TODO Auto-generated method stub
 		this.listObserver.add(obs);
-		this.notifyObserver();
+		//this.notifyObserver();
 	}
 
 	@Override
@@ -101,7 +101,7 @@ public class GameModel implements GameObservable {
 
 		// One Observer here is the MasterGamePanel
 		for(GameObserver obs : this.listObserver)
-			obs.update();		
+			obs.update(players);		
 	}
 
 	@Override

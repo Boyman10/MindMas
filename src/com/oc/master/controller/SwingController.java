@@ -82,7 +82,7 @@ public class SwingController implements ActionListener {
 					model.actionMasterObserver();
 					
 				default :
-					logger.error("Starting game mode error !");
+					logger.error("Starting game Type error !");
 			}
 			
 			
@@ -101,7 +101,7 @@ public class SwingController implements ActionListener {
 					model.actionObserver("actionColorSelector");
 					
 				default :
-					logger.error("Starting game mode error !");
+					logger.error("Starting game type error !");
 			}
 			
 			

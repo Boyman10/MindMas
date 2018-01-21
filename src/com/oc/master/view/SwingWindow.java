@@ -197,6 +197,11 @@ public class SwingWindow extends JFrame implements Observer {
 
 
 
+	/**
+	 * Grouping actions here
+	 * TODO : remove the rest and keep the implementation here :
+	 * @version 1.0.1
+	 */
 	@Override
 	public void action(String method) {
 

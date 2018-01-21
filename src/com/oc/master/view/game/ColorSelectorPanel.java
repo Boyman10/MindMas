@@ -193,7 +193,7 @@ public class ColorSelectorPanel  extends MainContainer implements GameObserver {
 	public void update(Object obj) {
 
 		// If we have players submitted then update the panels accordingly
-		if (obj instanceof User[]) {
+		if (obj != null && obj instanceof User[]) {
 			
 			introTxt.setText("<html><center><h1>Master Game</h1>" +
 					"<p>Now it's time to play, have fun !</p></center></html>");
