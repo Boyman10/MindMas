@@ -14,12 +14,25 @@ public class GameModel implements GameObservable {
 
 	private ArrayList<GameObserver> listObserver = new ArrayList<GameObserver>();
 	
+	// Mastermind or Search
+	private GameType typeGame;
 	// Attacker , Defense, Challenger
 	private GameMode modeGame;
 	
 	/**
+	 * Class constructor initializing GameMode and GameType
+	 * @param typeGame, modeGame
+	 */
+	public GameModel(GameType type, GameMode mode) {
+		
+		this.typeGame = type;
+		this.modeGame = mode;
+		
+	}
+	
+	/**
 	 * Method to assign proper data to deal with
-	 * @param command
+	 * @param vars
 	 */
 	public void assign(int[] vars) {
 		
@@ -47,7 +60,12 @@ public class GameModel implements GameObservable {
 
 	@Override
 	public void notifyObserver() {
-		// TODO Auto-generated method stub
+
+		// One Observer here is the ColorSelectorPanel
+
+		
+		
+		
 		
 	}
 

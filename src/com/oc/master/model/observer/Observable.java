@@ -1,8 +1,13 @@
 package com.oc.master.model.observer;
 
+import com.oc.master.model.GameMode;
+import com.oc.master.model.GameType;
 
 public interface Observable {
 
+	public GameType getGameType();
+	public GameMode getGameMode();
+	
 	public void addObserver(Observer obs);
 	public void notifyObserver();
 	public void restartObserver();

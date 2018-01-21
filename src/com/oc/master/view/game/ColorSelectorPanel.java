@@ -2,22 +2,19 @@ package com.oc.master.view.game;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.LayoutManager;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
 
-import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComponent;
-import javax.swing.JEditorPane;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.TransferHandler;
@@ -30,8 +27,15 @@ import com.oc.master.model.observer.GameObservable;
 import com.oc.master.model.observer.GameObserver;
 import com.oc.master.view.MainContainer;
 
+/**
+ * Class to load the MasterMind Game
+ * @author boy
+ * @version 1.0.0
+ */
 public class ColorSelectorPanel  extends MainContainer implements GameObserver {
 
+	// TODO - Change name of Class to MasterGamePanel ------------ SAME LAYOUT FOR THE WHOLE GAME
+	
 	private GameController controller;
 
 	private static final short MAX_DIGITS = 4;
@@ -43,16 +47,12 @@ public class ColorSelectorPanel  extends MainContainer implements GameObserver {
 	private LayoutManager layout;
 	private JButton validateBtn;
 
-	@Deprecated
-	private ImageIcon[] icon;
 	
 	private final static String emptyIcon = "empty.png";
 	private final static String[] iconString = {"blue.png","gray.png","black.png","red.png","yellow.png","pink.png"}; 
 	
 	private JLabel[] colorCombo, colorSecret;
 	
-	@Deprecated
-	private ImageIcon[] secretCombo;
 		
 	/**
 	 * Constructor for the ColorSelectorPanel class
@@ -113,6 +113,8 @@ public class ColorSelectorPanel  extends MainContainer implements GameObserver {
 		      
 			colorSecret[i].addMouseListener(listener);
 
+			// Set proper name to get the index while retrieving the color :
+			colorSecret[i].setName("-1");
 			choicePanel.add(colorSecret[i]);	
 		}
 		
@@ -148,6 +150,10 @@ public class ColorSelectorPanel  extends MainContainer implements GameObserver {
 			colorCombo[i].setTransferHandler(new TransferHandler("icon"));
 		      
 			colorCombo[i].addMouseListener(listener);
+			colorCombo[i].setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+			
+			// Set proper name to get the index while retrieving the color :
+			colorCombo[i].setName(String.valueOf(i));
 			
 			colorPanel.add(colorCombo[i]);			
 		}
@@ -171,7 +177,8 @@ public class ColorSelectorPanel  extends MainContainer implements GameObserver {
 		int[] fields = new int[MAX_DIGITS];
 		
 		for(short i = 0;i < MAX_DIGITS;i++) {
-			//fields[i] = Integer.parseInt(this.jtf[i].getText());
+			
+			fields[i] = Integer.parseInt(this.colorSecret[i].getName());
 		}
 					
 		return fields;
@@ -188,26 +195,6 @@ public class ColorSelectorPanel  extends MainContainer implements GameObserver {
 		// TODO Auto-generated method stub
 
 	}
-
-
-	@Deprecated
-    private ImageIcon createImageIcon(String path) {
-
-    	// Beware the bin folder it should contains the resource files !
-       	java.net.URL imgURL = this.getClass().getResource(path);
-    	
-    	logger.trace("Resources path : " + imgURL);
-    	
-        if (imgURL != null) {
-            return new ImageIcon(imgURL);
-        } else {
-            System.err.println("Couldn't find file: " + path);
-            return null;
-        }
-        
-        
-    }
-    
 	
 	class DragMouseAdapter extends MouseAdapter {
 		  public void mousePressed(MouseEvent e) {

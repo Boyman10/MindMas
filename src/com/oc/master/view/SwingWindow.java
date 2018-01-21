@@ -182,7 +182,7 @@ public class SwingWindow extends JFrame implements Observer {
 	public void actionSearch() {
 
 		containerPanel.removeAll();
-		SearchPanel sp = new SearchPanel(size,new GameModel());
+		SearchPanel sp = new SearchPanel(size,new GameModel(this.model.getGameType(),this.model.getGameMode()));
 		containerPanel.add(sp.getPanel(), BorderLayout.CENTER);
 		containerPanel.revalidate();
 
@@ -218,7 +218,7 @@ public class SwingWindow extends JFrame implements Observer {
 	public void actionColorSelector() {
 
 		containerPanel.removeAll();
-		ColorSelectorPanel sp = new ColorSelectorPanel(size,new GameModel());
+		ColorSelectorPanel sp = new ColorSelectorPanel(size,new GameModel(this.model.getGameType(),this.model.getGameMode()));
 		containerPanel.add(sp.getPanel(), BorderLayout.CENTER);
 		containerPanel.revalidate();
 
