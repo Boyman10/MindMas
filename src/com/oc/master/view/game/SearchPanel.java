@@ -30,7 +30,7 @@ import com.oc.master.view.MainContainer;
 /**
  * Class aimed to display the Search +/- Game mode
  * @author boy
- * @version 1.0.0
+ * @version 1.0.2
  */
 public class SearchPanel extends MainContainer implements GameObserver {
 
@@ -148,11 +148,15 @@ public class SearchPanel extends MainContainer implements GameObserver {
 	public void update(Object obj, GameMode gm) {
 
 		logger.trace("Updating search Panel");
+	
 		
-		historicPanel.removeAll();
-		
+		/**
+		 * Currently handling the game
+		 */
 		if (obj instanceof User[]) {
 						
+			historicPanel.removeAll();
+			
 			// obj[0] is the user
 			// obj[1] is the computer
 
@@ -186,17 +190,47 @@ public class SearchPanel extends MainContainer implements GameObserver {
 				
 				refreshGamePanel();
 				
+			} else if (gm == GameMode.DEFENSE) {
+				
+				introTxt.setText("<html><center><h1>Search +/- Game</h1>" +
+						"<p>Now time to play - Computer is trying to guess !</p></center></html>");
+				
+				logger.trace("Writing secret combo from user " + Arrays.toString(players[0].getSecretCombo()) );
+				String myCombo = Arrays.toString(players[0].getSecretCombo());
+				secretCombo.setText(myCombo);
+
+				
+				// Now historic panel part :
+				
+				for (int i=0;i<players[1].getTries().size();i++) {
+					
+					String myTry = Arrays.toString((players[1].getTries()).get(i));
+					String myClue = Arrays.toString((players[1].getClues()).get(i));
+					
+					historicPanel.add(new JLabel(myTry));
+					historicPanel.add(new JLabel(myClue));
+					
+					logger.trace("Adding try from computer to historic panel " + myTry );
+					logger.trace("Adding clue for computer to historic panel " + myClue );
+				}	
+				
+				
+				
+				refreshGamePanel();
+				
 			}
 			
+			historicPanel.revalidate();
 		}
 		
-		historicPanel.revalidate();
+		
 		
 		logger.trace("End of update");
 	}
 
 	/**
 	 * Method which refresh game panel with empty data
+	 * TODO : remove this panel and update its content based on computer research !!
 	 */
 	private void refreshGamePanel() {
 		

@@ -68,8 +68,9 @@ public class GameModel implements GameObservable {
 
 	/**
 	 * Method to initialize data
+	 * @param userSecret -- make sure not null
 	 */
-	public void init() {		
+	public void init(int[] userSecret) {		
 		
 		Random nb = new Random(GameModel.MAX_DIGITS);
 		
@@ -90,13 +91,13 @@ public class GameModel implements GameObservable {
 		 */		
 		case DEFENSE:
 			
-			players[0] = new User(null); // The user is defending - secret combo here
+			players[0] = new User(userSecret); // The user is defending - secret combo here
 			players[1] = new User(null); // Computer here
 			
 			break;
 			
 		case CHALLENGE:
-			players[0] = new User(null); // The user is defending - secret combo here
+			players[0] = new User(userSecret); // The user is defending - secret combo here
 			players[1] = new User(nb.getNumbers()); // Computer here	
 			
 			break;

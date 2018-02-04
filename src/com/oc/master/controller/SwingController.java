@@ -12,6 +12,8 @@ import com.oc.master.model.GameMode;
 import com.oc.master.model.GameModel;
 import com.oc.master.model.GameType;
 import com.oc.master.model.observer.GameObservable;
+import com.oc.master.model.observer.GameObserver;
+import com.oc.master.view.game.ComboDialog;
 
 /**
  * Controller Class handling main Menu click events
@@ -19,7 +21,7 @@ import com.oc.master.model.observer.GameObservable;
  * @author john
  * @version 1.0.1
  */
-public class SwingController implements ActionListener {
+public class SwingController implements ActionListener, GameObserver {
 
 	static final Logger logger = LogManager.getLogger();
 
@@ -76,11 +78,11 @@ public class SwingController implements ActionListener {
 			switch (model.getGameType()) {
 			
 				case SEARCH : 
-					model.init();
+					model.init(null);
 					model.actionObserver("search");
 					break;
 				case MASTER :
-					model.init();
+					model.init(null);
 					model.actionObserver("master");
 					break;
 				default :
@@ -98,11 +100,16 @@ public class SwingController implements ActionListener {
 			switch (model.getGameType()) {
 			
 				case SEARCH : 
-					model.init();
-					model.actionObserver("search");
+					
+					// Open up dialog to retrieve the choosen combo
+					// Launching JDialog
+					ComboDialog dialog = new ComboDialog("Pick up a combo !", model.MAX_DIGITS);
+					dialog.addObserver(this);
+					dialog.setVisible(true);
+
 					break;
 				case MASTER :
-					model.init();
+					model.init(null);
 					model.actionObserver("master");
 					break;
 				default :
@@ -111,6 +118,31 @@ public class SwingController implements ActionListener {
 			
 			
 		}
+	}
+
+	/**
+	 * Method to launch the Search game from the controller once we do have a choosen combo from the user
+	 * @param Object of type int[] and GameMode which is not used here
+	 */
+	@Override
+	public void update(Object obj, GameMode gm) {
+		if (obj instanceof int[])
+		{
+			model.init((int[])obj);
+			model.actionObserver("search");
+		}
+	}
+
+	@Override
+	public void restart() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void action(String method) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
