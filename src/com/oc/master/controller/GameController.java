@@ -3,6 +3,8 @@ package com.oc.master.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JOptionPane;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -46,7 +48,17 @@ public class GameController implements ActionListener {
 				
 				// Verify if it is SearchPanel calling :
 				if (container instanceof SearchPanel)
-					model.assign(((SearchPanel)container).getFields());
+				{
+					int[] arrInt = ((SearchPanel)container).getFields();
+					if (arrInt != null)
+						model.assign(arrInt);
+					else {
+						JOptionPane.showMessageDialog(null,
+							    "Please enter a combination !",
+							    "Warning",
+							    JOptionPane.WARNING_MESSAGE);
+					}
+				}
 				else if (container instanceof MasterGamePanel)
 					model.assign(((MasterGamePanel)container).getFields());
 			}

@@ -131,7 +131,14 @@ public class SearchPanel extends MainContainer implements GameObserver {
 		int[] fields = new int[GameObservable.MAX_DIGITS];
 		
 		for(short i = 0;i < GameObservable.MAX_DIGITS;i++) {
-			fields[i] = Integer.parseInt(this.jtf[i].getText());
+
+			// Make sure we have an integer in each field
+			try {
+				fields[i] = Integer.parseInt(this.jtf[i].getText());
+			} catch(NumberFormatException  e) {
+				
+				return null;
+			}
 		}
 					
 		return fields;
