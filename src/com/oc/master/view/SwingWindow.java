@@ -141,7 +141,8 @@ public class SwingWindow extends JFrame implements GameObserver {
 
 	@Override
 	public void restart() {
-		// TODO Auto-generated method stub
+
+		this.actionHome();
 
 	}
 

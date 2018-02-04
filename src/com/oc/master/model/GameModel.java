@@ -3,6 +3,8 @@ package com.oc.master.model;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import javax.swing.JOptionPane;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -20,6 +22,9 @@ import com.oc.master.model.observer.GameObserver;
 public class GameModel implements GameObservable {
 
 	static final Logger logger = LogManager.getLogger("GameModel");
+	
+	// default maximum tries -- TODO - reading parameter from file or user choice
+	static final short MAX_TRIES = 3;
 	
 	private ArrayList<GameObserver> listObserver = new ArrayList<GameObserver>();
 	
@@ -67,6 +72,7 @@ public class GameModel implements GameObservable {
 	public void init() {		
 		
 		Random nb = new Random(GameModel.MAX_DIGITS);
+		
 		switch(this.modeGame) {
 		
 		/**
@@ -155,6 +161,33 @@ public class GameModel implements GameObservable {
 					logger.error("Problem with comparison with the try");
 				} // Computer here
 				
+							
+				++counter;
+				
+				// Now check if combo is right :
+				if (Arrays.equals(players[0].getTries().get(counter-1), players[1].getSecretCombo())) {
+					
+					JOptionPane.showMessageDialog(null,
+						    "Congratulations, You've won !",
+						    "Warning",
+						    JOptionPane.WARNING_MESSAGE);	
+					
+					this.restartObserver();
+				}
+				
+				// Now check MAX TRIES allowed and stop accordingly !
+				if (counter == MAX_TRIES) {
+					
+					JOptionPane.showMessageDialog(null,
+						    "Game Over, You've lost !",
+						    "Warning",
+						    JOptionPane.WARNING_MESSAGE);		
+					
+					this.restartObserver();
+					
+				}
+				
+				
 				break;
 				
 			/**
@@ -201,8 +234,9 @@ public class GameModel implements GameObservable {
 
 	@Override
 	public void restartObserver() {
-		// TODO Auto-generated method stub
-		
+		// One Observer here is the MasterGamePanel but also the main window
+		for(GameObserver obs : this.listObserver)
+			obs.restart();			
 	}
 
 	@Override

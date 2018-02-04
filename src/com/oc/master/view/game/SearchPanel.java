@@ -242,7 +242,6 @@ public class SearchPanel extends MainContainer implements GameObserver {
 
 	@Override
 	public void restart() {
-		// TODO Auto-generated method stub
 
 	}
 
