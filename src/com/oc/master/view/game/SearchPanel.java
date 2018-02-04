@@ -102,20 +102,20 @@ public class SearchPanel extends MainContainer implements GameObserver {
 		//refreshGamePanel();
 		
 		historicPanel = new JPanel();
+		historicPanel.setLayout(new BoxLayout(historicPanel, BoxLayout.Y_AXIS));
+		
 		JLabel history = new JLabel("Check what you've done so far :");
 		Font font = new Font("Courier", Font.BOLD,12);
 		history.setFont(font);
 		historicPanel.add(history);
 		
 		historicPanel.setBackground(Color.white);
-		cluePanel = new JPanel();
-		cluePanel.setBackground(Color.black);
+
 
 		this.panel.setLayout(new BorderLayout());
 		this.panel.add(introPanel, BorderLayout.NORTH);
 		this.panel.add(gamePanel, BorderLayout.CENTER);
 		this.panel.add(historicPanel, BorderLayout.EAST);
-		this.panel.add(cluePanel, BorderLayout.SOUTH);
 		
 		this.panel.setBorder(new EmptyBorder(10, 10, 10, 10));
 
@@ -142,6 +142,8 @@ public class SearchPanel extends MainContainer implements GameObserver {
 
 		logger.trace("Updating search Panel");
 		
+		historicPanel.removeAll();
+		
 		if (obj instanceof User[]) {
 						
 			// obj[0] is the user
@@ -162,15 +164,17 @@ public class SearchPanel extends MainContainer implements GameObserver {
 				// Now historic panel part :
 				
 				for (int i=0;i<players[0].getTries().size();i++) {
+					
 					String myTry = Arrays.toString((players[0].getTries()).get(i));
+					String myClue = Arrays.toString((players[0].getClues()).get(i));
+					
 					historicPanel.add(new JLabel(myTry));
+					historicPanel.add(new JLabel(myClue));
+					
+					logger.trace("Adding try from user to historic panel " + myTry );
+					logger.trace("Adding clue for user to historic panel " + myClue );
 				}	
 				
-				// The clue part :
-				for (int i=0;i<players[0].getClues().size();i++) {
-					String myClue = Arrays.toString((players[0].getClues()).get(i));
-					cluePanel.add(new JLabel(myClue));
-				}	
 				
 				
 				refreshGamePanel();
@@ -179,6 +183,7 @@ public class SearchPanel extends MainContainer implements GameObserver {
 			
 		}
 		
+		historicPanel.revalidate();
 		
 		logger.trace("End of update");
 	}
@@ -222,7 +227,7 @@ public class SearchPanel extends MainContainer implements GameObserver {
 		 */
 
 		gamePanel.add(validateBtn);
-		
+		gamePanel.revalidate();
 	
 		logger.trace("Refreshing Game Panel");
 				

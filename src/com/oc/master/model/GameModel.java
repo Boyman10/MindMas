@@ -213,9 +213,10 @@ public class GameModel implements GameObservable {
 
 	@Override
 	public void actionObserver(String method) {
-		
-		for(GameObserver obs : this.listObserver)
-			obs.action(method);				
+				
+		// One Observer here is the MasterGamePanel
+		for (int i = 0;i < this.listObserver.size();i++)
+			this.listObserver.get(i).action(method);		
 	}
 	
 
