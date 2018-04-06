@@ -15,6 +15,7 @@ import com.oc.master.view.SwingWindow;
  */
 public class Main {
 	
+	// exported runnable jar command : java -Dlog4j.configurationFile=C:\path\to\log4j2.xml -jar Test.jar
 	static final Logger logger = LogManager.getLogger();
 
 	

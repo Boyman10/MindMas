@@ -1,23 +1,20 @@
-2018-02-04 15:23:09.951 [main] TRACE com.oc.master.Main - Game Interface chose 2
-2018-02-04 15:23:09.951 [main] TRACE com.oc.master.Main - Launching Swing mode
-2018-02-04 15:23:13.138 [AWT-EventQueue-0] TRACE com.oc.master.controller.SwingController - Action performed game
-2018-02-04 15:23:13.138 [AWT-EventQueue-0] TRACE View - Calling action game
-2018-02-04 15:23:13.941 [AWT-EventQueue-0] TRACE com.oc.master.controller.SwingController - Action performed search
-2018-02-04 15:23:13.941 [AWT-EventQueue-0] TRACE View - Calling action mode
-2018-02-04 15:23:14.407 [AWT-EventQueue-0] TRACE com.oc.master.controller.SwingController - Action performed defense
-2018-02-04 15:23:14.407 [AWT-EventQueue-0] ERROR com.oc.master.controller.SwingController - Starting the game now - Master defense
-2018-02-04 15:23:16.073 [AWT-EventQueue-0] TRACE com.oc.master.utils.KeyboardAction - Key Released javax.swing.JFormattedTextField
-2018-02-04 15:23:16.542 [AWT-EventQueue-0] TRACE com.oc.master.utils.KeyboardAction - Key Released javax.swing.JFormattedTextField
-2018-02-04 15:23:17.014 [AWT-EventQueue-0] TRACE com.oc.master.utils.KeyboardAction - Key Released javax.swing.JFormattedTextField
-2018-02-04 15:23:17.472 [AWT-EventQueue-0] TRACE com.oc.master.utils.KeyboardAction - Key Released javax.swing.JFormattedTextField
-2018-02-04 15:23:18.556 [AWT-EventQueue-0] TRACE User - Calling User first time...
-2018-02-04 15:23:18.556 [AWT-EventQueue-0] TRACE User - Calling User first time...
-2018-02-04 15:23:18.556 [AWT-EventQueue-0] TRACE View - Calling action search
-2018-02-04 15:23:18.556 [AWT-EventQueue-0] TRACE View - Action Search called
-2018-02-04 15:23:18.556 [AWT-EventQueue-0] TRACE GameController - Switching Controller
-2018-02-04 15:23:18.572 [AWT-EventQueue-0] TRACE com.oc.master.view.game.SearchPanel - Updating search Panel
-2018-02-04 15:23:18.591 [AWT-EventQueue-0] TRACE com.oc.master.view.game.SearchPanel - Writing secret combo from user [2, 5, 6, 2]
-2018-02-04 15:23:18.591 [AWT-EventQueue-0] TRACE com.oc.master.view.game.SearchPanel - Refreshing Game Panel - Start
-2018-02-04 15:23:18.596 [AWT-EventQueue-0] TRACE com.oc.master.view.game.SearchPanel - Refreshing Game Panel
-2018-02-04 15:23:18.597 [AWT-EventQueue-0] TRACE com.oc.master.view.game.SearchPanel - End of update
-2018-02-04 15:24:13.842 [AWT-EventQueue-0] TRACE GameController - Action Performed : validate
+2018-04-06 08:44:33.538 [main] TRACE com.oc.master.Main - Game Interface chose 2
+2018-04-06 08:44:33.541 [main] TRACE com.oc.master.Main - Launching Swing mode
+2018-04-06 08:44:38.279 [AWT-EventQueue-0] TRACE com.oc.master.controller.SwingController - Action performed game
+2018-04-06 08:44:38.280 [AWT-EventQueue-0] TRACE View - Calling action game
+2018-04-06 08:44:39.272 [AWT-EventQueue-0] TRACE com.oc.master.controller.SwingController - Action performed search
+2018-04-06 08:44:39.277 [AWT-EventQueue-0] TRACE View - Calling action mode
+2018-04-06 08:44:39.990 [AWT-EventQueue-0] TRACE com.oc.master.controller.SwingController - Action performed attack
+2018-04-06 08:44:39.990 [AWT-EventQueue-0] TRACE com.oc.master.controller.SwingController - Starting the game now - Attack - calling model
+2018-04-06 08:44:39.991 [AWT-EventQueue-0] TRACE User - Calling User first time...
+2018-04-06 08:44:39.992 [AWT-EventQueue-0] TRACE com.oc.master.model.mind.Random - Random number : [6, 5, 3, 6]
+2018-04-06 08:44:39.992 [AWT-EventQueue-0] TRACE User - Calling User first time...
+2018-04-06 08:44:39.992 [AWT-EventQueue-0] TRACE View - Calling action search
+2018-04-06 08:44:39.992 [AWT-EventQueue-0] TRACE View - Action Search called
+2018-04-06 08:44:39.994 [AWT-EventQueue-0] TRACE GameController - Switching Controller
+2018-04-06 08:44:39.999 [AWT-EventQueue-0] TRACE com.oc.master.view.game.SearchPanel - Updating search Panel
+2018-04-06 08:44:40.004 [AWT-EventQueue-0] TRACE com.oc.master.view.game.SearchPanel - Writing secret combo from computer [6, 5, 3, 6]
+2018-04-06 08:44:40.004 [AWT-EventQueue-0] TRACE com.oc.master.view.game.SearchPanel - Refreshing Game Panel - Start
+2018-04-06 08:44:40.021 [AWT-EventQueue-0] TRACE com.oc.master.view.game.SearchPanel - Refreshing Game Panel
+2018-04-06 08:44:40.021 [AWT-EventQueue-0] TRACE com.oc.master.view.game.SearchPanel - End of update
+2018-04-06 08:44:40.028 [AWT-EventQueue-0] TRACE com.oc.master.controller.SwingController - panel opened successfully !
