@@ -1,11 +1,9 @@
 package com.oc.master;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import com.oc.master.model.GameModel;
 import com.oc.master.model.observer.GameObservable;
 import com.oc.master.utils.Keyboard;
+import com.oc.master.utils.MyLogger;
 import com.oc.master.view.SwingWindow;
 
 /**
@@ -15,9 +13,6 @@ import com.oc.master.view.SwingWindow;
  */
 public class Main {
 	
-	// exported runnable jar command : java -Dlog4j.configurationFile=C:\path\to\log4j2.xml -jar Test.jar
-	static final Logger logger = LogManager.getLogger();
-
 	
 	public static void main(String[] args) {
 		// start to ask whether the user needs to use the game in console mode or swing or fx :
@@ -35,7 +30,7 @@ public class Main {
 		
 		} while (gameInterface == 0);
 
-		logger.trace("Game Interface chose " + gameInterface);
+		MyLogger.getLogger().trace("Game Interface chose " + gameInterface);
 		
 		/**
 		 * Pick up the right interface based on the selection :
@@ -44,13 +39,13 @@ public class Main {
 			
 			case 1 : 
 				// console case
-				logger.trace("Launching console mode");
+				MyLogger.getLogger().trace("Launching console mode");
 				
 				
 				break;
 			case 2 :
 				// case Swing
-				logger.trace("Launching Swing mode");
+				MyLogger.getLogger().trace("Launching Swing mode");
 				GameObservable model = new GameModel();
 				SwingWindow wind = new SwingWindow(model);
 				wind.setVisible(true);
@@ -60,7 +55,7 @@ public class Main {
 				break;
 			
 			default : // no such option !
-				logger.warn("What is this option ??");
+				MyLogger.getLogger().warn("What is this option ??");
 				break;
 			
 		}
