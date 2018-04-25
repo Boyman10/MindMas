@@ -5,5 +5,10 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/log4j2"/>
 	<classpathentry kind="lib" path="lib/log4j-api-2.9.1.jar"/>
 	<classpathentry kind="lib" path="lib/log4j-core-2.9.1.jar"/>
+	<classpathentry kind="lib" path="/home/bob/Downloads/commons-lang3-3.7/commons-lang3-3.7.jar"/>
+	<classpathentry kind="lib" path="lib/commons-lang3-3.7.jar"/>
+	<classpathentry kind="lib" path="lib/commons-lang3-3.7-javadoc.jar"/>
+	<classpathentry kind="lib" path="lib/commons-configuration2-2.2-javadoc.jar"/>
+	<classpathentry kind="lib" path="lib/commons-configuration2-2.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
