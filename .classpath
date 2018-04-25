@@ -10,5 +10,9 @@
 	<classpathentry kind="lib" path="lib/commons-lang3-3.7-javadoc.jar"/>
 	<classpathentry kind="lib" path="lib/commons-configuration2-2.2-javadoc.jar"/>
 	<classpathentry kind="lib" path="lib/commons-configuration2-2.2.jar"/>
+	<classpathentry kind="lib" path="lib/commons-logging-1.2-javadoc.jar"/>
+	<classpathentry kind="lib" path="lib/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="lib/commons-beanutils-1.9.3-javadoc.jar"/>
+	<classpathentry kind="lib" path="lib/commons-beanutils-1.9.3.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

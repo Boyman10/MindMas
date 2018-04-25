@@ -4,6 +4,7 @@ import com.oc.master.model.GameModel;
 import com.oc.master.model.observer.GameObservable;
 import com.oc.master.utils.Keyboard;
 import com.oc.master.utils.MyLogger;
+import com.oc.master.utils.MyProperties;
 import com.oc.master.view.SwingWindow;
 
 /**
@@ -15,6 +16,13 @@ public class Main {
 	
 	
 	public static void main(String[] args) {
+		
+		
+		// Reading properties file here :
+		MyProperties myProp = new MyProperties();
+		myProp.readProperties();
+		
+		
 		// start to ask whether the user needs to use the game in console mode or swing or fx :
 		
 		short gameInterface = 0;
