@@ -29,6 +29,7 @@ public class MyLogger {
 	/**
 	 * Reconfiguring the logger depending on parameter
 	 * case debug mode is enabled - not the default !
+	 * @see https://logging.apache.org/log4j/2.x/manual/customconfig.html
 	 */
 	public static void reconfigureLogger() {
 		
