@@ -1,5 +1,6 @@
 package main.com.oc.master.model.mind;
 
+import java.util.ArrayList;
 
 /**
  * Interface defining behavior for the AI part of the MasterMind - Colors
