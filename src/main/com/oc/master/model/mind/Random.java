@@ -19,7 +19,7 @@ public class Random implements RandomInterface {
 	 * @param size
 	 * @return combo
 	 */
-	static final Logger logger = LogManager.getLogger();
+	static final Logger logger = LogManager.getLogger(Random.class);
 
 	int size = 0;
 	// Beware color names : W for White, B for Blue, O for Orange, Y for Yellow, G
@@ -55,7 +55,7 @@ public class Random implements RandomInterface {
 			combo[i] = (char) vColors.charAt((int) (Math.random() * vColors.length()));
 		}
 
-		logger.trace("Random number : " + Arrays.toString(combo));
+		logger.trace("Random color : " + Arrays.toString(combo));
 
 		return combo;
 	}

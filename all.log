@@ -1,1 +1,2 @@
-2018-04-25 17:04:56.149 [main] TRACE com.oc.master.utils.MyLogger - Loading configuration file with parameter : 5
+2018-06-10 11:06:22.198 [main] NEW_LEVEL main.com.oc.master.model.mind.ComboNumbersImpl - comparing source and secret [5, 5, 5, 5] target : [5, 5, 5, 5]
+2018-06-10 11:06:22.201 [main] NEW_LEVEL main.com.oc.master.model.mind.ComboNumbersImpl - Here are the clues [=, =, =, =]

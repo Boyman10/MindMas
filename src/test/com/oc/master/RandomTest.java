@@ -2,6 +2,8 @@ package test.com.oc.master;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.Test;
 
 import main.com.oc.master.model.mind.Random;
@@ -11,6 +13,8 @@ import main.com.oc.master.model.mind.Random;
  * My first JUnit test for Random class
  */
 class RandomTest {
+	
+	static final Logger LOGGER = LogManager.getLogger(RandomTest.class);
 
 	/**
 	 * Test method for {@link main.com.oc.master.model.mind.Random#getNumbers()}.
@@ -31,7 +35,7 @@ class RandomTest {
 		if (vRandom.length != 5 || vRandom1.length != 5 || vRandom2.length != 5 || vRandom3.length != 5 || vRandom4.length != 5)
 			fail("Length not valid");
 		
-		
+		LOGGER.debug("Ok done with random numbers");
 		
 	}
 
@@ -40,7 +44,19 @@ class RandomTest {
 	 */
 	@Test
 	void testGetColors() {
-		fail("Not yet implemented");
-	}
+		// Test with size of 5
+		Random myRandom = new Random((short) 5);
+		
+		// verify size of generated array and check the difference with each call
+		char[] vRandom = myRandom.getColors();
+		char[] vRandom1 = myRandom.getColors();
+		char[] vRandom2 = myRandom.getColors();
+		char[] vRandom3 = myRandom.getColors();
+		char[] vRandom4 = myRandom.getColors();
+		
+		if (vRandom.length != 5 || vRandom1.length != 5 || vRandom2.length != 5 || vRandom3.length != 5 || vRandom4.length != 5)
+			fail("Length not valid");
+		
+		LOGGER.debug("Ok done with random colors");	}
 
 }

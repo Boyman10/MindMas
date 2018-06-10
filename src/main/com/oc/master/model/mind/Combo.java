@@ -6,5 +6,5 @@ public interface Combo {
 	 * Method comparing submitted Try with the secret combo
 	 * @return clue
 	 */
-	public char[] compareCombo(int[] combo) ;
+	public char[] compareCombo(int[] source, int[] secret) ;
 }

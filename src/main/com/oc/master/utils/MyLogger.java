@@ -14,7 +14,11 @@ import org.apache.logging.log4j.core.LoggerContext;
  */
 public class MyLogger {
 
-	private static final Logger logger = LogManager.getLogger();
+	
+	// Few links to check :
+	// https://stackify.com/log4j2-java/
+	
+	private static final Logger LOGGER = LogManager.getLogger();
 	
 	/**
 	 * Getting logger -- @TODO : name of class or package ??
@@ -22,7 +26,7 @@ public class MyLogger {
 	 */
 	public static Logger getLogger() {
 		
-		return logger;
+		return LOGGER;
 		
 	}
 	
@@ -34,7 +38,11 @@ public class MyLogger {
 	public static void reconfigureLogger() {
 		
 		LoggerContext ctx = (LoggerContext) LogManager.getContext(false);
-		Configuration config = ctx.getConfiguration();
-		config.addLogger("com", Level.INFO, (Filter) null);
+		Configuration config = (Configuration) ctx.getConfiguration();
+		
+		LOGGER.debug("Retrieving current configuration from property file : " + config.getProperties(""));
+		
+		//config.setProperty(arg0, arg1);
+		//.addLogger("com", Level.INFO, (Filter) null);
 	}
 }
