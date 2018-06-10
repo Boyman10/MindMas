@@ -57,6 +57,8 @@ class RandomTest {
 		if (vRandom.length != 5 || vRandom1.length != 5 || vRandom2.length != 5 || vRandom3.length != 5 || vRandom4.length != 5)
 			fail("Length not valid");
 		
-		LOGGER.debug("Ok done with random colors");	}
+		LOGGER.debug("Ok done with random colors");
+		
+	}
 
 }

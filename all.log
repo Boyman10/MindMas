@@ -1,4 +1,20 @@
-2018-06-10 11:14:13.940 [main] NEW_LEVEL main.com.oc.master.model.mind.ComboNumbersImpl - comparing source and secret [5, 5, 5, 5] target : [5, 5, 5, 5]
-2018-06-10 11:14:13.942 [main] NEW_LEVEL main.com.oc.master.model.mind.ComboNumbersImpl - Here are the clues [=, =, =, =]
-2018-06-10 11:14:13.943 [main] NEW_LEVEL main.com.oc.master.model.mind.ComboNumbersImpl - comparing source and secret [4, 5, 6, 8] target : [5, 5, 5, 5]
-2018-06-10 11:14:13.943 [main] NEW_LEVEL main.com.oc.master.model.mind.ComboNumbersImpl - Here are the clues [-, =, +, +]
+2018-06-10 12:07:12.639 [main] NEW_LEVEL main.com.oc.master.model.mind.ComboColorsImpl - comparing source and secret [C, B, W, P] target : [P, B, O, O]
+2018-06-10 12:07:12.641 [main] NEW_LEVEL main.com.oc.master.model.mind.ComboColorsImpl - Here are the clues [1, 1]
+2018-06-10 12:07:12.641 [main] DEBUG test.com.oc.master.model.mind.ComboColorsImplTest - Comparing : 11 with : 11
+2018-06-10 12:07:12.641 [main] NEW_LEVEL main.com.oc.master.model.mind.ComboColorsImpl - comparing source and secret [C, B, W, P] target : [P, B, O, O]
+2018-06-10 12:07:12.642 [main] NEW_LEVEL main.com.oc.master.model.mind.ComboColorsImpl - Here are the clues [1, 1]
+2018-06-10 12:07:12.644 [main] NEW_LEVEL main.com.oc.master.model.mind.ComboColorsImpl - comparing source and secret [O, G, G, G] target : [P, B, O, O]
+2018-06-10 12:07:12.644 [main] NEW_LEVEL main.com.oc.master.model.mind.ComboColorsImpl - Here are the clues [0, 1]
+2018-06-10 12:07:12.644 [main] DEBUG test.com.oc.master.model.mind.ComboColorsImplTest - Comparing : 01 with : 01
+2018-06-10 12:07:12.644 [main] NEW_LEVEL main.com.oc.master.model.mind.ComboColorsImpl - comparing source and secret [O, G, G, G] target : [P, B, O, O]
+2018-06-10 12:07:12.644 [main] NEW_LEVEL main.com.oc.master.model.mind.ComboColorsImpl - Here are the clues [0, 1]
+2018-06-10 12:07:12.644 [main] NEW_LEVEL main.com.oc.master.model.mind.ComboColorsImpl - comparing source and secret [O, G, P, B] target : [O, G, P, B]
+2018-06-10 12:07:12.645 [main] NEW_LEVEL main.com.oc.master.model.mind.ComboColorsImpl - Here are the clues [4, 0]
+2018-06-10 12:07:12.645 [main] DEBUG test.com.oc.master.model.mind.ComboColorsImplTest - Comparing : 40 with : 40
+2018-06-10 12:07:12.645 [main] NEW_LEVEL main.com.oc.master.model.mind.ComboColorsImpl - comparing source and secret [O, G, P, B] target : [O, G, P, B]
+2018-06-10 12:07:12.645 [main] NEW_LEVEL main.com.oc.master.model.mind.ComboColorsImpl - Here are the clues [4, 0]
+2018-06-10 12:07:12.645 [main] NEW_LEVEL main.com.oc.master.model.mind.ComboColorsImpl - comparing source and secret [B, L, M, C] target : [O, G, P, W]
+2018-06-10 12:07:12.645 [main] NEW_LEVEL main.com.oc.master.model.mind.ComboColorsImpl - Here are the clues [0, 0]
+2018-06-10 12:07:12.645 [main] DEBUG test.com.oc.master.model.mind.ComboColorsImplTest - Comparing : 00 with : 00
+2018-06-10 12:07:12.645 [main] NEW_LEVEL main.com.oc.master.model.mind.ComboColorsImpl - comparing source and secret [B, L, M, C] target : [O, G, P, W]
+2018-06-10 12:07:12.645 [main] NEW_LEVEL main.com.oc.master.model.mind.ComboColorsImpl - Here are the clues [0, 0]
