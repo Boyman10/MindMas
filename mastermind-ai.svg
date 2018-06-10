@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   sodipodi:docname="mastermind-ai.svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="366.01394"
+     inkscape:cy="892.00773"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <circle
+       id="path3713"
+       cx="21.166666"
+       cy="15.407738"
+       r="4.1577382"
+       style="stroke-width:0.26458332" />
+    <circle
+       style="stroke-width:0.26458332;fill:#ff0000"
+       r="4.1577382"
+       cy="15.407738"
+       cx="31.749998"
+       id="circle3715" />
+    <circle
+       style="fill:#ffff00;stroke-width:0.26458332"
+       r="4.1577382"
+       cy="15.407738"
+       cx="42.333332"
+       id="circle3719" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 10.810119,21.228571 H 62.970832"
+       id="path3721"
+       inkscape:connector-curvature="0" />
+    <circle
+       style="stroke-width:0.26458332"
+       r="4.1577382"
+       cy="5.5803566"
+       cx="153.08035"
+       id="circle3723" />
+    <circle
+       id="circle3725"
+       cx="163.66368"
+       cy="5.5803566"
+       r="4.1577382"
+       style="fill:#ff0000;stroke-width:0.26458332" />
+    <circle
+       style="fill:#00ffff;stroke-width:0.26458332"
+       r="4.1577382"
+       cy="5.5803566"
+       cx="184.83037"
+       id="circle3727" />
+    <circle
+       id="circle3729"
+       cx="195.4137"
+       cy="5.5803566"
+       r="4.1577382"
+       style="fill:#ffff00;stroke-width:0.26458332" />
+    <circle
+       style="fill:#ff6600;stroke-width:0.26458332"
+       r="4.1577382"
+       cy="5.5803566"
+       cx="174.24701"
+       id="circle3731" />
+    <circle
+       id="circle3733"
+       cx="205.99704"
+       cy="5.5803566"
+       r="4.1577382"
+       style="fill:#0000ff;stroke-width:0.26458332" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:6.67622757px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.16690569"
+       x="148.95312"
+       y="18.864847"
+       id="text3737"><tspan
+         sodipodi:role="line"
+         id="tspan3735"
+         x="148.95312"
+         y="18.864847"
+         style="stroke-width:0.16690569">Available colors</tspan></text>
+    <text
+       id="text3741"
+       y="6.769609"
+       x="13.637649"
+       style="font-style:normal;font-weight:normal;font-size:6.67622757px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.16690569"
+       xml:space="preserve"><tspan
+         style="stroke-width:0.16690569"
+         y="6.769609"
+         x="13.637649"
+         id="tspan3739"
+         sodipodi:role="line">secret combo</tspan></text>
+    <rect
+       style="fill:#f9f9f9;stroke-width:0.3186484"
+       id="rect3743"
+       width="205.0381"
+       height="154.97025"
+       x="2.2678571"
+       y="24.101189" />
+    <circle
+       style="stroke-width:0.26458332"
+       r="4.1577382"
+       cy="36.574402"
+       cx="21.166666"
+       id="circle3745" />
+    <circle
+       id="circle3747"
+       cx="31.749998"
+       cy="36.574402"
+       r="4.1577382"
+       style="stroke-width:0.26458332" />
+    <circle
+       style="stroke-width:0.26458332"
+       r="4.1577382"
+       cy="36.574402"
+       cx="42.333332"
+       id="circle3749" />
+    <circle
+       id="circle3751"
+       cx="52.916668"
+       cy="36.574402"
+       r="4.1577382"
+       style="stroke-width:0.26458332" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:8.32376385px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.20809411"
+       x="66.236862"
+       y="37.834816"
+       id="text3755"><tspan
+         sodipodi:role="line"
+         id="tspan3753"
+         x="66.236862"
+         y="37.834816"
+         style="font-size:3.05204701px;stroke-width:0.20809411">1st try -&gt; take the still not used color from the available one starting at the beginning</tspan></text>
+    <circle
+       style="stroke-width:0.26458332"
+       r="4.1577382"
+       cy="47.157738"
+       cx="105.83332"
+       id="circle3757" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="113.5788"
+       y="48.701237"
+       id="text3763"><tspan
+         sodipodi:role="line"
+         id="tspan3761"
+         x="113.5788"
+         y="48.701237"
+         style="font-size:4.93888903px;fill:#4d4d4d;stroke-width:0.26458332">1 good</tspan></text>
+    <text
+       id="text3767"
+       y="56.355656"
+       x="66.236862"
+       style="font-style:normal;font-weight:normal;font-size:8.32376385px;line-height:0.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.20809411"
+       xml:space="preserve"><tspan
+         style="font-size:3.05204701px;line-height:0.25;stroke-width:0.20809411"
+         y="56.355656"
+         x="66.236862"
+         id="tspan3765"
+         sodipodi:role="line">1 is good so we keep the first spot where being placed and take the next color </tspan><tspan
+         style="font-size:3.05204701px;line-height:0.25;stroke-width:0.20809411"
+         y="59.147041"
+         x="66.236862"
+         sodipodi:role="line"
+         id="tspan3769">=&gt; <tspan
+   style="fill:#00ff00"
+   id="tspan3771"><tspan
+   style="fill:#008000"
+   id="tspan3773">goodColors[i] = index of available colors  &amp;&amp; badColors[] still nul</tspan>l</tspan> </tspan></text>
+    <circle
+       id="circle3777"
+       cx="21.166666"
+       cy="56.682743"
+       r="4.1577382"
+       style="stroke-width:0.26458332" />
+    <circle
+       style="stroke-width:0.26458332;fill:#ff0000"
+       r="4.1577382"
+       cy="56.682743"
+       cx="31.749998"
+       id="circle3779" />
+    <circle
+       id="circle3781"
+       cx="42.333332"
+       cy="56.682743"
+       r="4.1577382"
+       style="stroke-width:0.26458332;fill:#ff0000" />
+    <circle
+       style="stroke-width:0.26458332;fill:#ff0000"
+       r="4.1577382"
+       cy="56.682743"
+       cx="52.916668"
+       id="circle3783" />
+    <circle
+       id="circle3785"
+       cx="105.56605"
+       cy="69.875648"
+       r="4.1577382"
+       style="stroke-width:0.26458332" />
+    <text
+       id="text3789"
+       y="71.419144"
+       x="113.31152"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         style="font-size:4.93888903px;fill:#4d4d4d;stroke-width:0.26458332"
+         y="71.419144"
+         x="113.31152"
+         id="tspan3787"
+         sodipodi:role="line">2 good</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:8.32376385px;line-height:0.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.20809411"
+       x="66.236862"
+       y="77.522316"
+       id="text3799"><tspan
+         sodipodi:role="line"
+         id="tspan3791"
+         x="66.236862"
+         y="77.522316"
+         style="font-size:3.05204701px;line-height:0.25;stroke-width:0.20809411">One more good and just added a new color, so the last color is at the right spot</tspan><tspan
+         sodipodi:role="line"
+         x="66.236862"
+         y="80.313705"
+         style="font-size:3.05204701px;line-height:0.25;stroke-width:0.20809411"
+         id="tspan3801">=&gt; <tspan
+   style="fill:#d40000"
+   id="tspan4678">goodSpots[i] = true;</tspan>  don t need to check that anymore</tspan><tspan
+         id="tspan3797"
+         sodipodi:role="line"
+         x="66.236862"
+         y="83.105087"
+         style="font-size:3.05204701px;line-height:0.25;stroke-width:0.20809411">=&gt; <tspan
+   id="tspan3795"
+   style="fill:#00ff00"><tspan
+   id="tspan3793"
+   style="fill:#008000">goodColors[i] = index of new available colors  &amp;&amp; badColors[] still nul</tspan>l</tspan> </tspan></text>
+    <circle
+       style="fill:#00ffff;stroke-width:0.26458332"
+       r="4.1577382"
+       cy="15.407738"
+       cx="52.916668"
+       id="circle3803" />
+    <circle
+       style="stroke-width:0.26458332"
+       r="4.1577382"
+       cy="77.849403"
+       cx="21.166666"
+       id="circle3805" />
+    <circle
+       id="circle3807"
+       cx="31.749998"
+       cy="77.849403"
+       r="4.1577382"
+       style="fill:#ff0000;stroke-width:0.26458332" />
+    <circle
+       style="fill:#ff6600;stroke-width:0.26458332"
+       r="4.1577382"
+       cy="77.849403"
+       cx="42.333332"
+       id="circle3809" />
+    <circle
+       id="circle3811"
+       cx="52.916668"
+       cy="77.849403"
+       r="4.1577382"
+       style="fill:#ff7f2a;stroke-width:0.26458332" />
+    <rect
+       style="opacity:0.35;fill:#0067d7;fill-opacity:1;stroke:#000000;stroke-width:0.1994292;stroke-opacity:1"
+       id="rect3813"
+       width="11.825012"
+       height="15.032248"
+       x="14.934515"
+       y="70.322861" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M -34.386215,92.910616 19.745366,78.406102"
+       id="path4620"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.18631983px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.10465799"
+       x="-52.299137"
+       y="97.300278"
+       id="text4624"><tspan
+         sodipodi:role="line"
+         id="tspan4622"
+         x="-52.299137"
+         y="97.300278"
+         style="stroke-width:0.10465799">don t touch it anymore</tspan></text>
+    <circle
+       style="stroke-width:0.26458332"
+       r="4.1577382"
+       cy="91.042305"
+       cx="105.56605"
+       id="circle4626" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="113.31152"
+       y="92.5858"
+       id="text4630"><tspan
+         sodipodi:role="line"
+         id="tspan4628"
+         x="113.31152"
+         y="92.5858"
+         style="font-size:4.93888903px;fill:#4d4d4d;stroke-width:0.26458332">2 good</tspan></text>
+    <circle
+       id="circle4632"
+       cx="21.166666"
+       cy="104.30772"
+       r="4.1577382"
+       style="stroke-width:0.26458332" />
+    <circle
+       style="fill:#ff0000;stroke-width:0.26458332"
+       r="4.1577382"
+       cy="104.30772"
+       cx="31.749998"
+       id="circle4634" />
+    <circle
+       id="circle4636"
+       cx="42.333332"
+       cy="104.30772"
+       r="4.1577382"
+       style="fill:#00ffff;stroke-width:0.26458332" />
+    <circle
+       style="fill:#00ffff;stroke-width:0.26458332"
+       r="4.1577382"
+       cy="104.30772"
+       cx="52.916668"
+       id="circle4638" />
+    <rect
+       y="96.781181"
+       x="14.934515"
+       height="15.032248"
+       width="11.825012"
+       id="rect4640"
+       style="opacity:0.35;fill:#0067d7;fill-opacity:1;stroke:#000000;stroke-width:0.1994292;stroke-opacity:1" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="67.619186"
+       y="105.87004"
+       id="text4644"><tspan
+         sodipodi:role="line"
+         id="tspan4642"
+         x="67.619186"
+         y="105.87004"
+         style="stroke-width:0.26458332">This color is not present, we remove it : <tspan
+   style="fill:#008000"
+   id="tspan4646">badColors[i] = this index</tspan></tspan></text>
+    <circle
+       id="circle4658"
+       cx="105.83332"
+       cy="115.94938"
+       r="4.1577382"
+       style="stroke-width:0.26458332" />
+    <text
+       id="text4662"
+       y="117.49289"
+       x="113.5788"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         style="font-size:4.93888903px;fill:#4d4d4d;stroke-width:0.26458332"
+         y="117.49289"
+         x="113.5788"
+         id="tspan4660"
+         sodipodi:role="line">3 good</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:8.32376385px;line-height:0.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.20809411"
+       x="66.236862"
+       y="125.1473"
+       id="text4672"><tspan
+         id="tspan4670"
+         sodipodi:role="line"
+         x="66.236862"
+         y="125.1473"
+         style="font-size:3.05204701px;line-height:0.25;fill:#008000;stroke-width:0.20809411">idem as 1</tspan></text>
+    <rect
+       y="96.781181"
+       x="25.517847"
+       height="15.032248"
+       width="11.825012"
+       id="rect4676"
+       style="opacity:0.35;fill:#0067d7;fill-opacity:1;stroke:#000000;stroke-width:0.1994292;stroke-opacity:1" />
+  </g>
+</svg>

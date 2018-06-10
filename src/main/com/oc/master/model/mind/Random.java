@@ -25,7 +25,7 @@ public class Random implements RandomInterface {
 	// Beware color names : W for White, B for Blue, O for Orange, Y for Yellow, G
 	// for Green, I for Indigo, P for Pink, R for Red,
 	// S for Silver, M for MAgenta, C for coffee
-	String vColors = "WBOYGIPRSMC";
+	public final static String vColors = "WBOYGIPRSMC";
 
 	public Random(short size) {
 
