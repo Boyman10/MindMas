@@ -12,7 +12,7 @@ import main.com.oc.master.model.mind.exception.ComboException;
  * @author boy
  * @version 1.0.0
  */
-public class User implements Combo {
+public class User {
 	static final Logger logger = LogManager.getLogger("User");
 
 	// Chosen combo (case defense & challenger as defender)
@@ -78,30 +78,5 @@ public class User implements Combo {
 	public ArrayList<char[]> getClues() {
 		return clues;
 	}
-
-	/**
-	 * Method returning clues depending on combo 
-	 * compared to secret one
-	 * @param combo
-	 * @return clues
-	 */
-	@Override
-	public char[] compareCombo(int[] combo) {
-// TODO -- compareComboSearch OR compareComboMaster ---> strategy pattern .. Combo interface
-		char[] clues = new char[secretCombo.length];
-		
-		// Iterate through all fields to check the combo :
-		for (int i = 0;i < secretCombo.length; i++) {
-			
-			if (combo[i] == secretCombo[i])
-				clues[i] = '=';
-			else
-				clues[i] = (combo[i] < secretCombo[i])?'-':'+';
-			
-		}
-		
-		return clues;
-	}
-	
 	
 }

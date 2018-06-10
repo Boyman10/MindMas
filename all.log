@@ -1,2 +1,4 @@
-2018-06-10 11:06:22.198 [main] NEW_LEVEL main.com.oc.master.model.mind.ComboNumbersImpl - comparing source and secret [5, 5, 5, 5] target : [5, 5, 5, 5]
-2018-06-10 11:06:22.201 [main] NEW_LEVEL main.com.oc.master.model.mind.ComboNumbersImpl - Here are the clues [=, =, =, =]
+2018-06-10 11:14:13.940 [main] NEW_LEVEL main.com.oc.master.model.mind.ComboNumbersImpl - comparing source and secret [5, 5, 5, 5] target : [5, 5, 5, 5]
+2018-06-10 11:14:13.942 [main] NEW_LEVEL main.com.oc.master.model.mind.ComboNumbersImpl - Here are the clues [=, =, =, =]
+2018-06-10 11:14:13.943 [main] NEW_LEVEL main.com.oc.master.model.mind.ComboNumbersImpl - comparing source and secret [4, 5, 6, 8] target : [5, 5, 5, 5]
+2018-06-10 11:14:13.943 [main] NEW_LEVEL main.com.oc.master.model.mind.ComboNumbersImpl - Here are the clues [-, =, +, +]

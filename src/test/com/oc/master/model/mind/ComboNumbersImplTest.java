@@ -20,7 +20,16 @@ class ComboNumbersImplTest {
 		
 		assertTrue("source equals to target/secret combo", (new String(comboNum.compareCombo(source, target))).equals(result));
 
+		// second test :
+		String temp = "4568";
+		source = new int[temp.length()];
+		for (int i = 0; i < source.length; i++) {
+			source[i] = Character.digit(temp.charAt(i), 10);
+		}
 		
+		result = "-=++";
+		
+		assertTrue("source equals to target/secret combo", (new String(comboNum.compareCombo(source, target))).equals(result));	
 	}
 /*
 	@Test (expected = NullPointerException.class)
