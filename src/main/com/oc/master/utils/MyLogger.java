@@ -37,10 +37,10 @@ public class MyLogger {
 	 */
 	public static void reconfigureLogger() {
 		
-		LoggerContext ctx = (LoggerContext) LogManager.getContext(false);
-		Configuration config = (Configuration) ctx.getConfiguration();
+		//LoggerContext ctx = (LoggerContext) LogManager.getContext(false);
+		//Configuration config = (Configuration) ctx.getConfiguration();
 		
-		LOGGER.debug("Retrieving current configuration from property file : " + config.getProperties(""));
+		//LOGGER.debug("Retrieving current configuration from property file : " + config.getProperties(""));
 		
 		//config.setProperty(arg0, arg1);
 		//.addLogger("com", Level.INFO, (Filter) null);

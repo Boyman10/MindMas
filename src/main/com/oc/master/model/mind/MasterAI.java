@@ -18,11 +18,10 @@ public class MasterAI implements AI {
 	Level myLevel = Level.forName("NEW_LEVEL", 350);
 	
 	// play colors
-	private char[] colors;
+	private ArrayList<Character> colors;
 	private byte cSize;
 	
 	// Keeping track of game play
-	private ArrayList<Integer> badColorIndexes; // based from colors array
 	private byte[][] badSpotColor; // good colors at wrong place
 	
 	// current found combo
@@ -32,7 +31,13 @@ public class MasterAI implements AI {
 	// initialize colors array and combo size
 	public MasterAI(byte nbColors, byte cSize) {
 		
-		this.colors = Random.vColors.substring(0, nbColors).toCharArray();
+		// array of possible colors :
+		String allColors = Random.vColors.substring(0, nbColors);
+        
+		for (int i = 0;i < allColors.length();i++){
+            this.colors.add(allColors.charAt(i));
+        }
+        
 		this.cSize = cSize;
 		
 		// initializing found combo - null values for the moment:
@@ -54,14 +59,15 @@ public class MasterAI implements AI {
 		LOGGER.log(myLevel, "Current combo before new move : " + Arrays.toString(move));
 		
 		// now use good colors from wrong spot and increment by one to make a new move
-		int i = 0;
+		int k = 0;
+		
 		// till different than null character
-		while(move[i] != '\u0000' && i < cSize) {
+		while(move[k] != '\u0000' && k < cSize) {
 			
 			
 			
 			
-			i++;
+			k++;
 		}
 		
 		
