@@ -1,7 +1,5 @@
 package main.com.oc.master.model.mind;
 
-import java.util.ArrayList;
-
 /**
  * Interface defining behavior for the AI part of the MasterMind - Colors
  * @author Boyman10
@@ -11,5 +9,5 @@ public interface AI {
 
 	// we do have the possible colors defined within Random Class with max sizes
 	
-	public char[] makeMove();
+	public char[] makeMove(char[] clue);
 }

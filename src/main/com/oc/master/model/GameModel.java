@@ -156,12 +156,12 @@ public class GameModel implements GameObservable {
 				
 				// Now compare the submitted combo try with the computer one :
 				// then return the clue
-				try {
+				/*try {
 					// UPDATE TODO : players[0].addClue(players[1].compareCombo(vars));
 				} catch (ComboException e) {
 					logger.error("Problem with comparison with the try");
 				} // Computer here
-				
+*/				
 							
 				++counter;
 				
