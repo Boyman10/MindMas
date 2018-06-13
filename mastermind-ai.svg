@@ -27,14 +27,14 @@
      inkscape:pageshadow="2"
      inkscape:zoom="0.98994949"
      inkscape:cx="358.61009"
-     inkscape:cy="649.06604"
+     inkscape:cy="648.56096"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1357"
-     inkscape:window-height="1402"
-     inkscape:window-x="16"
-     inkscape:window-y="21"
+     inkscape:window-width="1713"
+     inkscape:window-height="1350"
+     inkscape:window-x="-4"
+     inkscape:window-y="0"
      inkscape:window-maximized="0" />
   <metadata
      id="metadata5">
@@ -526,5 +526,157 @@
        style="opacity:0.35;fill:#0067d7;fill-opacity:1;stroke:#000000;stroke-width:0.1994292;stroke-opacity:1"
        inkscape:export-xdpi="89"
        inkscape:export-ydpi="89" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:125%;font-family:sans-serif;letter-spacing:7.26440001px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="13.399112"
+       y="184.96062"
+       id="text4210"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="13.399112"
+         y="184.96062"
+         id="tspan4214"
+         style="letter-spacing:0.3556px">Key points .</tspan><tspan
+         sodipodi:role="line"
+         x="13.399112"
+         y="190.25229"
+         style="letter-spacing:0.3556px"
+         id="tspan4218">- When 1 goodpoint less thant last clue</tspan><tspan
+         sodipodi:role="line"
+         x="13.399112"
+         y="195.54395"
+         style="letter-spacing:0.3556px"
+         id="tspan4220">-&gt; check the bad spot = must be -&gt; apply next index for this last color</tspan><tspan
+         sodipodi:role="line"
+         x="13.399112"
+         y="200.83562"
+         style="letter-spacing:0.3556px"
+         id="tspan4222">=&gt; if the goodpoint lost is equal to badspot then remove current color submitted</tspan><tspan
+         sodipodi:role="line"
+         x="13.399112"
+         y="206.12729"
+         style="letter-spacing:0.3556px"
+         id="tspan4224">but if 2 bad spots -&gt; keep it and apply swap !</tspan></text>
+    <circle
+       inkscape:export-ydpi="89"
+       inkscape:export-xdpi="89"
+       style="stroke-width:0.26458332"
+       r="4.1577382"
+       cy="132.52995"
+       cx="21.166666"
+       id="circle4226" />
+    <circle
+       inkscape:export-ydpi="89"
+       inkscape:export-xdpi="89"
+       id="circle4228"
+       cx="31.749998"
+       cy="132.52995"
+       r="4.1577382"
+       style="fill:#ff0000;stroke-width:0.26458332" />
+    <circle
+       inkscape:export-ydpi="89"
+       inkscape:export-xdpi="89"
+       style="fill:#00ffff;stroke-width:0.26458332"
+       r="4.1577382"
+       cy="132.52995"
+       cx="42.333332"
+       id="circle4230" />
+    <circle
+       inkscape:export-ydpi="89"
+       inkscape:export-xdpi="89"
+       id="circle4232"
+       cx="52.916668"
+       cy="132.52995"
+       r="4.1577382"
+       style="fill:#ffff00;stroke-width:0.26458332" />
+    <rect
+       inkscape:export-ydpi="89"
+       inkscape:export-xdpi="89"
+       style="opacity:0.35;fill:#0067d7;fill-opacity:1;stroke:#000000;stroke-width:0.1994292;stroke-opacity:1"
+       id="rect4234"
+       width="11.825012"
+       height="15.032248"
+       x="14.934515"
+       y="125.00343" />
+    <rect
+       inkscape:export-ydpi="89"
+       inkscape:export-xdpi="89"
+       style="opacity:0.35;fill:#0067d7;fill-opacity:1;stroke:#000000;stroke-width:0.1994292;stroke-opacity:1"
+       id="rect4236"
+       width="11.825012"
+       height="15.032248"
+       x="25.517847"
+       y="125.00343" />
+    <text
+       inkscape:export-ydpi="89"
+       inkscape:export-xdpi="89"
+       sodipodi:linespacing="425%"
+       id="text4238"
+       y="134.64531"
+       x="65.338478"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:425%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         style="line-height:425%;stroke-width:0.26458332"
+         y="134.64531"
+         x="65.338478"
+         id="tspan4240"
+         sodipodi:role="line">Should win next move</tspan></text>
+    <circle
+       inkscape:export-ydpi="89"
+       inkscape:export-xdpi="89"
+       style="stroke-width:0.26458332"
+       r="4.1577382"
+       cy="144.1716"
+       cx="105.83332"
+       id="circle4244" />
+    <text
+       inkscape:export-ydpi="89"
+       inkscape:export-xdpi="89"
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="113.5788"
+       y="145.7151"
+       id="text4246"><tspan
+         sodipodi:role="line"
+         id="tspan4248"
+         x="113.5788"
+         y="145.7151"
+         style="font-size:4.93888903px;fill:#4d4d4d;stroke-width:0.26458332">2 good</tspan></text>
+    <circle
+       id="circle4250"
+       cx="139.7"
+       cy="144.73604"
+       r="4.1577382"
+       style="stroke-width:0.26458332;fill:#f2f2f2;stroke:#000000;stroke-opacity:1"
+       inkscape:export-xdpi="89"
+       inkscape:export-ydpi="89" />
+    <text
+       id="text4252"
+       y="146.27954"
+       x="147.44545"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"
+       inkscape:export-xdpi="89"
+       inkscape:export-ydpi="89"><tspan
+         style="font-size:4.93888903px;fill:#4d4d4d;stroke-width:0.26458332"
+         y="146.27954"
+         x="147.44545"
+         id="tspan4254"
+         sodipodi:role="line">2 good</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:425%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="65.338478"
+       y="157.22307"
+       id="text4256"
+       sodipodi:linespacing="425%"
+       inkscape:export-xdpi="89"
+       inkscape:export-ydpi="89"><tspan
+         sodipodi:role="line"
+         id="tspan4258"
+         x="65.338478"
+         y="157.22307"
+         style="line-height:425%;stroke-width:0.26458332">Apply swap of 2 last colors and fill with the rest</tspan></text>
   </g>
 </svg>

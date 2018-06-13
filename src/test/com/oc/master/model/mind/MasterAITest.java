@@ -28,11 +28,11 @@ class MasterAITest {
 		// Should be this result - public final static String vColors = "WBOYGIPRSMC";
 		char[] result = { 'W', 'W', 'W', 'W' };
 
-		LOGGER.debug("Comparing : " + Arrays.toString(result) + " with : " + Arrays.toString(AIResult));
+		LOGGER.debug("Comparing 1 : " + Arrays.toString(result) + " with : " + Arrays.toString(AIResult));
 
 		assertTrue("Comparing result of Algo", Arrays.equals(result, AIResult));
 
-		// 1 NEXT MOVE NOW - same game :
+		// 1 NEXT MOVE NOW - same game : Secret Combo : "WBGO"
 		clue[0] = '1';
 		clue[1] = '0';
 
@@ -48,7 +48,7 @@ class MasterAITest {
 		assertTrue("Comparing result of Algo", Arrays.equals(result, AIResult));
 		
 		
-		// 2  NEXT MOVE NOW - same game :
+		// 2  NEXT MOVE NOW - same game : Secret Combo : "WBGO"
 		clue[0] = '2';
 		clue[1] = '0';
 
@@ -64,20 +64,37 @@ class MasterAITest {
 		assertTrue("Comparing result of Algo", Arrays.equals(result, AIResult));
 		
 		
-		// 3  NEXT MOVE NOW - same game :
-		clue[0] = '2';
-		clue[1] = '1';
+		// 3  NEXT MOVE NOW - same game : Secret Combo : "WBGO"
+		clue[0] = '3';
+		clue[1] = '0';
 
 		result[0] = 'W';
 		result[1] = 'B';
 		result[2] = 'O';
+		result[3] = 'Y';
+
+		AIResult = masterAI.makeMove(clue);
+		
+		LOGGER.debug("Comparing 4 : " + Arrays.toString(result) + " with : " + Arrays.toString(AIResult));
+
+		assertTrue("Comparing result of Algo", Arrays.equals(result, AIResult));		
+		
+		// 4  NEXT MOVE NOW - same game : Secret Combo : "WBGO"
+		clue[0] = '2'; // decrement ! -> remove the current submitted color
+		clue[1] = '1'; // last color submitted -> move it to the right !
+
+		result[0] = 'W';
+		result[1] = 'B';
+		result[2] = 'G'; // replace the bad spot with another color
 		result[3] = 'O';
 
 		AIResult = masterAI.makeMove(clue);
 		
-		LOGGER.debug("Comparing 3 : " + Arrays.toString(result) + " with : " + Arrays.toString(AIResult));
+		LOGGER.debug("Comparing 5 : " + Arrays.toString(result) + " with : " + Arrays.toString(AIResult));
 
-		assertTrue("Comparing result of Algo", Arrays.equals(result, AIResult));		
+		assertTrue("Comparing result of Algo", Arrays.equals(result, AIResult));	
+		
+		
 	}
 
 }
