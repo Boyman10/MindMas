@@ -22,17 +22,17 @@ public class MasterAI implements AI {
 	Level myLevel = Level.forName("NEW_LEVEL", 350);
 
 	// colors still in play
-	private ArrayList<Character> colors;
+	private Stack<Character> colors;
 	private byte cSize, nGoodOnes, nBadOnes, nColors;
-	
+
 	// color in play
-	private Character currentColor;	
-	
+	private Character currentColor;
+
 	// Keeping track of game play - color index with index of spot searches so far
 	private ArrayList<Character> goodColors = new ArrayList<>();
 	private ArrayList<byte[]> indexGoodColors = new ArrayList<>();
-	
-	private Character[] foundColors ;
+
+	private Character[] foundColors;
 
 	// colors reference
 	private String allColors;
@@ -45,14 +45,16 @@ public class MasterAI implements AI {
 	 */
 	public MasterAI(byte nbColors, byte cSize) {
 
-		this.colors = new ArrayList<>();
+		this.colors = new Stack<>();
 		// array of possible colors :
 		allColors = Random.vColors.substring(0, nbColors);
 		LOGGER.log(myLevel, "Colors : " + allColors);
-		
+
 		for (int i = 0; i < allColors.length(); i++) {
-			this.colors.add(allColors.charAt(i));
+			this.colors.push(allColors.charAt(allColors.length() - 1 - i));
 		}
+
+		LOGGER.log(myLevel, "Stacked Colors : " + this.colors);
 
 		this.cSize = cSize;
 
@@ -60,7 +62,6 @@ public class MasterAI implements AI {
 		foundColors = new Character[cSize];
 		nGoodOnes = 0;
 		nBadOnes = 0;
-
 
 	}
 
@@ -72,220 +73,238 @@ public class MasterAI implements AI {
 	 * @return
 	 */
 	@Override
-	public char[] makeMove(char[] clue) {
-
-		char[] move = new char[cSize];
+	public char[] makeMove(byte[] clue) {
 
 		// case First move :
-		if (this.currentColor == '\u0000') {
-			// fill with 1 color :
-			for (int j = 0; j < cSize; j++)
-				move[j] = this.colors.get(0);
+		if (this.currentColor == null) {
 
 			// This color is being played
-			this.currentColor = this.colors.get(0);
-			this.colors.remove(0);
+			this.currentColor = this.colors.peek();
+			this.colors.pop();
 
-			LOGGER.log(myLevel, "Current generated move : " + Arrays.toString(move));
-			
-			return move;
-		}
+			LOGGER.log(myLevel, "First move to do : ");
 
-		// Nb of good clue :
-		byte nbGood = (byte) Integer.parseInt(Character.toString(clue[0]));
-		// Nb of bad ones clue :
-		byte nbBad = (byte) Integer.parseInt(Character.toString(clue[1]));
-		
-		// Compare clues nb and nb of colors played so far
-		if ((nbBad + nbGood) ==  (goodColors.size() + foundColors.length + 1)) {
-			
-			/**
-			 * Case all colors are good - add the current one to the list of good ones and
-			 * index it based on free spots
-			 */
-			
-			
-			
-			
-		} else if ((nbBad + nbGood) <  (goodColors.size() + foundColors.length + 1)) {
-			
-			/**
-			 * Case clues < nb colors - we remove the current color and apply next move
-			 */
-			
-			this.colors.remove(0);
-			this.currentColor = this.colors.get(0);
-			
-			generateMove();
-			
-		} else if ((nbBad + nbGood) >  (goodColors.size() + foundColors.length + 1)) {
-			
-			/**
-			 * Case clues > nb colors - we do have duplicate color for the last one !
-			 */
-			
-			
-			
-		}
-		
-		
-		
-		
-		
-		
-		
-		// We compare number good Spots to the new submitted clue :
-		if (nGoodOnes < nbGood) {
-			
-			// Case new color played lead to new good spot then last color is at the right spot(s)
-			if (playedSpotColor.size() > nbGood) {
-				
-				// Beware multiple times the same color :
-				if(playedSpotColor.size() - nbGood == 1) {
-					
-					for (int i = 0; i < (nbGood - nGoodOnes);i++ ) {
-						foundSpotColor.put(Character.toString(this.colors.get(0)),(Integer)(new String(checkedCombo)).indexOf(this.colors.get(0)));
-						playedSpotColor.remove(Character.toString(this.colors.get(0)));
-					}
-				}
-				
-			}
-
-			// First fill in the last entries :
-			for (k = 0; k < nGoodOnes + 1; k++)
-				move[k] = checkedCombo[k];
-
-			// iterate over number of new Good spots (case same color several times !)
-			for (int j = 0; j < (nbGood - nGoodOnes); j++) {
-				nGoodOnes++;
-
-				// we add this color to the combo :
-				checkedCombo[k++] = this.colors.get(0);
-				
-				
-
-			}
-
-			// remove the color from the still playing
-			colors.remove(0);
-
-			// now padding to the end with next color :
-			for (k = nGoodOnes; k < cSize; k++)
-				move[k] = this.colors.get(0);
-			
-			// This color is being played 
-			playedSpotColor.put(Character.toString(this.colors.get(0)), -1);
-
-		} else if (nGoodOnes == nbGood) {
-			
-				
-			// Compare nb of distinct colors :
-			if (playedSpotColor.size() > nbGood) {
-				
-				// more colors than the good spots 
-				
-				// Do we have bad spotted colors ?
-				if (nBadOnes > 0) {
-					
-					// case no more color added yet :
-					if (nbBad == nBadOnes ) {
-						
-						
-						
-					} else {
-						
-						nBadOnes++;
-						
-						
-					}
-					
-					
-				} else {
-					
-					// The good ones are at the right place
-					for (k = 0; k < nGoodOnes + 1; k++)
-						move[k] = checkedCombo[k];
-					
-					// Remove latest color from possible spots :
-					playedSpotColor.remove(Character.toString(this.colors.get(0)));
-					
-					// remove the last submitted color :
-					colors.remove(0);
-					
-					// now padding to the end with next color :
-					for (k = nGoodOnes; k < cSize; k++)
-						move[k] = this.colors.get(0);
-					
-					// This last color is being played 
-					playedSpotColor.put(Character.toString(this.colors.get(0)), -1);
-					
-				}
-				
-			}
-			
-			
 		} else {
-			// Case one less good spot :
-			if ((nGoodOnes - nbGood) == nbBad) {
-				// the last checked color is not present :
-				playedSpotColor.remove(Character.toString(this.colors.get(0)));
-				colors.remove(0);
-				
-				nGoodOnes --;
-				nBadOnes++;
-				
+
+			// Nb of good clue :
+			byte nbGood = clue[0];
+			// Nb of bad ones clue :
+			byte nbBad = clue[1];
+
+			// Compare clues nb and nb of colors played so far
+			if ((nbBad + nbGood) == (goodColors.size() + sizeOfArray(foundColors) + 1)) {
+
+				LOGGER.log(myLevel, "N Colors = NClues - all colors are good");
+
+				/**
+				 * Case all colors are good - add the current one to the list of good ones and
+				 * index it based on free spots
+				 */
+				this.goodColors.add(this.currentColor);
+				this.indexGoodColors.add(new byte[cSize]);
+				pickUpFirstSpot(goodColors.indexOf(this.currentColor), 1);
+
+				// Now prepare indexes for the good colors :
+				if (nbBad == 0) {
+
+					LOGGER.log(myLevel, "No bad spots for the current");
+
+					/**
+					 * Case no bad spots Until current color - all spots are good !
+					 */
+					for (int i = 0; i < goodColors.size(); i++) {
+
+						if (goodColors.get(i) != this.currentColor) {
+
+							int k = 0;
+							while (k < cSize && indexGoodColors.get(i)[k] != 1 && indexGoodColors.get(i)[k] != 3)
+								k++;
+
+							LOGGER.log(myLevel, "Adding the last color to the found ones at index " + k + " : "
+									+ goodColors.get(i));
+							foundColors[k] = goodColors.get(i);
+
+							cleanUpGoodColors();
+							pickUpFirstSpot(i, 1);
+						}
+					}
+
+				}
+
+				this.currentColor = this.colors.peek();
+				this.colors.pop();
+
+				LOGGER.log(myLevel, "Current color is " + currentColor);
+
+			} else if ((nbBad + nbGood) < (goodColors.size() + sizeOfArray(foundColors) + 1)) {
+
+				/**
+				 * Case clues < nb colors - we remove the current color and apply next move
+				 */
+
+				this.colors.pop();
+				this.currentColor = this.colors.peek();
+
+			} else if ((nbBad + nbGood) > (goodColors.size() + sizeOfArray(foundColors) + 1)) {
+
+				/**
+				 * Case clues > nb colors - we do have duplicate color for the last one !
+				 */
+
 			}
-			
-			
 		}
 
-		LOGGER.log(myLevel, "Current combo move : " + Arrays.toString(move));
-		
-		return move;
+		LOGGER.log(myLevel, "### Found colors " + Arrays.toString(foundColors));
+		return generateMove();
+	}
+
+	/**
+	 * Taking first space for the new added color :
+	 * 
+	 * @param index
+	 *            of goodColor
+	 * @param nb
+	 *            of spots to take (case duplicates)
+	 */
+	private void pickUpFirstSpot(int index, int nb) {
+
+		int c = 0, i;
+		boolean free = false;
+
+		LOGGER.log(myLevel, "Picking first spot for color " + goodColors.get(index));
+
+		// if more than 1 duplicate - iterate
+		while (c < nb) {
+
+			i = 0;
+
+			while (foundColors[i] != null && indexGoodColors.get(index)[i] != 1 && indexGoodColors.get(index)[i] != 2
+					&& !free) {
+
+				free = true;
+				// Check if spot already taken by other good color or foundcolor
+				for (int j = 0; j < goodColors.size(); j++) {
+					if ((j != index && indexGoodColors.get(j)[i] == 1) || // in play
+							(j != index && indexGoodColors.get(j)[i] == 3)) // Currently testing
+						free = false;
+				}
+
+				LOGGER.log(myLevel, "--- spotted index " + i);
+				i++;
+			}
+
+			// index the color :
+			indexGoodColors.get(index)[i] = 1;
+
+			c++;
+		}
+
+		LOGGER.log(myLevel, "-- spots : " + Arrays.toString(indexGoodColors.get(index)));
+
+	}
+
+	/**
+	 * Method to clean up the array with found colors
+	 */
+	private void cleanUpGoodColors() {
+
+		LOGGER.log(myLevel, "Cleaning up good colors...");
+
+		for (int i = 0; i < cSize; i++) {
+
+			if (foundColors[i] != null) {
+
+				if (goodColors.contains(foundColors[i])) {
+					LOGGER.log(myLevel, "About to remove color from good Ones " + foundColors[i]);
+
+					int index = goodColors.indexOf(foundColors[i]);
+					goodColors.remove(index);
+					indexGoodColors.remove(index);
+
+					LOGGER.log(myLevel, "Cleaning up index from good colors " + index);
+
+					// Then add -1 as the spot for each goodColors :
+					for (int j = 0; j < indexGoodColors.size(); j++) {
+						indexGoodColors.get(j)[i] = -1;
+						LOGGER.log(myLevel,
+								"Index of good colors passing used index at -1 (color " + goodColors.get(j) + ") " + i);
+					}
+
+				}
+			}
+
+		}
 	}
 
 	/**
 	 * Generating move using current Color, goodColors and indexes of GoodColors
+	 * 
+	 * @return char[cSize] move
 	 */
 	private char[] generateMove() {
 
 		char[] move = new char[cSize];
-		
-		for(int i = 0; i< cSize; i++) {
-			
+
+		LOGGER.log(myLevel, "Generating move...");
+
+		for (int i = 0; i < cSize; i++) {
+
 			// If we have a known color - use it
-			if (foundColors[i] != '\u0000') {
+			if (foundColors[i] != null) {
 				move[i] = foundColors[i];
+				LOGGER.log(myLevel, "Found color at index " + i + " : " + foundColors[i]);
 			} else {
-				
+
 				int k = 0;
 				boolean found = false;
-				
-				// iterate over goodColors
-				for(byte[] arrIndex: indexGoodColors) {
 
-					// We do have a color here
-					if(arrIndex[i] == 3 || arrIndex[i] == 1) {
-						move[i] = goodColors.get(k); 
+				// iterate over goodColors
+				for (byte[] arrIndex : indexGoodColors) {
+
+					// We do have a color here - 1 for current - 2 for in test - 3 for in test
+					// current
+					if (arrIndex[i] == 3 || arrIndex[i] == 1) {
+						move[i] = goodColors.get(k);
 						found = true;
+
+						LOGGER.log(myLevel, "From the good colors " + i + " : " + move[i]);
 					}
 
 					k++;
 
 				}
-				
+
 				if (!found) {
 					move[i] = this.currentColor;
+					LOGGER.log(myLevel, "No match at all " + i + " : " + move[i]);
 				}
-				
+
 			}
-			
+
 		}
-		
+
+		LOGGER.log(myLevel, "Current combo move : " + Arrays.toString(move));
+
 		return move;
-		
-		
+
 	}
 
+	/**
+	 * Retrieving size of array
+	 * 
+	 * @param array
+	 * @return
+	 */
+	private byte sizeOfArray(Character[] array) {
+
+		byte cpt = 0;
+		for (int i = 0; i < array.length; i++) {
+			if (array[i] != null)
+				cpt++;
+		}
+		LOGGER.log(myLevel, "Size of found Colors array " + cpt);
+
+		return cpt;
+	}
 
 }

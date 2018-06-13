@@ -9,5 +9,5 @@ public interface AI {
 
 	// we do have the possible colors defined within Random Class with max sizes
 	
-	public char[] makeMove(char[] clue);
+	public char[] makeMove(byte[] clue);
 }

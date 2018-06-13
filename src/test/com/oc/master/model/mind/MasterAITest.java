@@ -22,7 +22,7 @@ class MasterAITest {
 		LOGGER.debug("Secret Combo to find : \"WBGO\"");
 		
 		// TESTING A CLUE - Empty at first - Secret Combo : "WBGO"
-		char[] clue = new char[2];
+		byte[] clue = new byte[2];
 		char[] AIResult = masterAI.makeMove(clue);
 
 		// Should be this result - public final static String vColors = "WBOYGIPRSMC";
@@ -33,8 +33,8 @@ class MasterAITest {
 		assertTrue("Comparing result of Algo", Arrays.equals(result, AIResult));
 
 		// 1 NEXT MOVE NOW - same game : Secret Combo : "WBGO"
-		clue[0] = '1';
-		clue[1] = '0';
+		clue[0] = 1;
+		clue[1] = 0;
 
 		result[0] = 'W';
 		result[1] = 'B';
@@ -49,8 +49,8 @@ class MasterAITest {
 		
 		
 		// 2  NEXT MOVE NOW - same game : Secret Combo : "WBGO"
-		clue[0] = '2';
-		clue[1] = '0';
+		clue[0] = 2;
+		clue[1] = 0;
 
 		result[0] = 'W';
 		result[1] = 'B';
@@ -65,8 +65,8 @@ class MasterAITest {
 		
 		
 		// 3  NEXT MOVE NOW - same game : Secret Combo : "WBGO"
-		clue[0] = '3';
-		clue[1] = '0';
+		clue[0] = 3;
+		clue[1] = 0;
 
 		result[0] = 'W';
 		result[1] = 'B';
@@ -80,8 +80,8 @@ class MasterAITest {
 		assertTrue("Comparing result of Algo", Arrays.equals(result, AIResult));		
 		
 		// 4  NEXT MOVE NOW - same game : Secret Combo : "WBGO"
-		clue[0] = '2'; // decrement ! -> remove the current submitted color
-		clue[1] = '1'; // last color submitted -> move it to the right !
+		clue[0] = 2; // decrement ! -> remove the current submitted color
+		clue[1] = 1; // last color submitted -> move it to the right !
 
 		result[0] = 'W';
 		result[1] = 'B';
