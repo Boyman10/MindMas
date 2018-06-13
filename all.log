@@ -1,71 +1,102 @@
-2018-06-13 18:18:20.158 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Colors : WBOYGI
-2018-06-13 18:18:20.159 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Stacked Colors : [I, G, Y, O, B, W]
-2018-06-13 18:18:20.160 [main] DEBUG test.com.oc.master.model.mind.MasterAITest - Secret Combo to find : "WBGO"
-2018-06-13 18:18:20.160 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - First move to do : 
-2018-06-13 18:18:20.160 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - ### Found colors [null, null, null, null]
-2018-06-13 18:18:20.160 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Generating move...
-2018-06-13 18:18:20.160 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - No match at all 0 : W
-2018-06-13 18:18:20.160 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - No match at all 1 : W
-2018-06-13 18:18:20.160 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - No match at all 2 : W
-2018-06-13 18:18:20.160 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - No match at all 3 : W
-2018-06-13 18:18:20.160 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Current combo move : [W, W, W, W]
-2018-06-13 18:18:20.160 [main] DEBUG test.com.oc.master.model.mind.MasterAITest - Comparing 1 : [W, W, W, W] with : [W, W, W, W]
-2018-06-13 18:18:20.162 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Size of found Colors array 0
-2018-06-13 18:18:20.162 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - N Colors = NClues - all colors are good
-2018-06-13 18:18:20.162 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Picking first spot for color W
-2018-06-13 18:18:20.162 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - -- spots : [1, 0, 0, 0]
-2018-06-13 18:18:20.162 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - No bad spots for the current
-2018-06-13 18:18:20.162 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Current color is B
-2018-06-13 18:18:20.162 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - ### Found colors [null, null, null, null]
-2018-06-13 18:18:20.162 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Generating move...
-2018-06-13 18:18:20.162 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - From the good colors 0 : W
-2018-06-13 18:18:20.162 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - No match at all 1 : B
-2018-06-13 18:18:20.163 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - No match at all 2 : B
-2018-06-13 18:18:20.163 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - No match at all 3 : B
-2018-06-13 18:18:20.163 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Current combo move : [W, B, B, B]
-2018-06-13 18:18:20.163 [main] DEBUG test.com.oc.master.model.mind.MasterAITest - Comparing 2 : [W, B, B, B] with : [W, B, B, B]
-2018-06-13 18:18:20.163 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Size of found Colors array 0
-2018-06-13 18:18:20.163 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - N Colors = NClues - all colors are good
-2018-06-13 18:18:20.163 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Picking first spot for color B
-2018-06-13 18:18:20.163 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - -- spots : [1, 0, 0, 0]
-2018-06-13 18:18:20.163 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - No bad spots for the current
-2018-06-13 18:18:20.163 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Adding the last color to the found ones at index 0 : W
-2018-06-13 18:18:20.163 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Cleaning up good colors...
-2018-06-13 18:18:20.163 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - About to remove color from good Ones W
-2018-06-13 18:18:20.164 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Cleaning up index from good colors 0
-2018-06-13 18:18:20.164 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Index of good colors passing used index at -1 (color B) 0
-2018-06-13 18:18:20.164 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Picking first spot for color B
-2018-06-13 18:18:20.164 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - --- spotted index 0
-2018-06-13 18:18:20.164 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - -- spots : [-1, 1, 0, 0]
-2018-06-13 18:18:20.164 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Current color is O
-2018-06-13 18:18:20.164 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - ### Found colors [W, null, null, null]
-2018-06-13 18:18:20.164 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Generating move...
-2018-06-13 18:18:20.164 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Found color at index 0 : W
-2018-06-13 18:18:20.164 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - From the good colors 1 : B
-2018-06-13 18:18:20.164 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - No match at all 2 : O
-2018-06-13 18:18:20.164 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - No match at all 3 : O
-2018-06-13 18:18:20.164 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Current combo move : [W, B, O, O]
-2018-06-13 18:18:20.164 [main] DEBUG test.com.oc.master.model.mind.MasterAITest - Comparing 3 : [W, B, O, O] with : [W, B, O, O]
-2018-06-13 18:18:20.165 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Size of found Colors array 1
-2018-06-13 18:18:20.165 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - N Colors = NClues - all colors are good
-2018-06-13 18:18:20.165 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Picking first spot for color O
-2018-06-13 18:18:20.165 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - --- spotted index 0
-2018-06-13 18:18:20.165 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - -- spots : [0, 1, 0, 0]
-2018-06-13 18:18:20.165 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - No bad spots for the current
-2018-06-13 18:18:20.165 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Adding the last color to the found ones at index 1 : B
-2018-06-13 18:18:20.165 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Cleaning up good colors...
-2018-06-13 18:18:20.165 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - About to remove color from good Ones B
-2018-06-13 18:18:20.165 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Cleaning up index from good colors 0
-2018-06-13 18:18:20.165 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Index of good colors passing used index at -1 (color O) 1
-2018-06-13 18:18:20.165 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Picking first spot for color O
-2018-06-13 18:18:20.165 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - --- spotted index 0
-2018-06-13 18:18:20.165 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - -- spots : [0, 1, 0, 0]
-2018-06-13 18:18:20.166 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Current color is Y
-2018-06-13 18:18:20.166 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - ### Found colors [W, B, null, null]
-2018-06-13 18:18:20.166 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Generating move...
-2018-06-13 18:18:20.166 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Found color at index 0 : W
-2018-06-13 18:18:20.166 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Found color at index 1 : B
-2018-06-13 18:18:20.166 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - No match at all 2 : Y
-2018-06-13 18:18:20.166 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - No match at all 3 : Y
-2018-06-13 18:18:20.166 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Current combo move : [W, B, Y, Y]
-2018-06-13 18:18:20.166 [main] DEBUG test.com.oc.master.model.mind.MasterAITest - Comparing 4 : [W, B, O, Y] with : [W, B, Y, Y]
+2018-06-13 22:18:35.203 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Colors : WBOYGI
+2018-06-13 22:18:35.204 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Stacked Colors : [I, G, Y, O, B, W]
+2018-06-13 22:18:35.204 [main] DEBUG test.com.oc.master.model.mind.MasterAITest - Secret Combo to find : "WBGO"
+2018-06-13 22:18:35.204 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Given clues : [0, 0]
+2018-06-13 22:18:35.205 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - First move to do : 
+2018-06-13 22:18:35.206 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - ### Found colors [null, null, null, null]
+2018-06-13 22:18:35.206 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Generating move...
+2018-06-13 22:18:35.206 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - No match at all 0 : W
+2018-06-13 22:18:35.207 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - No match at all 1 : W
+2018-06-13 22:18:35.207 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - No match at all 2 : W
+2018-06-13 22:18:35.207 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - No match at all 3 : W
+2018-06-13 22:18:35.207 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Current combo move : [W, W, W, W]
+2018-06-13 22:18:35.207 [main] DEBUG test.com.oc.master.model.mind.MasterAITest - Comparing 1 : [W, W, W, W] with : [W, W, W, W]
+2018-06-13 22:18:35.208 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Given clues : [1, 0]
+2018-06-13 22:18:35.209 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Size of found Colors array 0
+2018-06-13 22:18:35.209 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - N Colors = NClues - all colors are good
+2018-06-13 22:18:35.209 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Picking first spot for color W
+2018-06-13 22:18:35.209 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - --- spotted index 0
+2018-06-13 22:18:35.209 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - -- spots : [1, 0, 0, 0]
+2018-06-13 22:18:35.209 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - No bad spots for the current
+2018-06-13 22:18:35.209 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Current color is B
+2018-06-13 22:18:35.209 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - ### Found colors [null, null, null, null]
+2018-06-13 22:18:35.210 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Generating move...
+2018-06-13 22:18:35.210 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - From the good colors 0 : W
+2018-06-13 22:18:35.210 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - No match at all 1 : B
+2018-06-13 22:18:35.210 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - No match at all 2 : B
+2018-06-13 22:18:35.210 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - No match at all 3 : B
+2018-06-13 22:18:35.210 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Current combo move : [W, B, B, B]
+2018-06-13 22:18:35.210 [main] DEBUG test.com.oc.master.model.mind.MasterAITest - Comparing 2 : [W, B, B, B] with : [W, B, B, B]
+2018-06-13 22:18:35.210 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Given clues : [2, 0]
+2018-06-13 22:18:35.210 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Size of found Colors array 0
+2018-06-13 22:18:35.210 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - N Colors = NClues - all colors are good
+2018-06-13 22:18:35.210 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Picking first spot for color B
+2018-06-13 22:18:35.211 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - --- spotted index 0
+2018-06-13 22:18:35.211 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - ---- found one good here
+2018-06-13 22:18:35.211 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - --- spotted index 1
+2018-06-13 22:18:35.211 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - -- spots : [0, 1, 0, 0]
+2018-06-13 22:18:35.211 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - No bad spots for the current
+2018-06-13 22:18:35.211 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Adding the last color to the found ones at index 0 : W
+2018-06-13 22:18:35.211 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Cleaning up good colors...
+2018-06-13 22:18:35.211 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - About to remove color from good Ones W
+2018-06-13 22:18:35.211 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Cleaning up index from good colors 0
+2018-06-13 22:18:35.211 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Index of good colors passing used index at -1 (color B) 0
+2018-06-13 22:18:35.211 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Picking first spot for color B
+2018-06-13 22:18:35.211 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - --- spotted index 0
+2018-06-13 22:18:35.211 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - ---- found one real here
+2018-06-13 22:18:35.211 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - --- spotted index 1
+2018-06-13 22:18:35.212 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - -- spots : [-1, 1, 0, 0]
+2018-06-13 22:18:35.212 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Current color is O
+2018-06-13 22:18:35.212 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - ### Found colors [W, null, null, null]
+2018-06-13 22:18:35.212 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Generating move...
+2018-06-13 22:18:35.212 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Found color at index 0 : W
+2018-06-13 22:18:35.212 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - From the good colors 1 : B
+2018-06-13 22:18:35.212 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - No match at all 2 : O
+2018-06-13 22:18:35.212 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - No match at all 3 : O
+2018-06-13 22:18:35.212 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Current combo move : [W, B, O, O]
+2018-06-13 22:18:35.212 [main] DEBUG test.com.oc.master.model.mind.MasterAITest - Comparing 3 : [W, B, O, O] with : [W, B, O, O]
+2018-06-13 22:18:35.212 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Given clues : [3, 0]
+2018-06-13 22:18:35.212 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Size of found Colors array 1
+2018-06-13 22:18:35.212 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - N Colors = NClues - all colors are good
+2018-06-13 22:18:35.212 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Picking first spot for color O
+2018-06-13 22:18:35.212 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - --- spotted index 0
+2018-06-13 22:18:35.213 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - ---- found one real here
+2018-06-13 22:18:35.213 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - --- spotted index 1
+2018-06-13 22:18:35.213 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - ---- found one good here
+2018-06-13 22:18:35.213 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - --- spotted index 2
+2018-06-13 22:18:35.213 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - -- spots : [0, 0, 1, 0]
+2018-06-13 22:18:35.213 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - No bad spots for the current
+2018-06-13 22:18:35.213 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Adding the last color to the found ones at index 1 : B
+2018-06-13 22:18:35.213 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Cleaning up good colors...
+2018-06-13 22:18:35.213 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - About to remove color from good Ones B
+2018-06-13 22:18:35.213 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Cleaning up index from good colors 0
+2018-06-13 22:18:35.213 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Index of good colors passing used index at -1 (color O) 1
+2018-06-13 22:18:35.213 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Picking first spot for color O
+2018-06-13 22:18:35.214 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - --- spotted index 0
+2018-06-13 22:18:35.214 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - ---- found one real here
+2018-06-13 22:18:35.214 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - --- spotted index 1
+2018-06-13 22:18:35.214 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - ---- found one real here
+2018-06-13 22:18:35.214 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - --- spotted index 2
+2018-06-13 22:18:35.214 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - -- spots : [0, -1, 1, 0]
+2018-06-13 22:18:35.214 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Current color is Y
+2018-06-13 22:18:35.214 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - ### Found colors [W, B, null, null]
+2018-06-13 22:18:35.214 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Generating move...
+2018-06-13 22:18:35.214 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Found color at index 0 : W
+2018-06-13 22:18:35.214 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Found color at index 1 : B
+2018-06-13 22:18:35.214 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - From the good colors 2 : O
+2018-06-13 22:18:35.214 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - No match at all 3 : Y
+2018-06-13 22:18:35.215 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Current combo move : [W, B, O, Y]
+2018-06-13 22:18:35.215 [main] DEBUG test.com.oc.master.model.mind.MasterAITest - Comparing 4 : [W, B, O, Y] with : [W, B, O, Y]
+2018-06-13 22:18:35.215 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Given clues : [2, 1]
+2018-06-13 22:18:35.215 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Size of found Colors array 2
+2018-06-13 22:18:35.215 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Size of found Colors array 2
+2018-06-13 22:18:35.215 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - *** CASE clues < nb Colors ***
+2018-06-13 22:18:35.215 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - NEW Current color is G
+2018-06-13 22:18:35.215 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - ### Found colors [W, B, null, null]
+2018-06-13 22:18:35.215 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Generating move...
+2018-06-13 22:18:35.215 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Found color at index 0 : W
+2018-06-13 22:18:35.216 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Found color at index 1 : B
+2018-06-13 22:18:35.216 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - From the good colors 2 : O
+2018-06-13 22:18:35.216 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - No match at all 3 : G
+2018-06-13 22:18:35.216 [main] NEW_LEVEL main.com.oc.master.model.mind.MasterAI - Current combo move : [W, B, O, G]
+2018-06-13 22:18:35.216 [main] DEBUG test.com.oc.master.model.mind.MasterAITest - Comparing 5 : [W, B, G, O] with : [W, B, O, G]

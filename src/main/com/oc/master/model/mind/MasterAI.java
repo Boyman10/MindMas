@@ -75,6 +75,8 @@ public class MasterAI implements AI {
 	@Override
 	public char[] makeMove(byte[] clue) {
 
+		LOGGER.log(myLevel, "Given clues : " + Arrays.toString(clue));
+		
 		// case First move :
 		if (this.currentColor == null) {
 
@@ -141,19 +143,35 @@ public class MasterAI implements AI {
 				/**
 				 * Case clues < nb colors - we remove the current color and apply next move
 				 */
-
-				this.colors.pop();
+				LOGGER.log(myLevel, "*** CASE clues < nb Colors ***");
+				
+				// One less good spot since last change
+				if (nbGood > nGoodOnes) {
+					
+					// Need to change the current index of the last color inside good Spot
+				}
+				
+				
 				this.currentColor = this.colors.peek();
+				this.colors.pop();
+				LOGGER.log(myLevel, "NEW Current color is " + currentColor);
 
 			} else if ((nbBad + nbGood) > (goodColors.size() + sizeOfArray(foundColors) + 1)) {
 
 				/**
 				 * Case clues > nb colors - we do have duplicate color for the last one !
 				 */
+				LOGGER.log(myLevel, "*** CASE clues > nb Colors ***");
+
+				LOGGER.log(myLevel, "NEW Current color is " + currentColor);
 
 			}
 		}
 
+		// Store the clues
+		nGoodOnes = nbGood;
+		nBadOnes = nbBad;
+		
 		LOGGER.log(myLevel, "### Found colors " + Arrays.toString(foundColors));
 		return generateMove();
 	}
@@ -178,23 +196,37 @@ public class MasterAI implements AI {
 
 			i = 0;
 
-			while (foundColors[i] != null && indexGoodColors.get(index)[i] != 1 && indexGoodColors.get(index)[i] != 2
-					&& !free) {
+			while (!free) {
 
 				free = true;
+				LOGGER.log(myLevel, "--- spotted index " + i);
+
+				// Do we have a found color here ?
+				if (foundColors[i] != null) {
+					free = false;
+					LOGGER.log(myLevel, "---- found one real here");
+				} else if (indexGoodColors.get(index)[i] == -1) {
+					free = false;
+					LOGGER.log(myLevel, "---- already tried here");
+				}
 				// Check if spot already taken by other good color or foundcolor
-				for (int j = 0; j < goodColors.size(); j++) {
-					if ((j != index && indexGoodColors.get(j)[i] == 1) || // in play
-							(j != index && indexGoodColors.get(j)[i] == 3)) // Currently testing
-						free = false;
+				else {
+					for (int j = 0; j < goodColors.size(); j++) {
+
+						if ((j != index && indexGoodColors.get(j)[i] == 1) || // in play
+								(j != index && indexGoodColors.get(j)[i] == 3)) // Currently testing
+						{
+							free = false;
+							LOGGER.log(myLevel, "---- found one good here");
+						}
+					}
 				}
 
-				LOGGER.log(myLevel, "--- spotted index " + i);
 				i++;
 			}
 
 			// index the color :
-			indexGoodColors.get(index)[i] = 1;
+			indexGoodColors.get(index)[i-1] = 1;
 
 			c++;
 		}
