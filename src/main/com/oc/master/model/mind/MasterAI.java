@@ -2,8 +2,6 @@ package main.com.oc.master.model.mind;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Enumeration;
-import java.util.Hashtable;
 import java.util.Stack;
 
 import org.apache.logging.log4j.Level;
@@ -76,7 +74,11 @@ public class MasterAI implements AI {
 	public char[] makeMove(byte[] clue) {
 
 		LOGGER.log(myLevel, "Given clues : " + Arrays.toString(clue));
-		
+		// Nb of good clue :
+		byte nbGood = clue[0];
+		// Nb of bad ones clue :
+		byte nbBad = clue[1];
+
 		// case First move :
 		if (this.currentColor == null) {
 
@@ -87,11 +89,6 @@ public class MasterAI implements AI {
 			LOGGER.log(myLevel, "First move to do : ");
 
 		} else {
-
-			// Nb of good clue :
-			byte nbGood = clue[0];
-			// Nb of bad ones clue :
-			byte nbBad = clue[1];
 
 			// Compare clues nb and nb of colors played so far
 			if ((nbBad + nbGood) == (goodColors.size() + sizeOfArray(foundColors) + 1)) {
@@ -106,6 +103,12 @@ public class MasterAI implements AI {
 				this.indexGoodColors.add(new byte[cSize]);
 				pickUpFirstSpot(goodColors.indexOf(this.currentColor), 1);
 
+				if (nbBad > 0) {
+
+					// Last color at wrong place so update the spot :
+					updateSpots((byte) -1);
+
+				} else
 				// Now prepare indexes for the good colors :
 				if (nbBad == 0) {
 
@@ -144,14 +147,28 @@ public class MasterAI implements AI {
 				 * Case clues < nb colors - we remove the current color and apply next move
 				 */
 				LOGGER.log(myLevel, "*** CASE clues < nb Colors ***");
-				
+
 				// One less good spot since last change
 				if (nbGood > nGoodOnes) {
-					
-					// Need to change the current index of the last color inside good Spot
+
+					LOGGER.log(myLevel, "--- more good spots than last time : " + (nbGood - nGoodOnes));
+
+					// Need to change the current index of the last color inside good Spot -> fill
+					// with -1 where 1 is spotted
+					updateSpots((byte) 3);
+
+				} else if (nbGood == nGoodOnes) {
+
+					LOGGER.log(myLevel, "--- as many good spots as last time ");
+
+					// Update the spots - first occurence with 1 and others -> put 3 and update
+					updateSpots((byte) 3);
+
+				} else {
+					LOGGER.log(myLevel, "--- less good spots than last time : " + (nbGood - nGoodOnes));
+					updateSpots((byte)-1);
 				}
-				
-				
+
 				this.currentColor = this.colors.peek();
 				this.colors.pop();
 				LOGGER.log(myLevel, "NEW Current color is " + currentColor);
@@ -171,9 +188,42 @@ public class MasterAI implements AI {
 		// Store the clues
 		nGoodOnes = nbGood;
 		nBadOnes = nbBad;
-		
+
 		LOGGER.log(myLevel, "### Found colors " + Arrays.toString(foundColors));
 		return generateMove();
+	}
+
+	/**
+	 * Update the current spot for the goodColors array
+	 * 
+	 * @param spotValue
+	 *            default = -1 -- set 3 on other spots than first occurence
+	 */
+	private void updateSpots(byte spotValue) {
+
+		ArrayList<Integer> changedSpots = new ArrayList<>();
+
+		for (int j = 0; j < goodColors.size(); j++) {
+
+			for (int i = 0; i < indexGoodColors.get(j).length; i++) {
+
+				if (j > 0 && spotValue == 3) {
+					// nothing here
+				} else {
+
+					if (indexGoodColors.get(j)[i] == 1) {
+
+						indexGoodColors.get(j)[i] = spotValue;
+						changedSpots.add(j);
+					}
+				}
+			}
+		}
+
+		for (Integer index : changedSpots) {
+			pickUpFirstSpot(index, 1);
+		}
+
 	}
 
 	/**
@@ -226,7 +276,7 @@ public class MasterAI implements AI {
 			}
 
 			// index the color :
-			indexGoodColors.get(index)[i-1] = 1;
+			indexGoodColors.get(index)[i - 1] = 1;
 
 			c++;
 		}
