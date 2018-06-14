@@ -99,20 +99,28 @@ public class MasterAI implements AI {
 				 * Case all colors are good - add the current one to the list of good ones and
 				 * index it based on free spots
 				 */
+
 				this.goodColors.add(this.currentColor);
 				this.indexGoodColors.add(new byte[cSize]);
-				pickUpFirstSpot(goodColors.indexOf(this.currentColor), 1);
 
 				if (nbBad > 0) {
+					// Last color spots -> -1
+					if (nbGood == 0) {
 
-					// Last color at wrong place so update the spot :
+						removeSpotsCurrentColor();
+
+					}
+					// Last color at a wrong place :
 					updateSpots((byte) -1);
+					pickUpFirstSpot(goodColors.indexOf(this.currentColor), 1);
 
 				} else
 				// Now prepare indexes for the good colors :
 				if (nbBad == 0) {
 
 					LOGGER.log(myLevel, "No bad spots for the current");
+
+					pickUpFirstSpot(goodColors.indexOf(this.currentColor), 1);
 
 					/**
 					 * Case no bad spots Until current color - all spots are good !
@@ -166,7 +174,7 @@ public class MasterAI implements AI {
 
 				} else {
 					LOGGER.log(myLevel, "--- less good spots than last time : " + (nbGood - nGoodOnes));
-					updateSpots((byte)-1);
+					updateSpots((byte) -1);
 				}
 
 				this.currentColor = this.colors.peek();
@@ -193,6 +201,28 @@ public class MasterAI implements AI {
 		return generateMove();
 	}
 
+	private void removeSpotsCurrentColor() {
+
+		LOGGER.log(myLevel, "About to set -1 as indexes for last color submitted...");
+
+		// Iterate from nb colors till the end for the last tested color
+		for (int j = 0; j < cSize; j++) {
+
+			// if not found color here
+			if (foundColors[j] == null) {
+
+				for (int i = 0; i < goodColors.size(); i++) {
+
+					// if not spotted good color :
+					if (this.currentColor != goodColors.get(i))
+						if (indexGoodColors.get(i)[j] != 1 && indexGoodColors.get(i)[j] != 3)
+							indexGoodColors.get(goodColors.indexOf(this.currentColor))[j] = -1; // then there was a
+																								// tested color
+				}
+			}
+		}
+	}
+
 	/**
 	 * Update the current spot for the goodColors array
 	 * 
@@ -207,7 +237,7 @@ public class MasterAI implements AI {
 
 			for (int i = 0; i < indexGoodColors.get(j).length; i++) {
 
-				if (j > 0 && spotValue == 3) {
+				if (j == 0 && spotValue == 3) {
 					// nothing here
 				} else {
 
@@ -358,6 +388,7 @@ public class MasterAI implements AI {
 
 				if (!found) {
 					move[i] = this.currentColor;
+
 					LOGGER.log(myLevel, "No match at all " + i + " : " + move[i]);
 				}
 

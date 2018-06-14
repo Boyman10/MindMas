@@ -173,9 +173,9 @@ class MasterAITest {
 		clue[1] = 3; // last color submitted -> move it to the right !
 
 		result[0] = 'Y';// replace the bad spot with another color
-		result[1] = 'G';
+		result[1] = 'O';
 		result[2] = 'B'; 
-		result[3] = 'O';
+		result[3] = 'G';
 		result[4] = 'G';
 
 		AIResult = masterAI.makeMove(clue);
@@ -185,8 +185,8 @@ class MasterAITest {
 		assertTrue("Comparing result of Algo", Arrays.equals(result, AIResult));	
 		
 		// 5  NEXT MOVE NOW - same game : Secret Combo : "YOCMB"
-		clue[0] = 1; // decrement ! -> remove the current submitted color
-		clue[1] = 2; // last color submitted -> move it to the right !
+		clue[0] = 2; // decrement ! -> remove the current submitted color
+		clue[1] = 1; // last color submitted -> move it to the right !
 
 		result[0] = 'Y'; // keep that one and set its index to 1
 		result[1] = 'O'; // set its last spot at 3
