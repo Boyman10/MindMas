@@ -201,9 +201,13 @@ public class MasterAI implements AI {
 		return generateMove();
 	}
 
+	/**
+	 * Case no match for the last tested color - track the spots and set them to -1
+	 */
 	private void removeSpotsCurrentColor() {
 
 		LOGGER.log(myLevel, "About to set -1 as indexes for last color submitted...");
+		boolean doIt;
 
 		// Iterate from nb colors till the end for the last tested color
 		for (int j = 0; j < cSize; j++) {
@@ -211,13 +215,21 @@ public class MasterAI implements AI {
 			// if not found color here
 			if (foundColors[j] == null) {
 
+				doIt = true;
+
 				for (int i = 0; i < goodColors.size(); i++) {
 
 					// if not spotted good color :
 					if (this.currentColor != goodColors.get(i))
-						if (indexGoodColors.get(i)[j] != 1 && indexGoodColors.get(i)[j] != 3)
-							indexGoodColors.get(goodColors.indexOf(this.currentColor))[j] = -1; // then there was a
-																								// tested color
+						if (indexGoodColors.get(i)[j] != 0) {
+							doIt = false;
+						}
+				}
+
+				if (doIt) {
+					indexGoodColors.get(goodColors.indexOf(this.currentColor))[j] = -1; // then there was a tested color
+
+					LOGGER.log(myLevel, "- Setting -1 on color " + this.currentColor + " for spot " + j);
 				}
 			}
 		}
