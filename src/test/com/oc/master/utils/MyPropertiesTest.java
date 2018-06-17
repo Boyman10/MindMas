@@ -65,4 +65,35 @@ class MyPropertiesTest {
 		assertTrue("Comparing colors number", myProp.NB_COLORS == 6);
 
 	}
+	
+	@Test
+	void testPersistUpdateProperties() {
+		
+		MyProperties myProp = new MyProperties();
+		myProp.readProperties();
+		
+		Map<String, Integer> hm = new HashMap<>();
+		
+		hm.put("master.combo_size", 10);
+		hm.put("master.nb_colors", 6);
+
+		try {
+			myProp.persistUpdateProperties(hm);
+		} catch (ConfigurationException e) {
+			fail(e.getMessage());
+		}
+
+		/**
+		 * Reading properties file master.combo_size = 5 master.nb_colors = 10
+		 */
+		MyProperties myPersistProp = new MyProperties();
+		myPersistProp.readProperties();
+
+
+		LOGGER.debug("Comparing property from file : master.combo_size with " + myPersistProp.COMBO_SIZE);
+		LOGGER.debug("Comparing property from file : master.nb_colors with " + myPersistProp.NB_COLORS);
+
+		assertTrue("Comparing combo size", myPersistProp.COMBO_SIZE == 10);
+		assertTrue("Comparing colors number", myPersistProp.NB_COLORS == 6);
+	}
 }

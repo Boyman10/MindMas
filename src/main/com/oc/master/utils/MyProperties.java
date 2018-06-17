@@ -7,6 +7,8 @@ import java.util.Map.Entry;
 import java.util.Set;
 
 import org.apache.commons.configuration2.Configuration;
+import org.apache.commons.configuration2.XMLConfiguration;
+import org.apache.commons.configuration2.builder.FileBasedConfigurationBuilder;
 import org.apache.commons.configuration2.builder.fluent.Configurations;
 import org.apache.commons.configuration2.ex.ConfigurationException;
 
@@ -68,5 +70,33 @@ public class MyProperties {
 		}
 
 	}
+
+	/**
+	 * Method persisting changes to DB
+	 * @see https://commons.apache.org/proper/commons-configuration/userguide/quick_start.html
+	 * @param hm
+	 */
+	public void persistUpdateProperties(Map<String, Integer> hm) {
+		
+		try
+		{
+		    // obtain the configuration
+		    FileBasedConfigurationBuilder<XMLConfiguration> builder = configs.xmlBuilder("paths.xml");
+		    XMLConfiguration config = builder.getConfiguration();
+		    
+		    // update property
+		    config.addProperty("newProperty", "newValue");
+
+		    // save configuration
+		    builder.save();
+		}
+		catch (ConfigurationException cex)
+		{
+		    // Something went wrong
+		}
+		
+	}
+	
+	
 
 }
