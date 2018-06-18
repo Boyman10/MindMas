@@ -7,9 +7,11 @@ import java.util.Map.Entry;
 import java.util.Set;
 
 import org.apache.commons.configuration2.Configuration;
-import org.apache.commons.configuration2.XMLConfiguration;
+import org.apache.commons.configuration2.FileBasedConfiguration;
+import org.apache.commons.configuration2.PropertiesConfiguration;
 import org.apache.commons.configuration2.builder.FileBasedConfigurationBuilder;
 import org.apache.commons.configuration2.builder.fluent.Configurations;
+import org.apache.commons.configuration2.builder.fluent.Parameters;
 import org.apache.commons.configuration2.ex.ConfigurationException;
 
 /**
@@ -24,6 +26,7 @@ public class MyProperties {
 	
 	private Configurations configs;
 	private Configuration config;
+	private File myFile;
 
 	/**
 	 * Constructor class
@@ -31,10 +34,11 @@ public class MyProperties {
 	public MyProperties() {
 		
 		configs = new Configurations();
+		myFile = new File("conf/mastermind.properties");
+		
 		try {
-			config = configs.properties(new File("conf/mastermind.properties"));
+			config = configs.properties(myFile);
 		} catch (ConfigurationException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -74,18 +78,34 @@ public class MyProperties {
 	/**
 	 * Method persisting changes to DB
 	 * @see https://commons.apache.org/proper/commons-configuration/userguide/quick_start.html
+	 * @see https://commons.apache.org/proper/commons-configuration/userguide/howto_filebased.html
 	 * @param hm
 	 */
-	public void persistUpdateProperties(Map<String, Integer> hm) {
+	public void persistUpdateProperties(Map<String, Integer> vSet) {
 		
+		Parameters params = new Parameters();
+		Set<Entry<String, Integer>> setHm = vSet.entrySet();
+		Iterator<Entry<String, Integer>> it = setHm.iterator();
+
 		try
 		{
 		    // obtain the configuration
-		    FileBasedConfigurationBuilder<XMLConfiguration> builder = configs.xmlBuilder("paths.xml");
-		    XMLConfiguration config = builder.getConfiguration();
+		    FileBasedConfigurationBuilder<FileBasedConfiguration> builder = 
+		    		new FileBasedConfigurationBuilder<FileBasedConfiguration>(PropertiesConfiguration.class)
+		    		.configure(params.fileBased()
+		            .setFile(myFile));
 		    
-		    // update property
-		    config.addProperty("newProperty", "newValue");
+		    Configuration propConfig = builder.getConfiguration();
+
+			while (it.hasNext()) {
+
+				Entry<String, Integer> e = it.next();
+				propConfig.setProperty(e.getKey(), e.getValue());
+				MyLogger.getLogger()
+				.trace("updating parameter : " + e.getKey() + " with value : " + e.getValue());
+				
+			}
+
 
 		    // save configuration
 		    builder.save();

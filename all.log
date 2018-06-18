@@ -1,9 +1,21 @@
-2018-06-17 21:03:09.465 [main] TRACE main.com.oc.master.utils.MyLogger - Loading configuration file with parameter : 5
-2018-06-17 21:03:09.466 [main] DEBUG test.com.oc.master.utils.MyPropertiesTest - Comparing property from file : master.combo_size with 5
-2018-06-17 21:03:09.467 [main] DEBUG test.com.oc.master.utils.MyPropertiesTest - Comparing property from file : master.nb_colors with 10
-2018-06-17 21:03:09.473 [main] TRACE main.com.oc.master.utils.MyLogger - Loading configuration file with parameter : 5
-2018-06-17 21:03:09.474 [main] TRACE main.com.oc.master.utils.MyLogger - updating parameter : master.combo_size with value : 10
-2018-06-17 21:03:09.474 [main] TRACE main.com.oc.master.utils.MyLogger - updating parameter : master.nb_colors with value : 6
-2018-06-17 21:03:09.474 [main] TRACE main.com.oc.master.utils.MyLogger - Loading configuration file with parameter : 10
-2018-06-17 21:03:09.474 [main] DEBUG test.com.oc.master.utils.MyPropertiesTest - Comparing property from file : master.combo_size with 10
-2018-06-17 21:03:09.474 [main] DEBUG test.com.oc.master.utils.MyPropertiesTest - Comparing property from file : master.nb_colors with 6
+2018-06-18 09:40:05.651 [main] DEBUG test.com.oc.master.utils.MyPropertiesTest - -- Just testing : PERSIST
+2018-06-18 09:40:05.734 [main] TRACE main.com.oc.master.utils.MyLogger - Loading configuration file with parameter : 10
+2018-06-18 09:40:05.735 [main] TRACE main.com.oc.master.utils.MyLogger - updating parameter : master.combo_size with value : 10
+2018-06-18 09:40:05.735 [main] TRACE main.com.oc.master.utils.MyLogger - updating parameter : master.nb_colors with value : 6
+2018-06-18 09:40:05.737 [main] TRACE main.com.oc.master.utils.MyLogger - Loading configuration file with parameter : 10
+2018-06-18 09:40:05.737 [main] DEBUG test.com.oc.master.utils.MyPropertiesTest - Comparing property from file : master.combo_size with 10
+2018-06-18 09:40:05.737 [main] DEBUG test.com.oc.master.utils.MyPropertiesTest - Comparing property from file : master.nb_colors with 6
+2018-06-18 09:40:05.739 [main] DEBUG test.com.oc.master.utils.MyPropertiesTest - -- Just tested : PERSIST
+2018-06-18 09:40:05.741 [main] DEBUG test.com.oc.master.utils.MyPropertiesTest - -- Just testing : READ
+2018-06-18 09:40:05.742 [main] TRACE main.com.oc.master.utils.MyLogger - Loading configuration file with parameter : 10
+2018-06-18 09:40:05.742 [main] DEBUG test.com.oc.master.utils.MyPropertiesTest - Comparing property from file : master.combo_size with 10
+2018-06-18 09:40:05.742 [main] DEBUG test.com.oc.master.utils.MyPropertiesTest - Comparing property from file : master.nb_colors with 6
+2018-06-18 09:40:05.743 [main] DEBUG test.com.oc.master.utils.MyPropertiesTest - -- Just tested : READ
+2018-06-18 09:40:05.746 [main] DEBUG test.com.oc.master.utils.MyPropertiesTest - -- Just testing : UPDATE
+2018-06-18 09:40:05.746 [main] TRACE main.com.oc.master.utils.MyLogger - Loading configuration file with parameter : 10
+2018-06-18 09:40:05.747 [main] TRACE main.com.oc.master.utils.MyLogger - updating parameter : master.combo_size with value : 10
+2018-06-18 09:40:05.747 [main] TRACE main.com.oc.master.utils.MyLogger - updating parameter : master.nb_colors with value : 6
+2018-06-18 09:40:05.747 [main] TRACE main.com.oc.master.utils.MyLogger - Loading configuration file with parameter : 10
+2018-06-18 09:40:05.747 [main] DEBUG test.com.oc.master.utils.MyPropertiesTest - Comparing property from file : master.combo_size with 10
+2018-06-18 09:40:05.747 [main] DEBUG test.com.oc.master.utils.MyPropertiesTest - Comparing property from file : master.nb_colors with 6
+2018-06-18 09:40:05.747 [main] DEBUG test.com.oc.master.utils.MyPropertiesTest - -- Just tested : UPDATE
