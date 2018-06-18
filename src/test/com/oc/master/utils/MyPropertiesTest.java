@@ -20,14 +20,13 @@ import main.com.oc.master.utils.MyProperties;
 /**
  * JUnit test for properties file management
  * The rule is useful to get the current method being tested
+ * @see https://junit.org/junit5/docs/current/user-guide/
  * @author bob
  */
 class MyPropertiesTest extends TestCase {
 
 	static final Logger LOGGER = LogManager.getLogger(MyPropertiesTest.class);
 	
-	private String lastMethod ;
-
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 	}

@@ -156,6 +156,14 @@ public class MasterAI implements AI {
 				 */
 				LOGGER.log(myLevel, "*** CASE clues < nb Colors ***");
 
+				if (nbBad > 0) {
+
+					// do move as many colors as the nbBad number to the next available spot - swap
+					// if no more spaces
+					spotsToNextAvailable(nbBad);
+
+				}
+
 				// One less good spot since last change
 				if (nbGood > nGoodOnes) {
 
@@ -199,6 +207,55 @@ public class MasterAI implements AI {
 
 		LOGGER.log(myLevel, "### Found colors " + Arrays.toString(foundColors));
 		return generateMove();
+	}
+
+	/**
+	 * Case having bad spots for true colors - do take another spot and swap spots
+	 * in case no more available spaces
+	 * 
+	 * @param nbBad
+	 */
+	private void spotsToNextAvailable(byte nbBad) {
+
+		boolean swap = true;
+
+		LOGGER.log(myLevel, "Now moving to next spot or swaping spots for good ones...");
+
+		// Iterate throught good Colors
+		// from size counting bad ones :
+		for (int i = (goodColors.size() - 1); i > (goodColors.size() - nbBad - 1); i--) {
+
+			for (int j = 0; j < goodColors.size(); j++) {
+
+				// iterate on indexes :
+				for (int k = 0; k < cSize; k++) {
+					// Is there any spot here for a color ?
+					if (indexGoodColors.get(j)[k] != 1 && foundColors[k] == null && indexGoodColors.get(i)[k] != 2
+							&& indexGoodColors.get(i)[k] != -1 && swap) {
+
+						// we can take this spot now :
+						
+						for (int o = 0; o < cSize; o++)
+							if (indexGoodColors.get(i)[o] == 1) {
+								indexGoodColors.get(i)[o] = 2;
+							}
+
+						indexGoodColors.get(i)[k] = 1;
+						// Did one change here
+						swap = false;
+						LOGGER.log(myLevel, "-- one move here : " + Arrays.toString(indexGoodColors.get(i)));
+					}
+				}
+
+			}
+
+		}
+
+		// Do we need to swaap ?
+		if (swap) {
+
+		}
+
 	}
 
 	/**
