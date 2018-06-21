@@ -144,6 +144,8 @@ public class MasterAI implements AI {
 
 				}
 
+				LOGGER.log(myLevel, "Retrieving next color..." );
+				
 				this.currentColor = this.colors.peek();
 				this.colors.pop();
 

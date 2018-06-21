@@ -103,7 +103,7 @@ class MasterAITest {
 		LOGGER.debug("--------SCENARIO 2---------");
 		
 		// Passing nbColors and cSize
-		MasterAI masterAI = new MasterAI((byte) 10, (byte) 5);
+		MasterAI masterAI = new MasterAI((byte) 11, (byte) 5);
 
 		LOGGER.debug("Secret Combo to find : \"YOCMB\"");
 		
