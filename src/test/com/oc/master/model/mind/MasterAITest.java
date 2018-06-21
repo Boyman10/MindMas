@@ -200,6 +200,87 @@ class MasterAITest {
 
 		assertTrue("Comparing result of Algo", Arrays.equals(result, AIResult));	
 				
+		// 6  NEXT MOVE NOW - same game : Secret Combo : "YOCMB"
+		clue[0] = 2; // same as before
+		clue[1] = 1; // same also _> remove last color
+
+		result[0] = 'Y'; // sure about it
+		result[1] = 'O'; // sure about it
+		result[2] = 'P'; // new one
+		result[3] = 'P'; // new one
+		result[4] = 'B'; // last spot for B - must be good
+
+		AIResult = masterAI.makeMove(clue);
+		
+		LOGGER.debug("Comparing 7 : " + Arrays.toString(result) + " with : " + Arrays.toString(AIResult));
+
+		assertTrue("Comparing result of Algo", Arrays.equals(result, AIResult));	
+	
+		// 7  NEXT MOVE NOW - same game : Secret Combo : "YOCMB"
+		clue[0] = 3; // same as before
+		clue[1] = 0; // same also _> remove last color
+
+		result[0] = 'Y'; // sure about it
+		result[1] = 'O'; // sure about it
+		result[2] = 'R'; // new one
+		result[3] = 'R'; // new one
+		result[4] = 'B'; // last spot for B - must be good
+
+		AIResult = masterAI.makeMove(clue);
+		
+		LOGGER.debug("Comparing 8 : " + Arrays.toString(result) + " with : " + Arrays.toString(AIResult));
+
+		assertTrue("Comparing result of Algo", Arrays.equals(result, AIResult));	
+		
+		// 8  NEXT MOVE NOW - same game : Secret Combo : "YOCMB"
+		clue[0] = 3; // same as before
+		clue[1] = 0; // same also _> remove last color
+
+		result[0] = 'Y'; // sure about it
+		result[1] = 'O'; // sure about it
+		result[2] = 'S'; // new one
+		result[3] = 'S'; // new one
+		result[4] = 'B'; // last spot for B - must be good
+
+		AIResult = masterAI.makeMove(clue);
+		
+		LOGGER.debug("Comparing 9 : " + Arrays.toString(result) + " with : " + Arrays.toString(AIResult));
+
+		assertTrue("Comparing result of Algo", Arrays.equals(result, AIResult));	
+		
+		// 9  NEXT MOVE NOW - same game : Secret Combo : "YOCMB"
+		clue[0] = 3; // same as before
+		clue[1] = 0; // same also _> remove last color
+
+		result[0] = 'Y'; // sure about it
+		result[1] = 'O'; // sure about it
+		result[2] = 'M'; // new one
+		result[3] = 'M'; // new one
+		result[4] = 'B'; // last spot for B - must be good
+
+		AIResult = masterAI.makeMove(clue);
+		
+		LOGGER.debug("Comparing 10 : " + Arrays.toString(result) + " with : " + Arrays.toString(AIResult));
+
+		assertTrue("Comparing result of Algo", Arrays.equals(result, AIResult));	
+		
+		// 10  NEXT MOVE NOW - same game : Secret Combo : "YOCMB"
+		clue[0] = 4; // same as before
+		clue[1] = 0; // same also _> remove last color
+
+		result[0] = 'Y'; // sure about it
+		result[1] = 'O'; // sure about it
+		result[2] = 'M'; // new one
+		result[3] = 'C'; // new one
+		result[4] = 'B'; // last spot for B - must be good
+
+		AIResult = masterAI.makeMove(clue);
+		
+		LOGGER.debug("Comparing 11 : " + Arrays.toString(result) + " with : " + Arrays.toString(AIResult));
+
+		assertTrue("Comparing result of Algo", Arrays.equals(result, AIResult));	
+		
+									
 		
 	}
 }

@@ -158,10 +158,15 @@ public class MasterAI implements AI {
 
 				if (nbBad > 0) {
 
+					LOGGER.log(myLevel, "- We do have bad spotted color(s) -> spotsToNextAvailable...");
+					
 					// do move as many colors as the nbBad number to the next available spot - swap
 					// if no more spaces
 					spotsToNextAvailable(nbBad);
 
+				} else if (nbGood > nGoodOnes) {
+					LOGGER.log(myLevel, "-- no bad and one more good - we need to set the good as found now");
+					
 				}
 
 				// One less good spot since last change
@@ -177,8 +182,8 @@ public class MasterAI implements AI {
 
 					LOGGER.log(myLevel, "--- as many good spots as last time ");
 
-					// Update the spots - first occurence with 1 and others -> put 3 and update
-					updateSpots((byte) 3);
+					
+					goodToFound();
 
 				} else {
 					LOGGER.log(myLevel, "--- less good spots than last time : " + (nbGood - nGoodOnes));
@@ -210,6 +215,28 @@ public class MasterAI implements AI {
 	}
 
 	/**
+	 * Make the good colors as found when matchin 1
+	 */
+	private void goodToFound() {
+
+		for (int i = 0; i < goodColors.size() ; i++) {
+			
+			for (int k = 0; k < cSize; k++) {
+				
+				if (indexGoodColors.get(i)[k] == 1) {
+					
+					foundColors[k] = goodColors.get(i);
+
+				}
+				
+			}
+		}
+		
+		cleanUpGoodColors();
+
+	}
+
+	/**
 	 * Case having bad spots for true colors - do take another spot and swap spots
 	 * in case no more available spaces
 	 * 
@@ -219,11 +246,11 @@ public class MasterAI implements AI {
 
 		boolean swap = true;
 
-		LOGGER.log(myLevel, "Now moving to next spot or swaping spots for good ones...");
+		LOGGER.log(myLevel, "- Now moving to next spot or swaping spots for good ones...");
 
 		// Iterate throught good Colors
 		// from size counting bad ones :
-		for (int i = (goodColors.size() - 1); i > (goodColors.size() - nbBad - 1); i--) {
+		for (int i = 0; i < (goodColors.size() - nbBad); i++) {
 
 			for (int j = 0; j < goodColors.size(); j++) {
 
@@ -243,7 +270,7 @@ public class MasterAI implements AI {
 						indexGoodColors.get(i)[k] = 1;
 						// Did one change here
 						swap = false;
-						LOGGER.log(myLevel, "-- one move here : " + Arrays.toString(indexGoodColors.get(i)));
+						LOGGER.log(myLevel, "-- one move here for " + goodColors.get(i) + " : " + Arrays.toString(indexGoodColors.get(i)));
 					}
 				}
 
