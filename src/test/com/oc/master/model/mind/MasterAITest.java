@@ -280,7 +280,23 @@ class MasterAITest {
 
 		assertTrue("Comparing result of Algo", Arrays.equals(result, AIResult));	
 		
-									
+		
+		// 11  NEXT MOVE NOW - same game : Secret Combo : "YOCMB"
+		clue[0] = 3; // one less
+		clue[1] = 2; // 2 more to swap
+
+		result[0] = 'Y'; // sure about it
+		result[1] = 'O'; // sure about it
+		result[2] = 'C'; // new one
+		result[3] = 'M'; // new one
+		result[4] = 'B'; // last spot for B - must be good
+
+		AIResult = masterAI.makeMove(clue);
+		
+		LOGGER.debug("Comparing 12 : " + Arrays.toString(result) + " with : " + Arrays.toString(AIResult));
+
+		assertTrue("Comparing result of Algo", Arrays.equals(result, AIResult));	
+											
 		
 	}
 }

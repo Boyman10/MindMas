@@ -144,10 +144,14 @@ public class MasterAI implements AI {
 
 				}
 
-				LOGGER.log(myLevel, "Retrieving next color..." );
+				LOGGER.log(myLevel, "Retrieving next color IF exist..." );
 				
-				this.currentColor = this.colors.peek();
-				this.colors.pop();
+				
+				if (!this.colors.isEmpty()) {
+					this.currentColor = this.colors.peek();
+					this.colors.pop();
+				}
+					
 
 				LOGGER.log(myLevel, "Current color is " + currentColor);
 
